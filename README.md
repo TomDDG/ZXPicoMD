@@ -7,7 +7,7 @@ Some additional references:
 - Spectrum Microdrive Book - https://spectrumcomputing.co.uk/entry/2000365/Book/Spectrum_Microdrive_Book
 - Microdrive & Interface 1 Manual - https://spectrumcomputing.co.uk/entry/2000442/Book/Microdrive_and_Interface_1_Manual
 
-Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico). This gives full access to the also excellent small embedded systems FatFS (http://elm-chan.org/fsw/ff/00index_e.html) which means this is fully compatible with FAT32 & exFAT formatted micro sd cards including LFN support and SD cards up to a theoretical 256TB (I've only tested a lowly 64GB).
+Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico). This gives full access to the also excellent small embedded systems FatFS (http://elm-chan.org/fsw/ff/00index_e.html). FatFS means ZXPicoMD is fully compatible with FAT32 & exFAT formatted micro SD cards including LFN support and cards up to a theoretical 256TB (I've only tested a lowly 64GB).
 
 ## The Circuit
 
