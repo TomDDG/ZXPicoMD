@@ -22,7 +22,7 @@ Some additional references:
 
 Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico). This gives full access to the also excellent small embedded systems FatFS (http://elm-chan.org/fsw/ff/00index_e.html).
 
-## Connected to my ZX Spectrum
+## Connected to a ZX Spectrum
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/connected.png "Connected")
 
