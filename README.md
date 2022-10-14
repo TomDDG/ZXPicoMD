@@ -15,9 +15,9 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 
 ## Development
 
-Built from the ground up using the the Pico C SDK (https://raspberrypi.github.io/pico-sdk-doxygen/). Uses Pico multicore to separate the time criticial emulation components running on the 2nd core to interrupt driven IO on the 1st.
+Built from the ground up using the the Pico C SDK (https://raspberrypi.github.io/pico-sdk-doxygen/). Uses Pico multicore to separate the time critical emulation components running on the 2nd core to interrupt driven IO on the 1st.
 
-Big thanks to Alex from OqtaDrive fame (https://codeberg.org/xelalexv/oqtadrive) for help with understanding the Microdrive hardware & toubleshooting. 
+Big thanks to Alex from OqtaDrive fame (https://codeberg.org/xelalexv/oqtadrive) for help with understanding the Microdrive hardware & troubleshooting. 
 
 Some additional references:
 - Spectrum Microdrive Book - https://spectrumcomputing.co.uk/entry/2000365/Book/Spectrum_Microdrive_Book
@@ -36,7 +36,7 @@ Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https:
 ### Main Menu
 - Power Off - not really required just don't switch off in the middle of a write as it could corrupt the files on the SD card
 - Factory Reset - this creates 8 blank cartridges on the SD card root
-- Eject SD Card - as it says, this safely unmounts the sd card so you can take it away and load up with more games
+- Eject SD Card - as it says, this safely unmounts the SD card so you can take it away and load up with more games
 - Restart Emulation - Just resets the 2nd core, back button does the same at this level of the menu
 - Cart 1 to 8 - Enter sub-menu for that specific Microdrive
 
@@ -57,7 +57,7 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 ## BoM
 
 - A Pico or Pico W
-- Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitary)
+- Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
 - SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009
 - SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
 - Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
