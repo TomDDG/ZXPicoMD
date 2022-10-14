@@ -1,13 +1,21 @@
 # ZXPicoMD
 Raspberry Pico ZX Spectrum Microdrive Hardware Emulator
 
+Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt this for the QL). Main features are:
+- 8 Microdrives
+- OLED and buttons to navigate the menu - load, save & format cartridges as well as other options (see menu section below)
+- FAT32 & exFAT supported SD cards up to a theoretical 256TB (I've only tested a lowly 64GB)
+- Reset button just in case (also makes it easier to flash the Pico)
+- Buzzer in case you like a buzzing sound to "simulate" the drive motor
+- Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots
+
 Built from the ground up using the the Pico C SDK (https://raspberrypi.github.io/pico-sdk-doxygen/). Big thanks to Alex from OqtaDrive fame (https://codeberg.org/xelalexv/oqtadrive) for help with understanding the Microdrive hardware & toubleshooting. 
 
 Some additional references:
 - Spectrum Microdrive Book - https://spectrumcomputing.co.uk/entry/2000365/Book/Spectrum_Microdrive_Book
 - Microdrive & Interface 1 Manual - https://spectrumcomputing.co.uk/entry/2000442/Book/Microdrive_and_Interface_1_Manual
 
-Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico). This gives full access to the also excellent small embedded systems FatFS (http://elm-chan.org/fsw/ff/00index_e.html). FatFS means ZXPicoMD is fully compatible with FAT32 & exFAT formatted micro SD cards including LFN support and cards up to a theoretical 256TB (I've only tested a lowly 64GB).
+Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico). This gives full access to the also excellent small embedded systems FatFS (http://elm-chan.org/fsw/ff/00index_e.html).
 
 ## The Circuit
 
@@ -29,6 +37,6 @@ Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https:
 
 ## PCB
 
-I have designed a prototype PCB to house everyting
+I have designed a prototype PCB to house everything. The prototype is missing the circuit to control Write Protect so it is always off (cartridges are unprotected so you can write to them), and there is no provision for passing COMMs down the chain for additional Microdrives.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/pico_md.png "PCB Prototype")
