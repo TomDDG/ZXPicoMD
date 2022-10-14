@@ -19,6 +19,6 @@ Raspberry Pico ZX Spectrum Microdrive Hardware Emulator
 
 ## PCB
 
-I have designed a PCB to house everyting
+I have designed a prototype PCB to house everyting
 
-
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/pico_md.png "PCB Prototype")
