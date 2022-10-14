@@ -8,7 +8,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Reset button just in case (also makes it easier to flash the Pico)
 - Buzzer in case you like a buzzing sound to "simulate" the drive motor
 - Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots on the fly. Very useful as not many actual Microdrives cartridges released commercially.
-- Fully powered from the Spectrum and boots instally with no additional software or connections needed, so ready to go
+- Fully powered from the Spectrum, boots instally with no additional software or connections needed as all managed from the menu, so ready to go
 - Unfortunately you do still need an IF1 (that is a future project)
 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
