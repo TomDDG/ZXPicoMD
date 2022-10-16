@@ -13,14 +13,14 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
 
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0151.jpg "In Case")
+
 ## Installation
 - Download the correct UF2 from the UF2 folder (_w for Pico W)
 - Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 - Build the circuit (see below) - best to use the PCB once I've finished it
 - Connect to the IF1
 - Turn on the Spectrum and hopefully all good
-
-
 
 ## Development
 
