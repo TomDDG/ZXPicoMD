@@ -76,6 +76,7 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 - 1 1n4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock)
 - Piezo Buzzer (if you want annoying sounds)
 - 2 470Ohm resistors for the data lines
+- STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
 
 ## PCB
 
