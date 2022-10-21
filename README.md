@@ -71,7 +71,9 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 - SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
 - Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
 - 5 6×6mm Right Angle Micro Push Buttons for mounting on the PCB (you can use any push button these are just the ones that I use)
-- 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match. The LEDs are 1-(D)rive, (W)rite for when the Microdrive is being accessed; 2-(S)D Card Access, (I)nput Ready to show when the SD card is being read or written (don't turn off) or the unit is read to receive an input either from the IF1 or the buttons to enter the menu.
+- 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match. The LEDs are:
+  1. (D)rive and (W)rite for when the Microdrive is being accessed
+  2. (S)D Card Access and (I)nput Ready to show when the SD card is being read or written (don't turn off) or the unit is ready to receive an input either from the IF1 or the enter button to enter the menu.
 - 5 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]
 - 1 1n4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock) [5V(D)]
 - 1 10kOhm Resistor for write protect circuit [WPC(R)]
