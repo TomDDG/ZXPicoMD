@@ -9,7 +9,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Buzzer in case you like a buzzing sound to "simulate" the drive motor
 - Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots on the fly. Very useful as not many actual Microdrives cartridges released commercially.
 - Fully powered from the Spectrum & boots instantly
-- Unfortunately you do still need an IF1 (that is a future project)
+- Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1)
 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
 
@@ -19,7 +19,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Download the correct UF2 from the UF2 folder (_w for Pico W)
 - Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 - Build the circuit (see below) - best to use the PCB once I've finished it
-- Connect to the IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1)
+- Connect to the IF1 
 - Turn on the Spectrum and hopefully all good
 
 ## Development
