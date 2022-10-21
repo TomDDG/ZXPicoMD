@@ -66,26 +66,26 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 
 ## BoM
 
-- A Pico or Pico W with headers soldered
-  - +2x 20pin header socket
-- Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
-- 1x SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009
-  - +2x 6pin header socket 
-- 1x SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
-  - + 4pin header socket, if using he 3D printed case get header socket extra long legs so the OLED can be mounted higher
-- 1x Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
-  - +9pin header socket
-- 5x 6×6mm Right Angle Micro Push Buttons for mounting on the PCB (you can use any push button these are just the ones that I use)
-- 2x Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match. The LEDs are:
+- 1 Pico or Pico W with headers soldered
+  - +2 20pin header sockets
+- 1 Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
+- 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009
+  - +2 6pin header sockets if using the PCB
+- 1 SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
+  - +1 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
+- 1 Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
+  - +1 9pin header socket if using the PCB
+- 5 6×6mm Right Angle Micro Push Buttons for mounting on the PCB (you can use any push button these are just the ones that I use)
+- 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match. The LEDs are:
   1. (D)rive and (W)rite for when the Microdrive is being accessed
   2. (S)D Card Access and (I)nput Ready to show when the SD card is being read or written (don't turn off) or the unit is ready to receive an input either from the IF1 or the enter button to enter the menu.
-- 5x 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]
-- 1x 1n4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock) [5V(D)]
-- 1x 10kOhm Resistor for write protect circuit [WPC(R)]
-- 1x 6.8kOhm Resistor for write protect circuit [WPB(R)]
-- 1x 2N2222 Transistor for write protect circuit
-- 1x Piezo Buzzer (if you want annoying sounds)
-- 1x 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
+- 5 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]
+- 1 1n4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock) [5V(D)]
+- 1 10kOhm Resistor for write protect circuit [WPC(R)]
+- 1 6.8kOhm Resistor for write protect circuit [WPB(R)]
+- 1 2N2222 Transistor for write protect circuit
+- 1 Piezo Buzzer (if you want annoying sounds)
+- 1 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
 
 ## PCB
 
