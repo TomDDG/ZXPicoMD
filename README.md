@@ -1,5 +1,5 @@
 # ZXPicoMD
-Raspberry Pico ZX Spectrum Microdrive Hardware Emulator
+Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.org/wiki/ZX_Microdrive)
 
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt this for the QL). Main features are:
 - Supports all 8 Microdrives from one device
@@ -19,7 +19,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Download the correct UF2 from the UF2 folder (_w for Pico W)
 - Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 - Build the circuit (see below) - best to use the PCB once I've finished it
-- Connect to the IF1
+- Connect to the IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1)
 - Turn on the Spectrum and hopefully all good
 
 ## Development
