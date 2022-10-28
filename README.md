@@ -22,6 +22,18 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Connect to the IF1 
 - Turn on the Spectrum and hopefully all good
 
+## Usage
+The device is very simple to use. Upon boot you will see a Splash Screen which will disappear after a couple of seconds. The screen will then go blank and the blue LED (or whatever colour you picked) will light up on the side to indicate the device is ready for input (either the IF1 or pressing a button). You can now use all the normal commands on the Spectrum to control the drive such as `LOAD *"m";1;"aaa"` or `FORMAT "m";5;"blank"`. 
+
+Also when the blue LED is on (input ready) you can enter the Menu. To do this press the enter key (3rd from left). The buttons are (from the left):
+- Previous
+- Next
+- Enter
+- Back
+- Reset
+
+Previous & Next are using to go left/right or up/down in the menu and explorer. Enter is used to Select. Back goes up one level in the menu or when using the file explorer moves up one directory or to the top of an existing directory. Reset reboots the Pico.
+
 ## Development
 
 Built from the ground up using the the Pico C SDK (https://raspberrypi.github.io/pico-sdk-doxygen/). Uses Pico multicore to separate the time critical emulation components (core 1) to the interrupt driven IO (core 0).
