@@ -88,7 +88,7 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 - 1 Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
   - +1 9pin header socket if using the PCB
 - 5 6×6mm Right Angle Micro Push Buttons for mounting on the PCB (you can use any push button these are just the ones that I use)
-- 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match. The LEDs are:
+- 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match, my rule of thumb is forward voltage/2 in kOhms so if forward voltage is 2V use a 1kOhm resistor. The LEDs are:
   1. (D)rive and (W)rite for when the Microdrive is being accessed
   2. (S)D Card Access and (I)nput Ready to show when the SD card is being read or written (don't turn off) or the unit is ready to receive an input either from the IF1 or the enter button to enter the menu.
 - 5 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]
