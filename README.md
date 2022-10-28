@@ -25,14 +25,20 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 ## Usage
 The device is very simple to use. Upon booting the Spectrum you will see a Splash Screen which will disappear after a couple of seconds. The screen will then stay blank and the blue LED (or whatever colour you picked) will light up on the side to indicate the device is ready for input, either from the IF1 or by the user pressing a button. You can now use all the normal commands on the Spectrum to control the drive such as `RUN`, `LOAD *"m";1;"aaa"` or `FORMAT "m";5;"blank"`. 
 
-When the blue LED is on (input ready) you can also enter the Menu to select new cartrdiges etc... (see menu items below). To do this press the enter key (3rd from left). The buttons are (from the left):
-- Previous
-- Next
-- Enter
-- Back
-- Reset
+When the blue LED is on (input ready) you can also enter the Menu to select new cartrdiges etc... for full list of menu items see the chart below. To enter the menu press the enter key which is 3rd from left. You should now see the Cartridge 1 icon. Pressing enter again takes you to the cartridge sub-menu, showing a folder icon. Pressing again and you will enter the file explorer where you can navigtate the listings to pick a new cartridge or snapshot to convert.
+
+The buttons are (from the left):
+1. Previous
+2. Next
+3. Enter
+4. Back
+5. Reset
 
 Previous & Next are used to go left/right or up/down in the menu or file explorer. Enter is used to select an option or file (also to enter the menu in the first place). Back goes up one level in the menu or when using the file explorer moves up one directory. Reset reboots the Pico if all else fails (also useful when flashing the Pico). If you hold down the buttons it also behaves differently in certain scenarios, for example holding down Next in the file explorer goes down one page of files rather than just one file.
+
+The LEDs show certain activity:
+1. The top LED (furthest from the buttons) is Drive and Write for when the Microdrive is being accessed. Drive will come on when the simulated motor is on (if you installed a buzzer you will also hear it). Write will come on (replacing Drive) when the IF1 is receiving a WRITE signal.
+2. The other LED is for SD Card access and Input ready. SD Card is simply to show when the SD card is being accessed (don't turn off). Input ready is to show when the drive is idling and therefore ready for a command or input.
 
 ## Development
 
@@ -88,9 +94,7 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 - 1 Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
   - +1 9pin header socket if using the PCB
 - 5 6×6mm Right Angle Micro Push Buttons for mounting on the PCB (you can use any push button these are just the ones that I use)
-- 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match, my rule of thumb is forward voltage/2 in kOhms so if forward voltage is 2V use a 1kOhm resistor. The LEDs are:
-  1. (D)rive and (W)rite for when the Microdrive is being accessed
-  2. (S)D Card Access and (I)nput Ready to show when the SD card is being read or written (don't turn off) or the unit is ready to receive an input either from the IF1 or the enter button to enter the menu.
+- 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match, my rule of thumb is forward voltage/2 in kOhms so if forward voltage is 2V use a 1kOhm resistor. The LEDs are (D)rive/(W)rite and (S)D Card Access/(I)nput Ready.
 - 5 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]
 - 1 1n4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock) [5V(D)]
 - 1 10kOhm Resistor for write protect circuit [WPC(R)]
