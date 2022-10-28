@@ -32,7 +32,7 @@ Also when the blue LED is on (input ready) you can enter the Menu. To do this pr
 - Back
 - Reset
 
-Previous & Next are using to go left/right or up/down in the menu and explorer. Enter is used to Select. Back goes up one level in the menu or when using the file explorer moves up one directory or to the top of an existing directory. Reset reboots the Pico.
+Previous & Next are used to go left/right or up/down in the menu or file explorer. Enter is used to select an option or file (also to enter the menu in the first place). Back goes up one level in the menu or when using the file explorer moves up one directory. Reset reboots the Pico if all else fails (also useful when flashing the Pico). If you hold down the buttons it also behaves differently in certain scenarios, for example holding down Next in the file explorer goes down one page of files rather than just one file.
 
 ## Development
 
