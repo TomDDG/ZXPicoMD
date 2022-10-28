@@ -23,7 +23,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Usage
-The device is very simple to use, upon boot you will see a Splash Screen which will disappear after a couple of seconds. The screen will then stay blank and the blue LED (or whatever colour you picked) will light up on the side to indicate the device is ready for input either from the IF1 or by the user pressing a button. You can now use all the normal commands on the Spectrum to control the drive such as `LOAD *"m";1;"aaa"` or `FORMAT "m";5;"blank"`. 
+The device is very simple to use. Upon booting the Spectrum you will see a Splash Screen which will disappear after a couple of seconds. The screen will then stay blank and the blue LED (or whatever colour you picked) will light up on the side to indicate the device is ready for input, either from the IF1 or by the user pressing a button. You can now use all the normal commands on the Spectrum to control the drive such as `RUN`, `LOAD *"m";1;"aaa"` or `FORMAT "m";5;"blank"`. 
 
 When the blue LED is on (input ready) you can also enter the Menu to select new cartrdiges etc... (see menu items below). To do this press the enter key (3rd from left). The buttons are (from the left):
 - Previous
