@@ -37,6 +37,8 @@ The LEDs show certain activity:
 1. The top LED (furthest from the buttons) is Drive and Write for when the Microdrive is being accessed. Drive will come on when the simulated motor is on (if you installed a buzzer you will also hear it). Write will come on (replacing Drive) when the IF1 is receiving a WRITE signal.
 2. The other LED is for SD Card access and Input ready. SD Card is simply to show when the SD card is being accessed (don't turn off). Input ready is to show when the drive is idling and therefore ready for a command or input.
 
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/LEDs.png "LEDs")
+
 ## Development
 
 Built from the ground up using the the Pico C SDK (https://raspberrypi.github.io/pico-sdk-doxygen/). Uses Pico multicore to separate the time critical emulation components (core 1) to the interrupt driven IO (core 0).
