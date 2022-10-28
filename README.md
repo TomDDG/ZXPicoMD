@@ -27,12 +27,9 @@ The device is very simple to use. Upon booting the Spectrum you will see a Splas
 
 When the blue LED is on (input ready) you can also enter the Menu to select new cartrdiges etc... for full list of menu items see the chart below. To enter the menu press the enter key which is 3rd from left. You should now see the Cartridge 1 icon. Pressing enter again takes you to the cartridge sub-menu, showing a folder icon. Pressing again and you will enter the file explorer where you can navigtate the listings to pick a new cartridge or snapshot to convert.
 
-The buttons are (from the left):
-1. Previous
-2. Next
-3. Enter
-4. Back
-5. Reset
+The buttons are (from the left): Previous; Next; Enter; Back; Reset
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/buttons.png "Button Layout")
 
 Previous & Next are used to go left/right or up/down in the menu or file explorer. Enter is used to select an option or file (also to enter the menu in the first place). Back goes up one level in the menu or when using the file explorer moves up one directory. Reset reboots the Pico if all else fails (also useful when flashing the Pico). If you hold down the buttons it also behaves differently in certain scenarios, for example holding down Next in the file explorer goes down one page of file entries rather than just one file entry.
 
