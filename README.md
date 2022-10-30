@@ -75,7 +75,7 @@ Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https:
 
 The file explorer will only show compatible files, those with extension MDR, Z80 & SNA and directories.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout.png "Menu Layout")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout_v2.png "Menu Layout v2")
 
 ## The Circuit
 
