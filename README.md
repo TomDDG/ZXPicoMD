@@ -1,4 +1,7 @@
 # ZXPicoMD
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/FullSetup.png "with MF128")
+
 Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.org/wiki/ZX_Microdrive)
 
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt this for the QL). Main features are:
