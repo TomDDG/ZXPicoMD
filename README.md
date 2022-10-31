@@ -82,7 +82,7 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 
 ## The Circuit
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3.png "Circuit Prototype v3")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3a.png "Circuit Prototype v3a")
 
 ## BoM
 
