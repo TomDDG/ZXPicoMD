@@ -102,7 +102,7 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 - 1 10kOhm Resistor for write protect circuit [WPC(R)]
 - 1 6.8kOhm Resistor for write protect circuit [WPB(R)]
 - 1 2N2222 Transistor for write protect circuit
-- 1 1407 Type Passive Piezo Buzzer (14x7mm with 8mm pin spacing if you use the PCB). 
+- 1 1407 Type Passive Piezo Buzzer (if you use the PCB). 
 - 1 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
 
 ## PCB
