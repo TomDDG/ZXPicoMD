@@ -107,7 +107,7 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 
 ## PCB
 
-I have designed a PCB to house everything. v1.1 shown differs from the original prototype as it now has a simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives.
+I have designed a PCB to house everything. v1.1 shown differs from the original prototype as it now has a simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. You can purchase the PCB on PCBWay (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html)
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.1.png "PCB Prototype v1.1")
 
