@@ -16,8 +16,6 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0151.jpg "In Case")
-
 ## Installation
 - Download the correct UF2 from the UF2 folder (_w for Pico W)
 - Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
@@ -113,6 +111,12 @@ I have designed a PCB to house everything and you can purchase it on PCBWay (htt
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.1.png "PCB Prototype v1.1")
+
+## Case
+
+The PCB was originally design to fit in an original Microdrive case as it is based on my Oqtadrive PCB, so the screw holes etc... line up perfectly. However, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it with cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842).
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0151.jpg "In Case")
 
 ## FAQ
 
