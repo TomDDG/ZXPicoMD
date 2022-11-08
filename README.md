@@ -19,9 +19,14 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 ## Installation
 - Download the correct UF2 from the UF2 folder (_w for Pico W)
 - Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
-- Build the circuit (see below) - best to use the PCB once I've finished it
+- Build the circuit (see below) - best to use the PCB (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html)
 - Connect to the IF1 
 - Turn on the Spectrum and hopefully all good
+
+## Version History
+- v0.93 (latest release) - fixed MF128 format
+- v0.92 - added sound on/off menu option to turn off the buzzer, saves config to the SD Card
+- v0.91 - first public release, all basic functions in place
 
 ## Usage
 The device is very simple to use. Upon booting the Spectrum you will see a Splash Screen which will disappear after a couple of seconds. The screen will then stay blank (OLED is off to prevent burn-in) and the blue LED (or whatever colour you picked) will light up on the side to indicate the device is ready for input, either from the IF1 or by the user pressing a button. You can now use all the normal commands on the Spectrum to control the drive such as `RUN`, `LOAD *"m";1;"aaa"` or `FORMAT "m";5;"blank"`. 
