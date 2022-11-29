@@ -75,6 +75,7 @@ Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https:
 
 ### Microdrive Sub-Menu
 - File Selector - enter the file explorer to navigate the folders on the SD card to select a file to load
+- Switch to Real H/W - switches the drive number to a real H/W Microdrive, so the ZXPicoMD will emualte the shift register to activate the drive when needed
 - Cartridge Info - shows a basic CAT of the cartridge inserted
 - Write Portect - toggles write protect on/off for the cartridge inserted
 - Save Cartridge - creates a copy of the cartridge on the SD card so all your work doesn't get lost if you load a new cartridge into the drive
@@ -82,7 +83,21 @@ Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https:
 
 The file explorer will only show compatible files, those with extension MDR, Z80 & SNA and directories.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout_v2.png "Menu Layout v2")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout_v3.png "Menu Layout v3")
+
+### Working with Real H/W Microdrives
+
+As of release v1 beta you can now put real h/w Microdrives downstream of the ZXPicoMD. Please note these only work downstream (ZXPicoMD closest to the Spectrum) as the ZXPicoMD needs to control the COMMs shift register in order to mix virtual/emulated drives and real h/w drives. Any drive combination can be used with the only restriction being a lower numbered drive will be activated first, example, if you pick drive 2 & 4 as real h/w drives the lower number, 2, will be the one next to the ZXPicoMD and 4 the one after.
+
+The following diagram shows how to select drive 1 as real h/w.
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/drive1hw.png "Drive 1 H/W")
+
+The following diagram shows how to add drive 3 as real h/w.
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/drive3hw.png "Drive 3 H/W")
+
+To flip back to virtual/emulated drive just select the drive in the menu.
 
 ## The Circuit
 
