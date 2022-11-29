@@ -135,7 +135,7 @@ I have designed a PCB to house everything and you can purchase it on PCBWay (htt
 
 ## Case
 
-The PCB was originally design to fit in an original Microdrive case as it is based on my Oqtadrive PCB, so the screw holes etc... line up perfectly. However, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it with cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842).
+The PCB was originally design to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly. However, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842).
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0151.jpg "In Case")
 
