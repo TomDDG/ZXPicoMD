@@ -97,6 +97,8 @@ and how to add drive 3 as real h/w.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/drive3hw.png "Drive 3 H/W")
 
+With drive 1 & 3 set to real h/w, CAT 1 will access the first real drive connected to the ZXPicoMD. CAT 3 will access the second real drive, the one connected to the first real drive. All other drive selections will access a virtual/emulated drive.
+
 To flip back to virtual/emulated drive just select the drive in the menu.
 
 ## The Circuit
