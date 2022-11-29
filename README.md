@@ -93,7 +93,7 @@ The following diagram shows how to select drive 1 as real h/w.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/drive1hw.png "Drive 1 H/W")
 
-The following diagram shows how to add drive 3 as real h/w.
+and how to add drive 3 as real h/w.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/drive3hw.png "Drive 3 H/W")
 
