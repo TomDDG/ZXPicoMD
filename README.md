@@ -25,7 +25,8 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v0.94 (latest release) - added a simple filename generator to the cartridge save option
+- v1.0beta1 (latest release) - added support for real hardware Microdrives downstream of the ZXPicoMD
+- v0.94 - added a simple filename generator to the cartridge save option
 - v0.93 - fixed MF128 format
 - v0.92 - added sound on/off menu option to turn off the buzzer, saves config to the SD Card
 - v0.91 - first public release, all basic functions in place
