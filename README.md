@@ -6,7 +6,6 @@ Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.or
 
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt this for the QL). Main features are:
 - Supports all 8 Microdrives from one device
-- Allows mix of real hardware Microdrives & virtual/emulated drives
 - OLED screen with buttons to navigate the menu - includes load, save & format cartridges as well as other options (see menu section below). No additional toolkits, software or connections needed as all managed from the menu
 - FAT32 & exFAT supported Micro SD cards up to a theoretical 256TB (I've tested 2GB, 4GB and a lowly 64GB which can easily fit every Spectrum game and program ever made multiple times)
 - Reset button just in case (also makes it easier to flash the Pico)
@@ -25,7 +24,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.0beta1 (latest release) - added support for real hardware Microdrives downstream of the ZXPicoMD
+- v1.0beta1 (latest release) - added support for real hardware Microdrives downstream of the ZXPicoMD *Note this is still in beta and currently doesn't work with real h/w Microdrives, tested working with vDrive emulated drives only.
 - v0.94 - added a simple filename generator to the cartridge save option
 - v0.93 - fixed MF128 format
 - v0.92 - added sound on/off menu option to turn off the buzzer, saves config to the SD Card
