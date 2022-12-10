@@ -109,10 +109,9 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 ## Hardware Mod for Real H/W Support
 
-In order to get the ZXPicoMD working with real hardware you need to replace the BOB-12009 levle shifter. Unfortunately the level shifter interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. To fix this you can simply replace the shifter with 3 1N4148 diodes as shown in the image below.
+In order to get the ZXPicoMD working with real hardware you need to replace the BOB-12009 level shifter. Unfortunately the level shifter interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. To fix this you can simply replace the shifter with 3 1N4148 diodes as shown in the image below.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0258.jpg "Hardware Mod")
-
 
 ## BoM
 
