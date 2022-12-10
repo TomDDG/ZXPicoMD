@@ -24,7 +24,8 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.0beta1 (latest release) - added support for real hardware Microdrives downstream of the ZXPicoMD *Note this is still in beta and currently doesn't work with real h/w Microdrives, tested working with vDrive emulated drives only.
+- v1.0beta2 (latest release) - fixed real hardware not working with the ZXPicoMD. *Note this version requires a small hardware mod to work, see hardware mod below
+- v1.0beta1 - added support for real hardware Microdrives downstream of the ZXPicoMD *Note doesn't work with real h/w Microdrives, tested working with vDrive emulated drives only.
 - v0.94 - added a simple filename generator to the cartridge save option
 - v0.93 - fixed MF128 format
 - v0.92 - added sound on/off menu option to turn off the buzzer, saves config to the SD Card
@@ -106,6 +107,13 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3a.png "Circuit Prototype v3a")
 
+## Hardware Mod for Real H/W Support
+
+In order to get the ZXPicoMD working with real hardware you need to replace the BOB-12009 levle shifter. Unfortunately the level shifter interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. To fix this you can simply replace the shifter with 3 1N4148 diodes as shown in the image below.
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0258.jpg "Hardware Mod")
+
+
 ## BoM
 
 - 1 Pico or Pico W with headers soldered
@@ -113,6 +121,7 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 - 1 Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
 - 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009
   - +2 6pin header sockets if using the PCB
+- OR 3 1N4148 diodes if planning to use with real h/w (connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side)
 - 1 SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
   - +1 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
 - 1 Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
