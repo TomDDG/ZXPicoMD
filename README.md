@@ -116,7 +116,7 @@ In order to get the ZXPicoMD working with real hardware you need to replace the 
 
 To fix this you can simply replace the BOB with 3 1N4148 diodes as shown in the image below.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0258.jpg "Hardware Mod")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/diodes.png "Hardware Mod")
 
 ## BoM
 
