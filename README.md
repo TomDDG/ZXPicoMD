@@ -116,6 +116,8 @@ To fix this you can simply replace the BOB with 3 1N4148 diodes as shown in the 
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0258.jpg "Hardware Mod")
 
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/fullset-up.png "with Real Hardware")
+
 ## BoM
 
 - 1 Pico or Pico W with headers soldered
