@@ -6,6 +6,7 @@ Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.or
 
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt this for the QL). Main features are:
 - Supports all 8 Microdrives from one device
+- Supports downstream real h/w drives (with hardware mod, see below)
 - OLED screen with buttons to navigate the menu - includes load, save & format cartridges as well as other options (see menu section below). No additional toolkits, software or connections needed as all managed from the menu
 - FAT32 & exFAT supported Micro SD cards up to a theoretical 256TB (I've tested 2GB, 4GB and a lowly 64GB which can easily fit every Spectrum game and program ever made multiple times)
 - Reset button just in case (also makes it easier to flash the Pico)
@@ -120,9 +121,8 @@ To fix this you can simply replace the BOB with 3 1N4148 diodes as shown in the 
 - 1 Pico or Pico W with headers soldered
   - +2 20pin header sockets
 - 1 Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
-- 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009
-  - +2 6pin header sockets if using the PCB
-- OR 3 1N4148 diodes if planning to use with real h/w (connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side)
+- 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009 OR 3 1N4148 diodes if planning to use with real h/w (connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side)
+  - +2 6pin header sockets if using the BOB on the PCB
 - 1 SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
   - +1 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
 - 1 Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
