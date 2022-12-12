@@ -123,7 +123,7 @@ To fix this you can simply replace the BOB with 3 1N4148 diodes as shown in the 
 - 1 Pico or Pico W with headers soldered
   - +2 20pin header sockets
 - 1 Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
-- 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009 OR 3 1N4148 diodes if planning to use with real h/w (connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side)
+- 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009 OR 3 1N4148 or BAT42/43 diodes if planning to use with real h/w (connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side). BAT42/43 maybe a better option due to the reduced voltage drop, however I've not tested these yet.
   - +2 6pin header sockets if using the BOB on the PCB
 - 1 SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
   - +1 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
