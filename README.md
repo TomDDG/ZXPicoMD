@@ -114,7 +114,7 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 In order to get the ZXPicoMD working with real hardware you need to replace the BOB-12009 level shifter. Unfortunately the BOB interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. During testing it worked fine with a vDrive in place of real h/w as the signal strength is much stronger and therefore wasn't affected by the BOB.
 
-To fix this you can simply replace the BOB with 3 diodes as shown in the image below, note the cathode line at the top HV side. I've tested this with standard 1N4148 diodes but BAT43 Schottky diodes maybe better as voltage drop isn't as high, however, these are currently untested.
+To fix this you can simply replace the BOB with 3 diodes as shown in the image below, note the cathode line at the top HV side. I've tested this with standard 1N4148 and BAT43 Schottky diodes. The BAT diodes have a better voltage drop, measuring I show 3.0V for the 1N4148 and 3.2V with the BAT. Recommend to use BATs although 1N4148 seem to work fine.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/diodes.png "Hardware Mod")
 
@@ -123,7 +123,7 @@ To fix this you can simply replace the BOB with 3 diodes as shown in the image b
 - 1 Pico or Pico W with headers soldered
   - +2 20pin header sockets
 - 1 Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
-- 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009 OR 3 1N4148 or BAT42/43 diodes if planning to use with real h/w (connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side). BAT42/43 maybe a better option due to the reduced voltage drop, however I've not tested these yet.
+- 1 SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009 OR 3 1N4148/BAT42/43 diodes if planning to use with real h/w (connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side). BAT42/43 are the better option due to the reduced voltage drop but 1N4148 should also be ok.
   - +2 6pin header sockets if using the BOB on the PCB
 - 1 SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
   - +1 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
@@ -131,7 +131,7 @@ To fix this you can simply replace the BOB with 3 diodes as shown in the image b
   - +1 9pin header socket if using the PCB
 - 5 6×6mm Right Angle Micro Push Buttons for mounting on the PCB (you can use any push button these are just the ones that I use)
 - 2 Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match, my rule of thumb is forward voltage/2 in kOhms so if forward voltage is 2V use a 1kOhm resistor. The LEDs are (D)rive/(W)rite and (S)D Card Access/(I)nput Ready.
-- 5 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]
+- 5 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]. These could also be replaced with BAT42/43 diodes but only WR.PR is output.
 - 1 1n4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock) [5V(D)]
 - 1 10kOhm Resistor for write protect circuit [WPC(R)]
 - 1 6.8kOhm Resistor for write protect circuit [WPB(R)]
