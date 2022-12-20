@@ -106,7 +106,7 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 ## The Circuit
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3a.png "Circuit Prototype v3a")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v4.png "Circuit v4")
 
 ## Hardware Mod for Real H/W Support
 
