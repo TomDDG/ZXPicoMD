@@ -141,13 +141,13 @@ To fix this you can simply replace the BOB with 3 diodes as shown in the image b
 
 ## PCB
 
-I have designed a PCB to house everything and you can purchase it on PCBWay (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html). I've also entered it into the 5th PCB Design Contest (https://www.pcbway.com/activity/5th-pcb-design-contest.html)
+I have designed a PCB to house everything and you can purchase v1.1 on PCBWay (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html). I've also entered it into the 5th PCB Design Contest (https://www.pcbway.com/activity/5th-pcb-design-contest.html)
 
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
-- v1.2 - removed bob-12009 and replaced with diodes, some refactoring
+- v1.2 - removed bob-12009 and replaced with diodes, some refactoring. *Note v1.1 also works fine with real h/w by simply replacing the bob with diodes as shown above
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.1.png "PCB Prototype v1.1")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.2.png "PCB v1.2")
 
 ## Case
 
