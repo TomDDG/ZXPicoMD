@@ -65,7 +65,7 @@ Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https:
 
 ## Connected to a ZX Spectrum
 
-Following image shows everything connected. The ZXPicoMD is fully compatible with Multiface 1 (shown in the photo) or a Multiface 128.
+Following image shows everything connected. The ZXPicoMD is fully compatible with the Multiface 1 and 128 (shown in the photo).
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/FullSetup.png "Connected")
 
