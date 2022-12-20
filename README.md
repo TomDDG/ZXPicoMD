@@ -1,6 +1,6 @@
 # ZXPicoMD
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/FullSetup.png "with MF128")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/fullset-up.png "with Real Hardware")
 
 Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.org/wiki/ZX_Microdrive)
 
@@ -110,7 +110,7 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 ## Hardware Mod for Real H/W Support
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/fullset-up.png "with Real Hardware")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMD128k.png "128k with Real Hardware")
 
 In order to get the ZXPicoMD working with real hardware you need to replace the BOB-12009 level shifter. Unfortunately the BOB interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. During testing it worked fine with a vDrive in place of real h/w as the signal strength is much stronger and therefore wasn't affected by the BOB.
 
