@@ -162,7 +162,7 @@ The PCB was originally designed to fit in a real Microdrive case as it is based 
 
 This guide is based on v1.2 of the PCB, however it also applies to v1.1 with the diodes placed where the BOB was. 
 
-First solder in the diodes, resistors, buttons, buzzer, transistor & TSR 1-2450 as per the silk screen, being mindful of the orientation of the diodes. I recommend you use BAT42/43 Schottky diodes for Data 1 [D1(D)], Data 2 [D1(D)], Write Protect [WR.PR(D)] & Comms Out [CO(D)] as these are outputs which may benefit from a lower voltage drop.
+First solder in the diodes, resistors, buttons, buzzer, transistor & TSR 1-2450 as per the silk screen, being mindful of the orientation of the diodes. I recommend you use BAT42/43 Schottky diodes for Data 1 [D1(D)], Data 2 [D1(D)] & Comms Out [CO(D)] as these are small signal outputs which may benefit from the lower voltage drop.
 
 Follow this with the header sockets for the Pico (20-pin) and Micro SD Card reader (9-pin). Ensure these are straight before fully soldering with the best way being to solder one leg check it is straight and then soldering the rest. For the Pico header I'd recommend pluging in the Pico first, use a bit of blue tack to hold in place, and then solder ensuring it all aligns. 
 
