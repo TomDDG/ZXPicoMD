@@ -149,11 +149,34 @@ I have designed a PCB to house everything and you can purchase v1.1 on PCBWay (h
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.2.png "PCB v1.2")
 
+
 ## Case
 
 The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842).
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0151.jpg "In Case")
+
+## Building with Case
+
+This guide is based on v1.2 of the PCB, however it also applies to v1.1 with the diodes placed where the BOB was. 
+
+First solder in the diodes, resistors, buttons, buzzer, transistor & TSR 1-2450 as per the silk screen, be careful of the orientation of the diodes. I recommend you use BAT42/43 Schottky diodes for Data 1 [D1(D)], Data 2 [D1(D)], Write Protect [WR.PR(D)] & Comms Out [CO(D)] as these can be outputs which may benefit from a lower voltage drop.
+
+Follow this with the header sockets for the Pico (20-pin) and Micro SD Card reader (9-pin), ensure these are straight before soldering, best way is to solder one leg, check it is straight then solder the rest. For the Pico header I'd recommend pluging in the Pico first and then solder in place to ensure it all aligns. 
+
+Now solder in the bi-colour LEDs. Mount these so the bulb is slightly above the top of header socket, this gives enough height to bend into place later.
+
+After this you should have the following (blue diodes are BATs, red are 1N4148s):
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/DidodePlacement.png "Diode Placement")
+
+The OLED socket needs to be raised to fit the case and why it needs longer legs, these are often referred to as stackable pin header sockets. The best way to get this at the correct height is to first mount the OLED into the case, plug the header socket in, and then put the PCB on top. Ensure the PCB is straight and then solder in place. It should now look like this:
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/OLEDMount.png "OLED Mount")
+
+You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and securing with a smalls screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slots is flush to the side of the case.
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/AllBuilt.png "All Built")
 
 ## FAQ
 
