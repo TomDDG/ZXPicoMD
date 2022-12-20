@@ -25,7 +25,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.0beta2c (latest release) - fixed real hardware not working with the ZXPicoMD. *Note this version requires a small hardware mod to work, see hardware mod section below
+- v1.0beta2c (latest release) - fixed real hardware not working with the ZXPicoMD. *Note v1.1 PCB need a small hardware mod to work, see mod section below
 - v1.0beta1 - added support for real hardware Microdrives downstream of the ZXPicoMD *Note doesn't work with real h/w Microdrives, tested working with vDrive emulated drives only.
 - v0.94 - added a simple filename generator to the cartridge save option
 - v0.93 - fixed MF128 format
@@ -65,7 +65,7 @@ Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https:
 
 ## Connected to a ZX Spectrum
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/connected.png "Connected")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/FullSetup.png "Connected")
 
 ## The GUI
 
