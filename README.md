@@ -145,6 +145,7 @@ I have designed a PCB to house everything and you can purchase it on PCBWay (htt
 
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
+- v1.2 - removed bob-12009 and replaced with diodes, some refactoring
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.1.png "PCB Prototype v1.1")
 
