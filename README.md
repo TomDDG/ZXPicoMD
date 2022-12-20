@@ -90,6 +90,8 @@ The file explorer will only show compatible files, those with extension MDR, Z80
 
 ### Working with Real H/W Microdrives
 
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMD128k.png "128k with Real Hardware")
+
 As of release v1 beta you can now put real h/w Microdrives downstream of the ZXPicoMD. Please note these only work downstream (ZXPicoMD closest to the Spectrum) as the ZXPicoMD needs to control the COMMs shift register in order to mix virtual/emulated drives and real h/w drives. Any drive combination can be used with the only restriction being a lower numbered drive will be activated first, example, if you pick drive 2 & 4 as real h/w drives the lower number, 2, will be the one next to the ZXPicoMD and 4 the one after.
 
 The following diagram shows how to select drive 1 as real h/w.
@@ -111,8 +113,6 @@ THe following circuit does not include the level shifter which is no longer requ
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v4.png "Circuit v4")
 
 ## v1.1 PCB Hardware Mod for Real H/W Support
-
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMD128k.png "128k with Real Hardware")
 
 In order to get the v1.1 PCB working with real hardware you need to replace the BOB-12009 level shifter. Unfortunately the BOB interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. During testing it worked fine with a vDrive in place of real h/w as the signal strength is much stronger and therefore wasn't affected by the BOB.
 
