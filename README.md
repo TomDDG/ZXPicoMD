@@ -6,7 +6,7 @@ Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.or
 
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt this for the QL). Main features are:
 - Supports all 8 Microdrives from one device
-- Supports downstream real h/w Microdrives (with hardware mod, see below)
+- Supports downstream real h/w Microdrives (if you have a v1.1 PCB you need the hardware mod, see below)
 - OLED screen with buttons to navigate the menu - includes load, save & format cartridges as well as other options (see menu section below). No additional toolkits, software or connections needed as all managed from the menu
 - FAT32 & exFAT supported Micro SD cards up to a theoretical 256TB (I've tested 2GB, 4GB and a lowly 64GB which can easily fit every Spectrum game and program ever made multiple times)
 - Reset button just in case (also makes it easier to flash the Pico)
@@ -104,15 +104,17 @@ With drive 1 & 3 set to real h/w, CAT 1 will access the first real drive connect
 
 To flip back to virtual/emulated drive just select the drive in the menu.
 
-## v1.2 The Circuit
+## v1.2 Circuit (the one without BOB)
+
+THe following circuit does not include the level shifter which is no longer required due to the IF1 accepting the lower voltage output of the Pico ~3V. For the old circuit please click here https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3a.png
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v4.png "Circuit v4")
 
-## Hardware Mod for Real H/W Support
+## v1.1 PCB Hardware Mod for Real H/W Support
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMD128k.png "128k with Real Hardware")
 
-In order to get the ZXPicoMD working with real hardware you need to replace the BOB-12009 level shifter. Unfortunately the BOB interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. During testing it worked fine with a vDrive in place of real h/w as the signal strength is much stronger and therefore wasn't affected by the BOB.
+In order to get the v1.1 PCB working with real hardware you need to replace the BOB-12009 level shifter. Unfortunately the BOB interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. During testing it worked fine with a vDrive in place of real h/w as the signal strength is much stronger and therefore wasn't affected by the BOB.
 
 To fix this you can simply replace the BOB with 3 diodes as shown in the image below, note the cathode line at the top HV side. I've tested this with standard 1N4148 and BAT43 Schottky diodes. The BAT diodes have a better voltage drop, measuring I show 3.0V for the 1N4148 and 3.2V with the BAT. Recommend to use BATs although 1N4148 seem to work fine.
 
@@ -123,7 +125,7 @@ To fix this you can simply replace the BOB with 3 diodes as shown in the image b
 - 1 Pico or Pico W with headers soldered
   - +2 20pin header sockets
 - 1 Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
-- 3x 1N4148/BAT42/43 diodes, connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side. BAT42/43 are the better option due to the reduced voltage drop but 1N4148 should also be ok. (v1.1 of the PCB had 1x SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009, +2 6pin header sockets if using the BOB on the PCB) 
+- 3x BAT42/43 diodes, connected LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side. BAT42/43 are a better option to 1N4148 due to the reduced voltage drop, however 1N4148 should also be ok. (v1.1 of the PCB had 1x SparkFun Logic Level Converter - Bi-Directional (BOB-12009) - https://www.sparkfun.com/products/12009, +2 6pin header sockets if using the BOB on the PCB) 
 - 1 SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
   - +1 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
 - 1 Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
@@ -144,10 +146,9 @@ I have designed a PCB to house everything and you can purchase v1.1 on PCBWay (h
 
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
-- v1.2 - removed bob-12009 and replaced with diodes, some refactoring. *Note v1.1 also works fine with real h/w by simply replacing the bob with diodes as shown above
+- v1.2 - removed bob-12009 level shifter and replaced with diodes, some refactoring. *Note v1.1 also works fine with real h/w by simply replacing the bob with diodes as shown in the hardware mod section
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.2.png "PCB v1.2")
-
 
 ## Case
 
