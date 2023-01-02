@@ -159,9 +159,9 @@ The following circuit does not include the level shifter which is no longer requ
 
 ## v1.1 PCB Hardware Mod for Real H/W Support
 
-In order to get the v1.1 PCB working with real hardware you need to replace the BOB-12009 level shifter. Unfortunately the BOB interferes with the data output from the real Microdrive and lacks the OE pin which would put it into high impedence mode. During testing it worked fine with a vDrive in place of real h/w as the signal strength is much stronger and therefore wasn't affected by the BOB.
+Unfortunately during testing it became apparant that the BOB level shifter interferes with the data output of the real Microdrive and lacks the OE pin which would put it into high impedence mode. During initial testing everything worked fine with a vDrive, in place of real h/w, as its signal strength is much stronger and therefore wasn't affected by the BOB.
 
-To fix this you can simply replace the BOB with 3 diodes as shown in the image below, note the cathode line at the top HV side. I've tested this with standard 1N4148 and BAT43 Schottky diodes. The BAT diodes have a better voltage drop, measuring I show 3.0V for the 1N4148 and 3.2V with the BAT. Recommend to use BATs although 1N4148 seem to work fine.
+Luckily this is extremly simple to fix and doesn't need any complex re-routing or code changes, in fact all you need to do to get the v1.1 PCB working with real hardware is to replace the BOB-12009 level shifter with 3 diodes as shown in the image below (note the cathode line at the top HV side). I've tested this with standard 1N4148 and BAT43 Schottky diodes. The BAT diodes have a better voltage drop, measuring I show 3.0V for the 1N4148 and 3.2V with the BAT. Recommend to use BATs although 1N4148 seem to work fine.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/diodes.png "Hardware Mod")
 
