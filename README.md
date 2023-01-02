@@ -12,7 +12,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Reset button just in case (also makes it easier to flash the Pico)
 - Buzzer in case you like a buzzing sound to "simulate" the drive motor
 - Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots on the fly. Very useful as not many actual Microdrives cartridges released commercially.
-- Can copy the contents of a TAP to a blank Virtual Microdrive Cartridge
+- Can copy the contents of a TAP to a blank Virtual Microdrive Cartridge (see TAP copy section below for details)
 - Fully powered from the Spectrum & boots instantly
 - Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1)
 
@@ -91,6 +91,45 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 The file explorer will only show compatible files, those with extension MDR, Z80 & SNA and directories.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout_v3.png "Menu Layout v3")
+
+### TAP copy
+
+Selecting a TAP file from the File Explorer will copy the contents to a blank cartridge. This is a simple copy so if you are copying a game across you will need to adjust the basic loader in order for it to load properly. This isn't always possible as a lot of games use machine code loaders but some are and the following details how to do this for the classic Manic Miner.
+
+Once the copy has complete `CAT` the drive and you will see
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm1.png "MM CAT")
+
+Now Load the `(Info)` file:
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm2.png "MM (Info) Load")
+
+This will show details of the files copied from the TAP in `REM` statements. Write down the filenames `mm1` (the loading screen) & `MM2` (the main code) for later.
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm4.png "MM (Info) Load 2")
+
+Now load the main basic loader `ManicMiner`:
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm5.png "MM Basic 1")
+
+and `LIST`
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm7.png "MM Basic 2")
+
+Now edit the loader with the correct Microdrive syntax `*"m";1;` and filenames you wrote down earlier:
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm8.png "MM Basic 3")
+
+Save this as `RUN` with autorun added so you can use the shortcut:
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm9.png "MM RUN")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm10.png "MM RUN 2")
+
+The game will now load:
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm11.png "MM SCREEN$")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm12.png "MM SCREEN$ 2")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm13.png "MM Loaded")
 
 ### Working with Real H/W Microdrives
 
