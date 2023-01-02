@@ -122,16 +122,13 @@ Now edit the loader with the correct Microdrive syntax `*"m";1;` and filenames y
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm8.png "MM Basic 3")
 
-Save this as `RUN` with autorun added so you can use the shortcut:
+Save this as `RUN` with autorun `LINE 1` added so you can use the shortcut on reboot:
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm9.png "MM RUN")
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm10.png "MM RUN 2")
 
-The game will now load:
+The game will now load using `RUN`:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm11.png "MM SCREEN$")
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm12.png "MM SCREEN$ 2")
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm13.png "MM Loaded")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mmload.png "MM LOAD")
 
 ### Working with Real H/W Microdrives
 
