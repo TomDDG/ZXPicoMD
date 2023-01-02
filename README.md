@@ -12,6 +12,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Reset button just in case (also makes it easier to flash the Pico)
 - Buzzer in case you like a buzzing sound to "simulate" the drive motor
 - Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots on the fly. Very useful as not many actual Microdrives cartridges released commercially.
+- Can copy the contents of a TAP to a blank Virtual Microdrive Cartridge
 - Fully powered from the Spectrum & boots instantly
 - Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1)
 
@@ -25,7 +26,8 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.0beta2c (latest release) - fixed real hardware not working with the ZXPicoMD. *Note v1.1 PCB needs a small hardware mod to work, see mod section below
+- v1.1 (latest release) - added TAP copy, version number on splash screen & bug fixes
+- v1.0beta2c  - fixed real hardware not working with the ZXPicoMD. *Note v1.1 PCB needs a small hardware mod to work, see mod section below
 - v1.0beta1 - added support for real hardware Microdrives downstream of the ZXPicoMD *Note doesn't work with real h/w Microdrives, tested working with vDrive emulated drives only.
 - v0.94 - added a simple filename generator to the cartridge save option
 - v0.93 - fixed MF128 format
