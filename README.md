@@ -189,7 +189,7 @@ I have designed a PCB to house everything and you can purchase v1.1 on PCBWay (h
 
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
-- v1.2 - removed bob-12009 level shifter and replaced with diodes, some refactoring. *Note v1.1 also works fine with real h/w by simply replacing the bob with diodes as shown in the hardware mod section
+- v1.2 - removed bob-12009 level shifter and replaced with diodes, some refactoring. *Note this is simply a cosmetic change and v1.1 works fine with real h/w by simply replacing the bob with diodes as shown in the hardware mod section
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.2.png "PCB v1.2")
 
