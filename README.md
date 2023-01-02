@@ -88,13 +88,15 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 - Save Cartridge - creates a copy of the cartridge on the SD card so all your work doesn't get lost if you load a new cartridge into the drive
 - Insert Formatted - as it says load a blank formatted (to 127kB) cartridge into the drive
 
-The file explorer will only show compatible files, those with extension MDR, Z80 & SNA and directories.
+The file explorer will only show compatible files, those with extension MDR, TAP, Z80 & SNA and directories.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout_v3.png "Menu Layout v3")
 
 ### TAP copy
 
-Selecting a TAP file from the File Explorer will copy the contents to a blank cartridge. This is a simple copy so if you are copying a game across you will need to adjust the basic loader in order for it to load properly. This isn't always possible as a lot of games use machine code loaders but some are and the following details how to do this for the classic Manic Miner.
+Selecting a TAP file from the file explorer will copy the contents to a blank cartridge. It works with headerless files as well as normal and also removes the autorun from basic files so they can be edited. As headerless files have no file type or start address these are simply set as a code block starting at memory end minus length.
+
+Note this is a simple file copy so if you are wanting to run a loader, usually for a game, off the cartridge you will need to adjust said loader to use Microdrive commands. Unfortunately this isn't always possible as a lot of games use machine code loaders but some are and the following details how to do this for the classic Manic Miner.
 
 Once the copy has complete `CAT` the drive and you will see
 
