@@ -26,7 +26,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.12t (latest release) - Some users have reported some bad sectors during write operations (save, format). This version optimse the record loop code and tightens the timings to improve this. It also disables the Scmitt triggers on the data I/O pins which improves data input delay. *Note this is still in test.
+- v1.12t (latest release) - Users have reported some bad sectors during write operations (save, format). This version optimse the record loop code and tightens the timings to improve this. It also disables the Scmitt triggers on the data I/O pins which improves data input delay. *Note this is still in test.
 - v1.1 - added TAP copy, version number on splash screen & bug fixes
 - v1.0beta2c  - fixed real hardware not working with the ZXPicoMD. *Note v1.1 PCB needs a small hardware mod to work, see mod section below
 - v1.0beta1 - added support for real hardware Microdrives downstream of the ZXPicoMD *Note doesn't work with real h/w Microdrives, tested working with vDrive emulated drives only.
