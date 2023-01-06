@@ -235,3 +235,6 @@ Pop the top of case on but remember the OLED screen pins need to fit in the rais
   - Try to use a modern Micro SD Card of at least C10 rating. As of writing the cheapest cards seem to be the 32GB ones which are most likely UHS Speed Class which will work fine and way more space than you need. I've configured the SD Card access speed to be 12.5Mbits/s which is ~1.5MBytes/s (more like half that in reality) so anything above that in theory should be fine. Image below shows the results from a quick speed test on a couple of cards, top one is a class 10 and the other is an older 2GB rated for 30MB/s. Both of these cards worked fine:
   
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/SDCardSpeed.png "SD Card Speed")
+
+- Can I use ZIP files?
+  - The ZX PicoMD does not currently work with ZIP files. The main reason for this is the need to compress files to save space is kind of redundant with the size of the cheapest modern SD Cards. A 16GB or 32GB Micro SD card can easily store the entire uncompressed Spectrum library, including having both Z80s & TAPs. Z80 files are also already compressed, although not as well as ZIPs would be. Some quick maths shows that if we stored uncompressed MDRs, which are 137923Bytes in size, a 16GB SD Card can store over 100,000 microdrive cartridges! 
