@@ -228,7 +228,7 @@ Pop the top of case on but remember the OLED screen pins need to fit in the rais
 
 - I'm getting a `Microdrive not present, 0:1` message
   - Microdrives & Interface 1s are getting old now so make sure the edge connectors are clean. Use some Isopropyl (Rubbing) alchohol to clean the PCB connector on the IF1 (left hand side). Also check the Microdrive connectors are fully plugged in.
-  - Pre v1.2 firware there was an issue with some Spectrums, on first boot, having the CLK signal set low when it should be high. This confused the ZXPicoMD as it keeps thinking there is an incoming CLK pulse, a simple retype of the command fixed it. v1.2 fixed this bug so not longer an issue.
+  - Pre v1.2 firware there was an issue with some Spectrums, on first boot, having the CLK signal set low when it should be high. This confused the ZXPicoMD as it keeps thinking there is an incoming CLK pulse, a simple retype of the command fixed it. v1.2 fixed this bug so no longer an issue, if you are on an earlier firmware recommend you upgrade.
 
 - Why is my SD Card slow to list the directory? I've tested this with ~1000 files in a single directory and it should take no longer than a second to show a directory listing. If you are finding access is slow, please try the following:
   - Don't put thousands of files in a single directory, try to limit it to <1000 per directory otherwise it will take a long time to find what you need as the OLED only shows 4 files per screen. Put the files in a-z directories as an example.
