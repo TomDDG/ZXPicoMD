@@ -35,8 +35,11 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - v0.92 - added sound on/off menu option to turn off the buzzer, saves config to the SD Card
 - v0.91 - first public release, all basic functions in place
 
+## First Usage
+First you need to format your micro SD card using a PC/MAC, I recommend exFAT but FAT32 is also fine. Using the same PC/MAC you can also create a folder for your files and copy games or programs into these directories. You don't need any files for the device to work so this is just if you want to use it to load games etc... Insert the micro SD Card into the device while it is powered off and then turn on the Spectrum with the device connected. If all ok you will see a Splash Screen followed by a screen saying it is setting up the SD Card. Just wait for this to complete and once the screen goes blank and the blue LED comes on you are good to go.
+
 ## Usage
-The device is very simple to use. Upon booting the Spectrum you will see a Splash Screen which will disappear after a couple of seconds. The screen will then stay blank (OLED is off to prevent burn-in) and the blue LED (or whatever colour you picked) will light up on the side to indicate the device is ready for input, either from the IF1 or by the user pressing a button. You can now use all the normal commands on the Spectrum to control the drive such as `RUN`, `LOAD *"m";1;"aaa"` or `FORMAT "m";5;"blank"`. 
+The device is very simple to use, upon booting the Spectrum you will see a Splash Screen which will disappear after a couple of seconds. The screen will then stay blank (OLED is off to prevent burn-in) and the blue LED (or whatever colour you picked) will light up on the side to indicate the device is ready for input, either from the IF1 or by the user pressing a button. You can now use all the normal commands on the Spectrum to control the drive such as `RUN`, `LOAD *"m";1;"aaa"` or `FORMAT "m";5;"blank"`. 
 
 When the blue LED is on so the unit is input ready you can enter the Menu to select new cartrdiges etc... for full list of menu items see the chart below. To enter the menu press the enter key which is 3rd from left. You should now see the Cartridge 1 icon. Pressing enter again takes you to the cartridge sub-menu, showing a folder icon. Pressing again and you will enter the file explorer where you can navigtate the listings to pick a new cartridge or snapshot to convert.
 
