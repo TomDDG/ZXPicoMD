@@ -18,6 +18,10 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
 
+## How to Get One
+- I designed ZX PicoMD to be very easy to build so anybody should be able to get the parts and put one together. I've included full details on how to do this below and also offer the PCBs on PCBWay.
+- I do occassional build some complete units to sell on eBay https://www.ebay.co.uk/usr/tom_dd
+
 ## Installation
 - Download the correct UF2 from the UF2 folder (_w for Pico W)
 - Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
