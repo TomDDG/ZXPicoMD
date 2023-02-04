@@ -4,7 +4,7 @@
 
 Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.org/wiki/ZX_Microdrive)
 
-Hardware emulation of 8 microdrives for the ZX Spectrum only, it will not work with a Sincliar QL. If you want a Microdrive emulator for the QL I recommend OqtaDrive (http://oqtadrive.org/). Main features are:
+Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt for the QL, if you want a Microdrive emulator for the QL I recommend OqtaDrive http://oqtadrive.org/). Main features are:
 - Supports all 8 Microdrives from one device
 - Supports downstream real h/w Microdrives (if you have a v1.1 PCB you need a small hardware mod, see below)
 - OLED screen with buttons to navigate the menu - includes load, save & format cartridges as well as other options (see menu section below). No additional toolkits, software or connections needed as all managed from the menu
