@@ -30,7 +30,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.3test3 (latest release) - Added [Quick Swap](### Quick Swap) functionality to Drive 1 & added wrap around to the file explorer
+- v1.3test3 (latest release) - Added [Quick Swap](###quick-swap) functionality to Drive 1 & added wrap around to the file explorer
 - v1.2 - improved write code (timings, input delays, SD Card buffers) to remove chance of bad sectors plus some bug fixes
 - v1.1 - added TAP copy, version number on splash screen & bug fixes
 - v1.0beta2c  - fixed real hardware not working with the ZXPicoMD. *Note v1.1 PCB needs a small hardware mod to work, see mod section below
