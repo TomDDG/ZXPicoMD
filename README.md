@@ -91,6 +91,7 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 
 ### Microdrive Sub-Menu
 - File Selector - enter the file explorer to navigate the folders on the SD card to select a file to load
+- Quick Swap (Drive 1 only) - turns on/off [Quick Swap](#quick-swap) functionality
 - Switch to Real H/W - switches the drive number to a real H/W Microdrive. With this enabled the ZXPicoMD will emulate the shift register to activate the drive when called
 - Cartridge Info - shows a basic CAT of the cartridge inserted
 - Write Portect - toggles write protect on/off for the cartridge inserted
