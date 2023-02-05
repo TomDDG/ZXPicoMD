@@ -12,7 +12,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Reset button just in case (also makes it easier to flash the Pico)
 - Buzzer in case you like a buzzing sound to "simulate" the drive motor
 - Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots on the fly. Very useful as not many actual Microdrives cartridges released commercially.
-- Can copy the contents of a TAP to a blank Virtual Microdrive Cartridge (see TAP copy section below for details)
+- Can copy the contents of a TAP to a blank Virtual Microdrive Cartridge (see [TAP copy section](#tap-copy) for details)
 - Fully powered from the Spectrum & boots instantly
 - Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1)
 
