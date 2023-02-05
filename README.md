@@ -30,7 +30,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.3test2 (latest release) - Added Quick Swap functionality to Drive 1 & added wrap around to the file explorer
+- v1.3test3 (latest release) - Added Quick Swap () functionality to Drive 1 & added wrap around to the file explorer
 - v1.2 - improved write code (timings, input delays, SD Card buffers) to remove chance of bad sectors plus some bug fixes
 - v1.1 - added TAP copy, version number on splash screen & bug fixes
 - v1.0beta2c  - fixed real hardware not working with the ZXPicoMD. *Note v1.1 PCB needs a small hardware mod to work, see mod section below
@@ -100,6 +100,16 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 The file explorer will only show compatible files, those with extension MDR, TAP, Z80 & SNA and directories.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout_v3.png "Menu Layout v3")
+
+### Quick Swap
+
+Firmware v1.3 added quick swap functionality to drive 1 allowing the user to quickly swap between 4 pre-loaded cartridges. This was only added to drive 1 as this drive number is often hardcoded into programs so being able to quickly flip between cartridges is an advantage.
+
+To use Quick Swap on drive 1 you have to first turn it on. To do this go into the menu (enter button), select drive 1 and scroll one right of the folder icon. You should see an icon with a swap symbol. Click on this and you will get a message that it is setting up Quick Swap for Drive 1. This takes a few seconds as it is creating 4 new cartridges, copying the contents of the current drive 1 cartridge to A, and creating 3 blank cartridges B,C & D. Once done it goes back to idle (blue light) and is ready to use.
+
+To quickly swap the cartridges just press the PREV or NEXT buttons and a selector will pop up showing cartridges 1A to 1D. Just pick the one you want, press enter and it will complete the swap. Simple as that.
+
+If you want to put a new image into a certain quick swap cartridge just first select the one you want, say 1D, and then just use the normal menu options to load a Z80 or format it etc... If you turn off quick swap (using the same icon), the cartridge currently selected remains in drive 1 and the others are lost, so recommend you save them first if needed.
 
 ### TAP copy
 
