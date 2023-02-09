@@ -172,7 +172,7 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 The following circuit does not include the level shifter which is no longer required due to the IF1 accepting the lower voltage output of the Pico ~3V. For the old circuit please click here https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3a.png
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v4.png "Circuit v4")
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v4a.png "Circuit v4a")
 
 ## v1.1 PCB Hardware Mod for Real H/W Support
 
