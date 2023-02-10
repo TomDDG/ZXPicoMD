@@ -19,7 +19,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
 
 ## How to Get One
-- I designed ZX PicoMD to be very easy to build so anybody should be able to get the parts and put one together. I picked parts which are easy to get even with the current chip shortage, basing the whole build around the Raspberry Pico. It does require some soldering but this is all through hole not surface mount so a lot easier to do. I've included full details on how to build one including bill of materials and links.
+- I designed ZX PicoMD to be very easy to build so anybody should be able to get the parts and put one together. I picked parts which are easy to get even with the current chip shortage, basing the whole build around the Raspberry Pico. It does require some soldering but this is all through hole not surface mount so a lot easier to do. I've included full details on how to [build one](#building-with-case) including [bill of materials](#bom) and links to the parts.
 - I do occassional build some complete units to sell on eBay https://www.ebay.co.uk/usr/tom_dd
 
 ## Installation
