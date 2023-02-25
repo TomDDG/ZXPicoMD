@@ -247,7 +247,7 @@ Pop the top of case on but remember the OLED screen pins need to fit in the rais
 
 ## Testing the ZX PicoMD
 
-Once built I run the device through a series of tests. The main one is to run the test cartrdige by Martin Smith, you can download this from the TestCarts folder (https://github.com/TomDDG/ZXPicoMD/blob/main/TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr). This utility was initial designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. Other tests I run are making sure the write protect circuit is ok by toggling it on and trying to format the cartridge, this should fail with a write protect message, toggling it back off and it should work again.
+Once built I run the device through a series of tests. The main one is a test cartridge by Martin Smith, you can download this from the TestCarts folder (https://github.com/TomDDG/ZXPicoMD/blob/main/TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr). This utility was initially designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. Another test I run is making sure the write protect circuit is ok by toggling it on and trying to format a cartridge, this should fail with a write protect message, toggling it back off and it should work again.
 
 In addition I've also uploaded a IF1 ROM test cartridge which determines the ROM version of the IF1 which was useful for degbugging (https://github.com/TomDDG/ZXPicoMD/blob/main/TestCarts/IF1ROM.mdr).
 
