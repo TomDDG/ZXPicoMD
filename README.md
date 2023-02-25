@@ -251,6 +251,8 @@ Once built I run the device through a series of tests. The main one is to run th
 
 In addition I've also uploaded a IF1 ROM test cartridge which determines the ROM version of the IF1 which was useful for degbugging (https://github.com/TomDDG/ZXPicoMD/blob/main/TestCarts/IF1ROM.mdr).
 
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/if1rom.png "IF1 ROM version")
+
 ## FAQ
 
 - I'm getting a `Microdrive not present, 0:1` message
