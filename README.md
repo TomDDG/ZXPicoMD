@@ -95,7 +95,7 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 - Switch to Real H/W - switches the drive number to a real H/W Microdrive. With this enabled the ZXPicoMD will emulate the shift register to activate the drive when called
 - Cartridge Info - shows a basic CAT of the cartridge inserted
 - Write Portect - toggles write protect on/off for the cartridge inserted
-- Save Cartridge - creates a copy of the cartridge on the SD card so all your work doesn't get lost if you load a new cartridge into the drive
+- Save Cartridge - creates a copy of the cartridge in the root directory of the SD card so all your work doesn't get lost if you load a new cartridge into the drive
 - Insert Formatted - as it says load a blank formatted (to 127kB) cartridge into the drive
 
 The file explorer will only show compatible files, those with extension MDR, TAP, Z80 & SNA and directories.
