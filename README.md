@@ -249,6 +249,9 @@ Pop the top of case on but remember the OLED screen pins need to fit in the rais
 
 Once built I run the device through a series of tests. The main one is a test cartridge by Martin Smith, you can download this from the TestCarts folder (https://github.com/TomDDG/ZXPicoMD/blob/main/TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr). This utility was initially designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. Another test I run is making sure the write protect circuit is ok by toggling it on and trying to format a cartridge, this should fail with a write protect message, toggling it back off and it should work again.
 
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/phew.png "Test Cartridge")
+
+
 In addition I've also uploaded two IF1 ROM version check cartridges, one based on a CRC check routine by Blaze and another which looks for the location of a HOOK routine in the shadow ROM written by Andy Pennell for Your Spectrum (Issue 20, page 13). These both determine the ROM version of the IF1 you are using which is useful for degbugging as I've only been able to test ZX PicoMD with a v2 ROM.
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/if1rom.png "IF1 ROM version")
