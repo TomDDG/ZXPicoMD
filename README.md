@@ -176,7 +176,7 @@ When saving a cartridge to the sd card you can specify a filename by using a sim
 
 Use the previous and next buttons to pick the character you want and press enter to select the character, note enter is used to select the character not to complete the name. To complete the name there is an complete name option towards the beginning of the selector (see list below). To delete an entered character you use a remove character option at the beginning of the selector. The selector only allows you to enter alphanumeric characters i.e. no specials and maximum length is 12. The order of the characters is:
 
-- Remove character
+- Remove character (delete)
 - Complete name (looks like enter symbol on your keyboard)
 - Space
 - 0-9
