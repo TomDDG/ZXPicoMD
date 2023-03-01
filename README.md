@@ -168,6 +168,23 @@ With drive 1 & 3 set to real h/w, CAT 1 will access the first real drive connect
 
 To flip back to virtual/emulated drive just select the drive in the menu.
 
+## Using the Filename Selector
+
+When saving a cartridge to the sd card you can specify a filename by using a simple character selector as show below:
+
+![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/charselect.png "File Name Selector")
+
+Use the previous and next buttons to pick the character you want and press enter to select the character, note enter is used to select the character not to complete the name. To complete the name there is an etner option towards the beginning of the selector (see list below). To delete an entered character you use a remove character option at the beginning of the selector. The selector only allows you to enter alphanumeric characters i.e. no specials and maximum length is 12. The order of the characters is:
+
+- Remove character
+- Enter name
+- Space
+- 0-9
+- A-Z
+- a-z
+
+You can't pick anything before 0 (zero) for the first character. If you press back it will exit the selector and if you enter 12 characters it will complete the name and ask if you want to save.
+
 ## v1.2 Circuit (the one without BOB)
 
 The following circuit does not include the level shifter which is no longer required due to the IF1 accepting the lower voltage output of the Pico ~3V. For the old circuit please click here https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3a.png
