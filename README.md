@@ -174,7 +174,7 @@ When saving a cartridge to the sd card you can specify a filename by using a sim
 
 ![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/charselect.png "File Name Selector")
 
-Use the previous and next buttons to pick the character you want and press enter to select the character, note enter is used to select the character not to complete the name. To complete the name there is an complete name option towards the beginning of the selector (see list below). To delete an entered character you use a remove character option at the beginning of the selector. The selector only allows you to enter alphanumeric characters i.e. no specials and maximum length is 12. The order of the characters is:
+Use the previous and next buttons to pick the character you want and press enter to select the character, note unless you are on the last character the enter is used to select the character not to complete the name. To complete the name before the last character there is a complete name option towards the beginning of the selector (see list below). To delete an entered character you use a remove character option at the beginning of the selector. The selector only allows you to enter alphanumeric characters i.e. no specials and maximum length is 12. The order of the characters is:
 
 - Remove character (delete)
 - Complete name (looks like enter symbol on your keyboard)
@@ -183,7 +183,7 @@ Use the previous and next buttons to pick the character you want and press enter
 - A-Z
 - a-z
 
-You can't pick anything before 0 (zero) for the first character. If you press back it will exit the selector and if you enter 12 characters it will complete the name and ask if you want to save.
+You can't pick anything before 0 (zero) for the first character. If you press back it will exit the selector and if you either pick the complete name option or enter 12 characters it will ask if you want to save or not. Pressing enter again saves the cartridge to the root of the SD Card.
 
 ## v1.2 Circuit (the one without BOB)
 
