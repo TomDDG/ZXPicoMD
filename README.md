@@ -30,7 +30,7 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - Turn on the Spectrum and hopefully all good
 
 ## Version History
-- v1.4 (latest release) - Added buzzer loudness option (off/low/medium/high), previous only off and low were available
+- v1.4 (latest release) - Added buzzer loudness option (off/low/medium/high), previously only off and low were available
 - v1.3 - Added [Quick Swap](#quick-swap) functionality to Drive 1 & added wrap around to the file explorer
 - v1.2 - improved write code (timings, input delays, SD Card buffers) to remove chance of bad sectors plus some bug fixes
 - v1.1 - added [TAP copy](#tap-copy), version number on splash screen & bug fixes
