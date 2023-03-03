@@ -75,6 +75,12 @@ Some additional references:
 
 Code makes extensive use of the excellent Pico SD Card Library by carlk3 (https://github.com/carlk3/no-OS-FatFS-SD-SPI-RPi-Pico). This gives full access to the also excellent small embedded systems FatFS (http://elm-chan.org/fsw/ff/00index_e.html).
 
+### Design Decisions
+
+Outside of basing this around the easily obtainable Raspberry Pico I also made the following design decisions:
+- Use of logic level converter - The initial design included a logic level converter which worked fine standalone but caused downstream real h/w to fail as it interfered with the data lines. It was found that removing it works as the Interface 1 accepts a voltage lower than 5V. The output of the Pico is 3V3 which has been tested fine. As some of the pins are inputs there is a need to protect the Pico from 5V input wich the logic level converter did so removing it required a different solution. There has been some research showing the Pico may actually be 5V tolerant but I chose to use a diode and pull-up arrangement. The Pico pins are pulled high using the Pico pull-up resistors, when the Interface 1 goes low the pin is pulled low as there is a easier path to ground which overides the pull-up. If the Interface 1 is high the pin remains high as 5V will exist beyound the diode so nothing to pull the pin low.
+- Write protect pin using a transistor circuit - The write protect pin on a real Microdrive is a mechanical switch connected to the 9V line. As such the Interface one has a simple voltage divider circuit which takes the 9V down to around 4.5V. Due to this additional circuit you cannot feed the Pico 3V3 pin directly to the Interface 1 as it would be lower than 2V by the time it reached the ULA and even via a level shifter it would only be 2.5V (more like 2V after a voltage drop due to the level shifter) which isn't always enough to drive the logic level. A simple transistor circuit connected to the 9V line solves this and provides around 6V to the Interface 1 which becomes 3V after the voltage divider.
+
 ## Connected to a ZX Spectrum
 
 Following image shows everything connected. The ZXPicoMD is fully compatible with the Multiface 1 and 128 (shown in the photo).
