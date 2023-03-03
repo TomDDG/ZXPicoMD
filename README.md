@@ -86,6 +86,7 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 ### Main Menu
 - Power Off - not really required just don't switch off in the middle of a write as it could corrupt the files on the SD card
 - Factory Reset - this creates 8 blank cartridges on the SD card root
+- Sound Volume - Off, Low, Medium & High
 - Eject SD Card - as it says, this safely unmounts the SD card so you can take it away and load up with more games
 - Restart Emulation - Just resets the 2nd core, back button does the same at this level of the menu
 - Cart 1 to 8 - Enter sub-menu for that specific Microdrive
