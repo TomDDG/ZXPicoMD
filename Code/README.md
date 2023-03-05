@@ -103,7 +103,7 @@ break;
 
 To drive the SSD1306 OLED screen via the I2C interface I modified some Python based code by [makerportal](https://github.com/makerportal/rpi-pico-ssd1306). I re-used their initialisation, send command and show code (converting them to C from Python) but developed my own screen writing routines.
 
-In the horizontal orientation of 128x64 the SSD1306 OLED screen is made up of 8 pages and 128 columns with each column made up of 8bits, so basically 8 rows of 128 single byte segments. This requires a bit of pixel manipulation especially to show an entire image. For this I created a simple routine to show a double height ZX Spectrum font and also a routine which can take a GIMP RAW image file (128x64=8192 pixels or 1024bytes), rotating each 8bytes so they match the way the screen wants it and then compressesing to save space, very useful for the menu system.
+In the horizontal orientation of 128x64 the SSD1306 OLED screen is made up of 8 pages and 128 columns with each column made up of 8bits, so basically 8 rows of 128 single byte vertical segments. This requires a bit of pixel manipulation especially to show an entire image. For this I created a simple routine to show a double height ZX Spectrum font and also a routine which can take a GIMP RAW image file (128x64=8192 pixels or 1024bytes), rotating each 8bytes so they match the way the screen wants it and then compressesing to save space, very useful for the menu system.
 
 Using the screen is very simple, requiring a 1024bytes buffer and then simply sending commands to set the column and page address and then writing the entire buffer to the screens small inbuilt buffer via `i2c_write_blocking`. The makerportal article covers this in a lot of detail.
 
