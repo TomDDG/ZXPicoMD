@@ -182,7 +182,7 @@ static spi_t spis[] = {  // One for each SPI.
         .set_drive_strength = true,
         .mosi_gpio_drive_strength = GPIO_DRIVE_STRENGTH_2MA,
         .sck_gpio_drive_strength = GPIO_DRIVE_STRENGTH_2MA,
-        .baud_rate = 12500 * 1000,  // The limitation here is SPI slew rate.
+        .baud_rate = 12500 * 1000,  // A safe value, some cards can go faster but have to cater for slower cards as well. Also don't need mega speeds
         .dma_isr = spi0_dma_isr
     }
 };
