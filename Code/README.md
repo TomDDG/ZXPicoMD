@@ -54,6 +54,6 @@ The Raspberry Pico only has 256kB of memory which is actually a lot for a microc
 
 For the ZX PicoMD I use a small shared memory area, defined globally using `uint8_t mem_buffer[MEMSIZE];` for transfering data between the cores. I also use dynamic memory allocation within the menu system for some the conversion utilities and file sorts. 
 
-In order to share memory between two cores you have to be very careful with contention, as in both cores accessing the same memory at the same time. I use a read ahead concept where the 1st core is always 12 sectors ahead of the 2nd core and some controls in place to ensure this is always the case.
+In order to share memory between two cores you have to be very careful with contention, as in both cores accessing the same memory at the same time. I use a read ahead concept where the 1st core is always 12 Microdrive sectors (543*12=6516bytes) ahead of the 2nd core with some controls in place to ensure this is always the case. All data transfers are initiated by the 2nd core using the FIFO so the 2nd core always knows where the 1st core is.
 
 
