@@ -62,6 +62,41 @@ if ((main48k = (uint8_t*)malloc(49152 * sizeof(uint8_t))) == NULL) { // cannot c
 }
 ````
 
-In order to share memory between two cores you have to be very careful with contention, as in both cores accessing the same memory at the same time. I use a read ahead concept where the 1st core is always 12 Microdrive sectors (543*12=6516bytes) ahead of the 2nd core with some controls in place to ensure this is always the case. All data transfers are initiated by the 2nd core using the FIFO so the 2nd core always knows where the 1st core is.
+In order to share memory between two cores you have to be very careful with contention, as in both cores accessing the same memory at the same time. In order to prevent this core 2 and core 1 use different parts of the shared memory unless a specific copy is being made at which point the cores wait for this copy operation to complete before moving on. This is all controlled by the inter-core FIFO.
+
+A quick example, there are 3 key areas of the shared memory.
+
+1. SD Card Read Buffer
+2. SD Card Write Buffer
+3. Microdrive Buffer
+
+When a read is requested from Core 1 (as it needs more data) whatever is in 1 gets copied to 3 and control handed back to core 2. Once control is handed back core 1 grabs the next 12 sectors from the SD Card read for the next read request. As the copy takes micro seconds to complete there is easily enough time before the Interface 1 needs more data.
+
+During a write the Microdrive will overwrite the Microdrive buffer with up to 12 sectors and once the 12th sector is passed core 2 will send a write command to core 1. This will simply tell core 1 to copy data from the Microdrive buffer to the SD Card Write buffer ready for the next SD card access. As the Microdrive now needs more data (it finished all 12 sectors0 it requests a read to get the next 12 sectors loaded and this trigger the SD Card write.
+
+The following two pieces of code handle this read/write operation:
+
+````
+case 'R': // read operation requested from core 2
+    for(i=0;i<MDR_SECTOR_SIZE*SECTOR_READAHEAD;i++) { // 12*543 = 6516bytes
+        sectorBuffer_Read[i]=sectorBuffer_In[i]; // copy 12 sectors to Microdrive buffer
+    }                
+    multicore_fifo_push_blocking('X'<<24); // all done message               
+    if(writeSector) {                                        
+        readFilepos=f_tell(&fpRW); // move to correct place in file
+        writeBack(sectorBuffer_Out,&fpRW); // write 12 sectors to file
+        writeSector=false; // no more writes
+    } 
+    readAhead(sectorBuffer_In,&currentSector[driveNumber],&fpRW); // read next 12 sectors
+break;
+//     
+case 'W': // write operation requested from core 2
+    for(i=0;i<MDR_SECTOR_SIZE*SECTOR_READAHEAD;i++) { // 12*543 = 6516bytes
+        sectorBuffer_Out[i]=sectorBuffer_Read[i]; // copy 12 sectors from Microdrive buffer to write buffer
+    }
+    multicore_fifo_push_blocking('X'<<24); // all done message         
+    writeSector=true; // set to true so on next read it also writes
+break;
+````
 
 
