@@ -52,7 +52,15 @@ switch (cmd) {
 
 The Raspberry Pico only has 256kB of memory which is actually a lot for a microcontroller. However when adding things like Z80 conversion fo 128kB snapshots it quickly gets used up as you need to store the uncompressed 128kB Spectrum memory and also have room for the Microdrive cartridge to write to. As such I make use of the SD Card for memory buffers, a bit like to good old disk cache. This is slow but still good enough to complete the tasks in seconds.
 
-For the ZX PicoMD I use a small shared memory area, defined globally using `uint8_t mem_buffer[MEMSIZE];` for transfering data between the cores. I also use dynamic memory allocation within the menu system for some the conversion utilities and file sorts. 
+For the ZX PicoMD I use a small shared memory area, defined globally using `uint8_t mem_buffer[MEMSIZE];` for transfering data between the cores. I also use dynamic memory allocation within the menu system for some the conversion utilities and file sorts. Example set-up is:
+
+````
+if ((main48k = (uint8_t*)malloc(49152 * sizeof(uint8_t))) == NULL) { // cannot create space for copy of main memory
+    f_close(&fpIn);
+    f_close(&fpOut);    
+    return false;
+}
+````
 
 In order to share memory between two cores you have to be very careful with contention, as in both cores accessing the same memory at the same time. I use a read ahead concept where the 1st core is always 12 Microdrive sectors (543*12=6516bytes) ahead of the 2nd core with some controls in place to ensure this is always the case. All data transfers are initiated by the 2nd core using the FIFO so the 2nd core always knows where the 1st core is.
 
