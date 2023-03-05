@@ -39,7 +39,7 @@ while(true) { // infinite loop
     val1=(rx&CMD_MASK_VAL1); // message 3
 ````
 
-When the menu is active (on core 1), I purposely close down the 2nd core to prevent any issues. This is because I used a shared memory are and found in some cases it could get corrupted, in particular when using the memory heavy Z80 conversion routines. It was cleaner to shutdown the 2nd core and reset the shared memory again after the menu was exited.
+When the menu is active (on core 1), I purposely close down the 2nd core to prevent any issues. This is because I use a shared memory area to copy data between the two cores and this coupled with some dynamic memory allocation resulted some memory corruption, in particular when using the memory heavy Z80 conversion routines. It was cleaner to shutdown the 2nd core and reset the shared memory again after the menu was exited and I knew the memory was only being used for data transfer.
 
 ````
 switch (cmd) {
@@ -48,5 +48,12 @@ switch (cmd) {
         multicore_reset_core1(); // reset core1 ready for re-launch 
 ````
 
+## Notes on Memory Usage
+
+The Raspberry Pico only has 256kB of memory which is actually a lot for a microcontroller. However when adding things like Z80 conversion fo 128kB snapshots it quickly gets used up as you need to store the uncompressed 128kB Spectrum memory and also have room for the Microdrive cartridge to write to. As such I make use of the SD Card for memory buffers, a bit like to good old disk cache. This is slow but still good enough to complete the tasks in seconds.
+
+For the ZX PicoMD I use a small shared memory area, defined globally using `uint8_t mem_buffer[MEMSIZE];` for transfering data between the cores. I also use dynamic memory allocation within the menu system for some the conversion utilities and file sorts. 
+
+In order to share memory between two cores you have to be very careful with contention, as in both cores accessing the same memory at the same time. I use a read ahead concept where the 1st core is always 12 sectors ahead of the 2nd core and some controls in place to ensure this is always the case.
 
 
