@@ -146,3 +146,15 @@ As part of using this library you need to customise the `ffconf.h` file. The ver
 ````
 
 As you can see I use fast seek to speed up the seek operations. It is not a massive improvement but when time is at a premium every milli-seccond counts. To use fast seek you need to allocate a small buffer to the routine based on the cluster size of the file system. My basic maths showed this needed to be around 70 as the smallest FAT32 cluster size is 4096bytes (256MB–8GB) so 34 clusters tops, the equation is then (34+1)*2=70. This is based on nobody using <256MB SD Card and when using >8GB the cluster size only gets larger which decreases the buffer size.
+
+The code used to set-up fast seek is as follows:
+
+````
+FIL fpRW;
+DWORD clmt[70]; // cluster link map table buffer for fast seek
+//
+f_open(&fpRW,cartName,FA_READ|FA_WRITE);
+fpRW.cltbl=clmt; // Enable fast seek mode (cltbl != NULL)
+clmt[0]=SZ_TBL; // Set table size                     
+f_lseek(&fpRW,CREATE_LINKMAP);
+````
