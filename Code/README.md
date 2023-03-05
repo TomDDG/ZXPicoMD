@@ -145,7 +145,7 @@ As part of using this library you need to customise the `ffconf.h` file. The ver
 #define FF_SYNC_t		HANDLE
 ````
 
-As you can see I use fast seek to speed up the seek operations. It is not a massive improvement but when time is at a premium every milli-seccond counts. To use fast seek you need to allocate a small buffer to the routine based on the cluster size of the file system. My basic maths showed this needed to be around 70 as the smallest FAT32 cluster size is 4096bytes (256MB–8GB) so 34 clusters for a MDR file tops (MDR size is 137923bytes, 137923/4096=33.67), the equation is then (34+1)*2=70. This is based on nobody using <256MB SD Card and when using >8GB the cluster size only gets larger which decreases the buffer size.
+As you can see I use fast seek to speed up the seek operations. It is not a massive improvement but when time is at a premium every milli-seccond counts. To use fast seek you need to allocate a small buffer to the routine based on the cluster size of the file system. My basic maths showed this needed to be around 70 as the smallest FAT32 cluster size is 4096bytes (256MB–8GB) so 34 clusters for a MDR file tops (MDR size is 137923bytes, 137923/4096=33.67), the equation is then (34+1)*2=70. This is based on nobody using <256MB SD Card and when using >8GB the cluster size only gets larger which decreases the buffer size. exFAT cluster sizes are larger than FAT32, smallest being 4096bytes for <256MB, 32kB for <32GB and 128kB for >32GB.
 
 The code used to set-up fast seek is as follows:
 
@@ -158,3 +158,67 @@ fpRW.cltbl=clmt; // Enable fast seek mode (cltbl != NULL)
 clmt[0]=SZ_TBL; // Set table size                     
 f_lseek(&fpRW,CREATE_LINKMAP);
 ````
+
+I also changed the `spi.h` in order to flash the correct LED when accessing the SD Card, changing it to pin 13 from 25.
+
+Finally a `hw_config.c` file needs to be created to specify the hardware configuration required. The following is an extract of the important parts:
+
+````
+#include <string.h>
+#include "my_debug.h"
+#include "hw_config.h"
+#include "ff.h" /* Obtains integer types */
+#include "diskio.h" /* Declarations of disk functions */
+
+void spi0_dma_isr();
+
+// Hardware Configuration of SPI "objects"
+static spi_t spis[] = {  // One for each SPI.
+    {
+        .hw_inst = spi0,  // SPI component
+        .miso_gpio = 16, // GPIO number (not pin number)
+        .mosi_gpio = 19,
+        .sck_gpio = 18,
+        .set_drive_strength = true,
+        .mosi_gpio_drive_strength = GPIO_DRIVE_STRENGTH_2MA,
+        .sck_gpio_drive_strength = GPIO_DRIVE_STRENGTH_2MA,
+        .baud_rate = 12500 * 1000,  // The limitation here is SPI slew rate.
+        .dma_isr = spi0_dma_isr
+    }
+};
+
+// Hardware Configuration of the SD Card "objects"
+static sd_card_t sd_cards[] = {  // One for each SD card
+    {
+        .pcName = "0:",           // Name used to mount device
+        .spi = &spis[0],          // Pointer to the SPI driving this card
+        .ss_gpio = 17,            // GPIO pin 17 for the SPI CS connection
+        .set_drive_strength = true,
+        .ss_gpio_drive_strength = GPIO_DRIVE_STRENGTH_2MA,
+        .use_card_detect = true, // The Micro SD Card reader I use has this feature, so this is turned on
+        .card_detect_gpio = 22,   // Card detect GPIO
+        .card_detected_true = 1, // What the GPIO read returns when a card is present. Use -1 if there is no card detect
+        .m_Status = STA_NOINIT
+    }
+};
+
+void spi0_dma_isr() { spi_irq_handler(&spis[0]); }
+size_t sd_get_num() { return count_of(sd_cards); }
+sd_card_t *sd_get_by_num(size_t num) {
+    if (num <= sd_get_num()) {
+        return &sd_cards[num];
+    } else {
+        return NULL;
+    }
+}
+size_t spi_get_num() { return count_of(spis); }
+spi_t *spi_get_by_num(size_t num) {
+    if (num <= sd_get_num()) {
+        return &spis[num];
+    } else {
+        return NULL;
+    }
+}
+````
+
+
