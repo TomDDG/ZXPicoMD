@@ -1,6 +1,6 @@
 # ZXPicoMD
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/fullset-up.png "with Real Hardware")
+![image](./Images/fullset-up.png "with Real Hardware")
 
 Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.org/wiki/ZX_Microdrive)
 
@@ -51,7 +51,7 @@ When the blue LED is on so the unit is input ready you can enter the Menu to sel
 
 The buttons are (from the left): Previous; Next; Enter; Back; Reset
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/buttons.png "Button Layout")
+![image](./Images/buttons.png "Button Layout")
 
 Previous & Next are used to go left/right or up/down in the menu or file explorer. Enter is used to select an option or file (also to enter the menu in the first place). Back goes up one level in the menu or when using the file explorer moves up one directory. Reset reboots the Pico if all else fails (also useful when flashing the Pico). If you hold down the buttons it also behaves differently in certain scenarios, for example holding down Next in the file explorer goes down one page of file entries rather than just one file entry.
 
@@ -59,7 +59,7 @@ The LEDs show certain activity:
 1. The top LED (furthest from the buttons) is Drive and Write for when the Microdrive is being accessed. Drive will come on when the simulated motor is on (if you installed a buzzer you will also hear it). Write will come on (replacing Drive) when the ZXPicoMD is receiving a WRITE signal.
 2. The other LED is for SD Card access and Input ready. SD Card is simply to show when the SD card is being accessed (don't turn off). Input ready is to show when the drive is idling and therefore ready for a command or input.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/LEDs.png "LEDs")
+![image](./Images/LEDs.png "LEDs")
 
 ## Development
 
@@ -87,7 +87,7 @@ Outside of basing this around the easily obtainable Raspberry Pico I also made t
 
 Following image shows everything connected. The ZXPicoMD is fully compatible with the Multiface 1 and 128 (shown in the photo).
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/FullSetup.png "Connected")
+![image](./Images/FullSetup.png "Connected")
 
 ## The GUI
 
@@ -110,7 +110,7 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 
 The file explorer will only show compatible files, those with extension MDR, TAP, Z80 & SNA and directories.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/menulayout_v3.png "Menu Layout v3")
+![image](./Images/menulayout_v3.png "Menu Layout v3")
 
 ### Quick Swap
 
@@ -130,49 +130,49 @@ Note this is a simple file copy so if you are wanting to run a loader, usually f
 
 Once the copy has complete `CAT` the drive and you will see
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm1.png "MM CAT")
+![image](./Images/TAPtoMDR/mm1.png "MM CAT")
 
 Now Load the `(Info)` file:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm2.png "MM (Info) Load")
+![image](./Images/TAPtoMDR/mm2.png "MM (Info) Load")
 
 This will show details of the files copied from the TAP in `REM` statements. Write down the filenames `mm1` (the loading screen) & `MM2` (the main code) for later.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm4.png "MM (Info) Load 2")
+![image](./Images/TAPtoMDR/mm4.png "MM (Info) Load 2")
 
 Now load the main basic loader `ManicMiner`:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm5.png "MM Basic 1")
+![image](./Images/TAPtoMDR/mm5.png "MM Basic 1")
 
 and `LIST`
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm7.png "MM Basic 2")
+![image](./Images/TAPtoMDR/mm7.png "MM Basic 2")
 
 Now edit the loader with the correct Microdrive syntax `*"m";1;` and filenames you wrote down earlier:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm8.png "MM Basic 3")
+![image](./Images/TAPtoMDR/mm8.png "MM Basic 3")
 
 Save this as `RUN` with autorun `LINE 1` added so you can use the shortcut on reboot:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mm9.png "MM RUN")
+![image](./Images/TAPtoMDR/mm9.png "MM RUN")
 
 The game will now load using `RUN`:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/TAPtoMDR/mmload.png "MM LOAD")
+![image](./Images/TAPtoMDR/mmload.png "MM LOAD")
 
 ### Working with Real H/W Microdrives
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMD128k.png "128k with Real Hardware")
+![image](./Images/ZXPicoMD128k.png "128k with Real Hardware")
 
 As of release v1 beta you can now put real h/w Microdrives downstream of the ZXPicoMD. Please note these only work downstream (ZXPicoMD closest to the Spectrum) as the ZXPicoMD needs to control the COMMs shift register in order to mix virtual/emulated drives and real h/w drives. Any drive combination can be used with the only restriction being a lower numbered drive will be activated first, example, if you pick drive 2 & 4 as real h/w drives the lower number, 2, will be the one next to the ZXPicoMD and 4 the one after.
 
 The following diagram shows how to select drive 1 as real h/w.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/drive1hw.png "Drive 1 H/W")
+![image](./Images/drive1hw.png "Drive 1 H/W")
 
 and how to add drive 3 as real h/w.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/drive3hw.png "Drive 3 H/W")
+![image](./Images/drive3hw.png "Drive 3 H/W")
 
 With drive 1 & 3 set to real h/w, CAT 1 will access the first real drive connected to the ZXPicoMD. CAT 3 will access the second real drive, the one connected to the first real drive. All other drive selections will access a virtual/emulated drive.
 
@@ -182,7 +182,7 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 When saving a cartridge to the sd card you can specify a filename by using a simple character selector as show below:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/charselect.png "File Name Selector")
+![image](./Images/charselect.png "File Name Selector")
 
 Use the previous and next buttons to pick the character you want and press enter to select the character, note unless you are on the last character the enter is used to select the character not to complete the name. To complete the name before the last character there is a complete name option towards the beginning of the selector (see list below). To delete an entered character you use a remove character option at the beginning of the selector. The selector only allows you to enter alphanumeric characters i.e. no specials and maximum length is 12. The order of the characters is:
 
@@ -197,9 +197,9 @@ You can't pick anything before 0 (zero) for the first character. If you press ba
 
 ## v1.2 Circuit (the one without BOB)
 
-The following circuit does not include the level shifter which is no longer required due to the IF1 accepting the lower voltage output of the Pico ~3V. For the old circuit please click here https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v3a.png
+The following circuit does not include the level shifter which is no longer required due to the IF1 accepting the lower voltage output of the Pico ~3V. For the old circuit please click [here](./Images/PicoDriveZX_Circuit_v3a.png)
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/PicoDriveZX_Circuit_v4a.png "Circuit v4a")
+![image](./Images/PicoDriveZX_Circuit_v4a.png "Circuit v4a")
 
 ## v1.1 PCB Hardware Mod for Real H/W Support
 
@@ -207,7 +207,7 @@ Unfortunately during testing it became apparant that the BOB level shifter inter
 
 Luckily this is extremly simple to fix and doesn't need any complex re-routing or code changes, in fact all you need to do to get the v1.1 PCB working with real hardware is to replace the BOB-12009 level shifter with 3 diodes as shown in the image below (note the cathode line at the top HV side). I've tested this with standard 1N4148 and BAT43 Schottky diodes. The BAT diodes have a better voltage drop, measuring I show 3.0V for the 1N4148 and 3.2V with the BAT. Recommend to use BATs although 1N4148 seem to work fine.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/diodes.png "Hardware Mod")
+![image](./Images/diodes.png "Hardware Mod")
 
 ## BoM
 
@@ -238,13 +238,13 @@ I have designed a PCB to house everything and you can purchase v1.2 on PCBWay (h
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
 - v1.2 - removed bob-12009 level shifter and replaced with diodes, some refactoring. *Note this is simply a cosmetic change and v1.1 works fine with real h/w by simply replacing the bob with diodes as shown in the hardware mod section
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/ZXPicoMDv1.2.png "PCB v1.2")
+![image](./Images/ZXPicoMDv1.2.png "PCB v1.2")
 
 ## Case
 
 The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/IMG_0151.jpg "In Case")
+![image](./Images/IMG_0151.jpg "In Case")
 
 ## Building with Case
 
@@ -258,30 +258,30 @@ Now solder in the bi-colour LEDs. Mount these so the bulb is slightly above the 
 
 After this you should have the following set-up (blue diodes are BATs, red are 1N4148s):
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/DidodePlacement.png "Diode Placement")
+![image](./Images/DidodePlacement.png "Diode Placement")
 
 The OLED socket needs to be raised off the PCB in order for the screen to fit in the top of the case, these longer legs sockets are often referred to as stackable pin header sockets. The best way to get this at the correct height is to first mount the OLED into the top case, plug the header socket in, and then put the PCB on top (bottom up). Ensure the PCB is straight and then solder in place. It should now look like this:
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/OLEDMount.png "OLED Mount")
+![image](./Images/OLEDMount.png "OLED Mount")
 
 You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and then securing with a small screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slot is flush to the side of the case as shown in the photo.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/AllBuilt.png "All Built")
+![image](./Images/AllBuilt.png "All Built")
 
-Pop the top of case on but remember the OLED screen pins need to fit in the raised socket. This can take a couple of goes. A final touch is to add a rainbow sticker to match the original case. I've created a PDF sticker sheet if you want to print your own (https://github.com/TomDDG/ZXPicoMD/blob/main/Images/stripes.pdf)
+Pop the top of case on but remember the OLED screen pins need to fit in the raised socket. This can take a couple of goes. A final touch is to add a rainbow sticker to match the original case. I've created a PDF [sticker sheet](./Images/stripes.pdf) if you want to print your own 
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/withstripes.jpg "with Stripes")
+![image](./Images/withstripes.jpg "with Stripes")
 
 ## Testing the ZX PicoMD
 
-Once built I run the device through a series of tests. The main one is a test cartridge by Martin Smith, you can download this from the TestCarts folder (https://github.com/TomDDG/ZXPicoMD/blob/main/TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr). This utility was initially designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. Another test I run is making sure the write protect circuit is ok by toggling it on and trying to format a cartridge, this should fail with a write protect message, toggling it back off and it should work again.
+Once built I run the device through a series of tests. The main one is a test cartridge by Martin Smith, you can download this from the TestCarts folder (.TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr). This utility was initially designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. Another test I run is making sure the write protect circuit is ok by toggling it on and trying to format a cartridge, this should fail with a write protect message, toggling it back off and it should work again.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/phew.png "Test Cartridge")
+![image](./Images/phew.png "Test Cartridge")
 
 
 In addition I've also uploaded two IF1 ROM version check cartridges, one based on a CRC check routine by Blaze and another which looks for the location of a HOOK routine in the shadow ROM written by Andy Pennell for Your Spectrum (Issue 20, page 13). These both determine the ROM version of the IF1 you are using which is useful for degbugging as I've only been able to test ZX PicoMD with a v2 ROM.
 
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/if1rom.png "IF1 ROM version")
+![image](./Images/if1rom.png "IF1 ROM version")
 
 ## FAQ
 
@@ -294,7 +294,7 @@ In addition I've also uploaded two IF1 ROM version check cartridges, one based o
   - Copy everything off your SD Card onto a PC, reformat the SD Card and copy it all back on. This ensures the files are on the SD Card sequentially which speeds up access significantly. This also helps as I use a basic sort algorithm, if the files are already sorted this has less to do.
   - Try to use a modern Micro SD Card of at least C10 rating. As of writing the cheapest cards seem to be the 32GB ones which are most likely UHS Speed Class which will work fine and way more space than you need. I've configured the SD Card access speed to be 12.5Mbits/s which is ~1.5MBytes/s (more like half that in reality) so anything above that in theory should be fine. Image below shows the results from a quick speed test on a couple of cards, top one is a class 10 and the other is an older 2GB rated for 30MB/s. Both of these cards worked fine:
   
-![image](https://github.com/TomDDG/ZXPicoMD/blob/main/Images/SDCardSpeed.png "SD Card Speed")
+![image](./Images/SDCardSpeed.png "SD Card Speed")
 
 - Can I use ZIP files?
   - The ZX PicoMD does not currently work with ZIP files. The main reason for this is the need to compress files to save space is kind of redundant with the size of the cheapest modern SD Cards. A 16GB or 32GB Micro SD card can easily store the entire uncompressed Spectrum library multiple times, including having both Z80s, SNAs, MDRs & TAPs. Z80 files are also already compressed, although not as well as ZIPs would be. Some quick maths shows that if we used uncompressed MDRs, which are 137923Bytes in size, a 16GB SD Card can store over 100,000 microdrive cartridges! Z80 & TAPs are usually smaller than MDRs. As of writing this a 32GB SanDisk branded micro SD card is £6 on Amazon.
