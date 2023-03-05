@@ -145,7 +145,7 @@ As part of using this library you need to customise the `ffconf.h` file. The ver
 #define FF_SYNC_t		HANDLE
 ````
 
-As you can see I use fast seek to speed up the seek operations. It is not a massive improvement but when time is at a premium every milli-seccond counts. To use fast seek you need to allocate a small buffer to the routine based on the cluster size of the file system. My basic maths showed this needed to be around 70 as the smallest FAT32 cluster size is 4096bytes (256MB–8GB) so 34 clusters tops, the equation is then (34+1)*2=70. This is based on nobody using <256MB SD Card and when using >8GB the cluster size only gets larger which decreases the buffer size.
+As you can see I use fast seek to speed up the seek operations. It is not a massive improvement but when time is at a premium every milli-seccond counts. To use fast seek you need to allocate a small buffer to the routine based on the cluster size of the file system. My basic maths showed this needed to be around 70 as the smallest FAT32 cluster size is 4096bytes (256MB–8GB) so 34 clusters for a MDR file tops (MDR size is 137923bytes, 137923/4096=33.67), the equation is then (34+1)*2=70. This is based on nobody using <256MB SD Card and when using >8GB the cluster size only gets larger which decreases the buffer size.
 
 The code used to set-up fast seek is as follows:
 
