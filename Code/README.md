@@ -99,6 +99,14 @@ case 'W': // write operation requested from core 2
 break;
 ````
 
+## Notes on driving the OLED screen
+
+To drive the SSD1306 OLED screen via the I2C interface I modified some Python based code by [makerportal](https://github.com/makerportal/rpi-pico-ssd1306). I re-used their initialisation, send command and show code (converting them to C from Python) but developed my own screen writing routines using a double height ZX Spectrum font and also a routine which can take a GIMP RAW image file, compress it and then quickly show that on the screen, very useful for the menu system.
+
+Using the screen is very simple, requiring a 1024bytes buffer and then simply sending commands to set the column and page address and then writing the entire buffer to the screens small inbuilt buffer via `i2c_write_blocking`. The makerportal article covers this in a lot of detail.
+
+All this requires `#include "hardware/i2c.h"` in the main c file and associated `target_link_libraries` in the `CMakeLists.txt` file.
+
 ## Notes on use of FATFS_SPI library
 
 As part of using this library you need to customise the `ffconf.h` file. The version I use has:
