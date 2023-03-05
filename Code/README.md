@@ -161,7 +161,7 @@ f_lseek(&fpRW,CREATE_LINKMAP);
 
 I also changed the `spi.h` in order to flash the correct LED when accessing the SD Card, changing it to pin 13 from 25.
 
-Finally a `hw_config.c` file needs to be created to specify the hardware configuration required. The following is an extract of the important parts:
+Finally a `hw_config.c` file needs to be created (in the root folder) to specify the hardware configuration required. The following is an extract of the important parts:
 
 ````
 #include <string.h>
@@ -221,4 +221,4 @@ spi_t *spi_get_by_num(size_t num) {
 }
 ````
 
-
+To use this file you need to add it to the Pico `CMakeLists.txt` file within the `add_executable` add `hw_config.c`. If you do put it in a directory make sure you add the path.
