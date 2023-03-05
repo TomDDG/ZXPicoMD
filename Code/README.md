@@ -99,4 +99,48 @@ case 'W': // write operation requested from core 2
 break;
 ````
 
+## Notes on use of FATFS_SPI library
 
+As part of using this library you need to customise the `ffconf.h` file. The version I use has:
+
+````
+#define FFCONF_DEF	80196
+#define FF_FS_READONLY	0
+#define FF_FS_MINIMIZE	1 // removes un-needed operations such as mkdir in order to reduce memory footpint
+#define FF_USE_STRFUNC	0
+#define FF_USE_FIND		0
+#define FF_USE_MKFS		0
+#define FF_USE_FASTSEEK	1 // fast seek speeds up some operations which is useful due to the limited time available from an IF1 request and when data is needed to be sent
+#define FF_USE_EXPAND	0
+#define FF_USE_CHMOD	0
+#define FF_USE_LABEL	0
+#define FF_USE_FORWARD	0
+#define FF_CODE_PAGE	437
+#define FF_USE_LFN		3
+#define FF_MAX_LFN		255
+#define FF_LFN_UNICODE	2
+#define FF_LFN_BUF		255
+#define FF_SFN_BUF		12
+#define FF_STRF_ENCODE	3
+#define FF_FS_RPATH		0
+#define FF_VOLUMES		1 // only 1 SD Card connected
+#define FF_STR_VOLUME_ID	0
+#define FF_VOLUME_STRS		"RAM","NAND","CF","SD","SD2","USB","USB2","USB3"
+#define FF_MULTI_PARTITION	0
+#define FF_MIN_SS		512
+#define FF_MAX_SS		512
+#define FF_LBA64		1
+#define FF_MIN_GPT		0x10000000
+#define FF_USE_TRIM		0
+#define FF_FS_TINY		0 // I did play around with Tiny, to reduce memory footprint, but as only 1 file is ever open at one time it didn't make any difference
+#define FF_FS_EXFAT		1 // yes please, FAT32 isn't great with larger SD Cards and Windows
+#define FF_FS_NORTC		1
+#define FF_NORTC_MON	1
+#define FF_NORTC_MDAY	1
+#define FF_NORTC_YEAR	2020
+#define FF_FS_NOFSINFO	0
+#define FF_FS_LOCK		16
+#define FF_FS_REENTRANT	0
+#define FF_FS_TIMEOUT	1000
+#define FF_SYNC_t		HANDLE
+````
