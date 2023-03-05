@@ -63,7 +63,7 @@ The LEDs show certain activity:
 
 ## Development
 
-Built from the ground up using the the Pico C SDK (https://raspberrypi.github.io/pico-sdk-doxygen/). Uses Pico multicore to separate the time critical emulation components (core 1) to the interrupt driven IO (core 0). For more details on how I built the code please see the code section (https://github.com/TomDDG/ZXPicoMD/blob/main/Code/README.md)
+Built from the ground up using the the Pico C SDK (https://raspberrypi.github.io/pico-sdk-doxygen/). Uses Pico multicore to separate the time critical emulation components (core 1) to the interrupt driven IO (core 0). For more details on how I built the code please see the [code section](./Code/README.md)
 
 Big thanks to Alex from OqtaDrive fame (https://codeberg.org/xelalexv/oqtadrive) for help with understanding the Microdrive hardware & troubleshooting. 
 
