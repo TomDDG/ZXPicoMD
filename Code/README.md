@@ -130,7 +130,7 @@ void doubleChr(uint8_t *buff,uint8_t chr,uint8_t col,uint8_t row,bool invert) {
 ````
 
 
-Using the screen is very simple, requiring a 1024bytes buffer and then simply sending commands to set the column and page address and then writing the entire buffer to the screens small inbuilt buffer via `i2c_write_blocking`. The makerportal article covers this in a lot of detail.
+Using the screen is very simple, requiring a 1024bytes buffer, sending commands to set the column and page address and then writing the entire buffer to the screens small inbuilt buffer via `i2c_write_blocking`. The makerportal article covers this in a lot of detail.
 
 All this requires `#include "hardware/i2c.h"` in the main c file and associated `target_link_libraries` in the `CMakeLists.txt` file.
 
