@@ -51,7 +51,7 @@ When the blue LED is on so the unit is input ready you can enter the Menu to sel
 
 The buttons are (from the left): Previous; Next; Enter; Back; Reset
 
-![image](./Images/buttons.png "Button Layout")
+![image](./Images/buttons.jpg "Button Layout")
 
 Previous & Next are used to go left/right or up/down in the menu or file explorer. Enter is used to select an option or file (also to enter the menu in the first place). Back goes up one level in the menu or when using the file explorer moves up one directory. Reset reboots the Pico if all else fails (also useful when flashing the Pico). If you hold down the buttons it also behaves differently in certain scenarios, for example holding down Next in the file explorer goes down one page of file entries rather than just one file entry.
 
