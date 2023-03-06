@@ -5,8 +5,9 @@
 
 void error(int errorcode);
 
-
-// convert binary file to const uint8_t suitable for ssd1306 OLED
+// converts GIMP RAW output file to a const uint8_t array suitable for the ssd1306 OLED 1024byte buffer
+// to create a GIMP RAW file, export a 128x64 image as .raw. Ensure the Image Mode is set to Indexed, B&W 1-bit and flatten the layers
+// this export should create a RAW file 8192bytes in size. There is no error check in this utility so preperation is critical
 int main(int argc, char* argv[]) {
 
 
