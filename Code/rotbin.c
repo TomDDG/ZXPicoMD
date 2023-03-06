@@ -60,3 +60,31 @@ void error(int errorcode) {
 	fprintf(stdout, "[E%02d]\n", errorcode);
 	exit(errorcode);
 }
+
+// decompression code
+// ---------------------------------------------------------------------------
+// dtoBuffer - decompress compressed screen directly into buffer (simple LZ)
+// input:
+//   to - the buffer
+//   from - the compressed storage
+// *simple LZ has a simple 256 backwards window and greedy parser but is very
+// fast
+// ---------------------------------------------------------------------------
+void dtoBuffer(uint8_t *to,const uint8_t *from) { 
+    uint i=0,j=0,k;
+    uint8_t c,o;
+    do {
+        c=from[j++];
+        if(c==128) return;
+        else if(c<128) {
+            for(k=0;k<c+1;k++) to[i++]=from[j++];
+        }
+        else {
+            o=from[j++]; // offset
+            for(k=0;k<(c-126);k++) {
+                to[i]=to[i-(o+1)];
+                i++;
+            }
+        }
+    } while(true);
+}
