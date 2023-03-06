@@ -270,7 +270,7 @@ You can now fit the Pico & Micro SD-Card socket and mount into the bottom part o
 
 Pop the top of case on but remember the OLED screen pins need to fit in the raised socket. This can take a couple of goes. A final touch is to add a rainbow sticker to match the original case. I've created a PDF [sticker sheet](./Images/stripes.pdf) if you want to print your own 
 
-![image](./Images/casewithbuttons.jpg "with Stripes")
+![image](./Images/casewithbuttons.png "with Stripes")
 
 ## Testing the ZX PicoMD
 
