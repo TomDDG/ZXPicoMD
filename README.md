@@ -246,6 +246,10 @@ The PCB was originally designed to fit in a real Microdrive case as it is based 
 
 ![image](./Images/IMG_0151.jpg "In Case")
 
+### Importance of Adding Feet
+
+I designed the case so that the edge connector was at the same height as the original Microdrive making it easier to connect them together. As the original Microdrive case has rubber feet these are also need to lift the case to the correct height, without these the case will be lifted by the connector which is not good. You can use the original feet, if you can get them, or as I prefer use some smaller  [3M Black Bumpons (SJ5076)](https://uk.rs-online.com/web/p/anti-slip-pads/1206041) which lift the case by approximately 2.8mm. If you don't plan on using this with a real Microdrive these are needed but they are also good for anti-slip.
+
 ## Building with Case
 
 This guide is based on v1.2 of the PCB, however it also applies to v1.1 with the diodes placed where the BOB was. 
