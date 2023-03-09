@@ -248,7 +248,7 @@ The PCB was originally designed to fit in a real Microdrive case as it is based 
 
 ### Importance of Adding Feet
 
-I designed the case so that the edge connector was at the same height as the original Microdrive making it easier to connect them together. As the original Microdrive case has rubber feet these are also need to lift the case to the correct height, without these the case will be lifted by the connector which is not good. You can use the original feet, if you can get them, or as I prefer use some smaller  [3M Black Bumpons (SJ5076)](https://uk.rs-online.com/web/p/anti-slip-pads/1206041) which lift the case by approximately 2.8mm. If you don't plan on using this with a real Microdrive these are needed but they are also good for anti-slip.
+I recommend adding some rubber feet to the case. If you can get hold of them the original feet are fine, however, I recommend the smaller [3M Black Bumpons (SJ5076)](https://uk.rs-online.com/web/p/anti-slip-pads/1206041) which lift the case to correct height (by ~2.8mm). This height adjustment is a requirement if you plan to connect this to a real Microdrive using the connector block. Without the feet the edge connector will be at the wrong height and won't fit together very well. If you don't plan on using this with a real Microdrive the feet are not needed although I still recommend them for anti-slip.
 
 ## Building with Case
 
@@ -281,7 +281,6 @@ Pop the top of case on but remember the OLED screen pins need to fit in the rais
 Once built I run the device through a series of tests. The main one is a test cartridge by Martin Smith, you can download this from the TestCarts folder (.TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr). This utility was initially designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. Another test I run is making sure the write protect circuit is ok by toggling it on and trying to format a cartridge, this should fail with a write protect message, toggling it back off and it should work again.
 
 ![image](./Images/phew.png "Test Cartridge")
-
 
 In addition I've also uploaded two IF1 ROM version check cartridges, one based on a CRC check routine by Blaze and another which looks for the location of a HOOK routine in the shadow ROM written by Andy Pennell for Your Spectrum (Issue 20, page 13). These both determine the ROM version of the IF1 you are using which is useful for degbugging as I've only been able to test ZX PicoMD with a v2 ROM.
 
