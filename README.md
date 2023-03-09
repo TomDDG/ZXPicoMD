@@ -248,7 +248,7 @@ The PCB was originally designed to fit in a real Microdrive case as it is based 
 
 ### Importance of Adding Feet
 
-I recommend adding some rubber feet to the case. If you can get hold of them the original feet are fine, however, I recommend the smaller [3M Black Bumpons (SJ5076)](https://uk.rs-online.com/web/p/anti-slip-pads/1206041) which lift the case to correct height (by ~2.8mm). This height adjustment is a requirement if you plan to connect this to a real Microdrive using the connector block. Without the feet the edge connector will be at the wrong height and won't fit together very well. If you don't plan on using this with a real Microdrive the feet are not needed although I still recommend them for anti-slip.
+I recommend adding some rubber feet to the case. If you can get hold of them the original feet are fine, however, I recommend the smaller [3M Black Bumpons (SJ5076)](https://uk.rs-online.com/web/p/anti-slip-pads/1206041) which lift the case to the correct height (by ~2.8mm). This height adjustment is a requirement if you plan to connect this to a real Microdrive using the connector block. Without the feet the edge connector will be at the wrong height and won't fit together very well. If you don't plan on using this with a real Microdrive the feet are not needed although I still recommend them for anti-slip.
 
 ## Building with Case
 
