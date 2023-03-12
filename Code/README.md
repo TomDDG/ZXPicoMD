@@ -1,6 +1,8 @@
 # Code Section
 
-The following section details how I built the code and decisions made. To jump to a specific section click on the links below
+The following section details how I developed the code, the challenges and decisions made. Although not a dump of the entire code you should be able to build your own version from the details within. 
+
+To jump to a specific section click on the links below
 
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
