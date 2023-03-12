@@ -1,4 +1,6 @@
-# Code Index
+# Code Section
+
+The following section details how I built the code and decisions made. To jump to a specific section click on the links below
 
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
