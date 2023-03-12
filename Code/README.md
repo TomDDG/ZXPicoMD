@@ -1,3 +1,10 @@
+# Code Index
+
+- [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
+- [Notes on Memory Usage](#notes-on-memory-usage)
+- [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
+- [#Notes on use of FATFS_SPI Library](#notes-on-use-of-fatfs_spi-library)
+
 ## Notes on using the 2nd CORE
 
 As all the main IO such as SD Card access, OLED and menu system are on core 1 and all the timing critical Microdrive elements are on core 2 there is a need to send commands between the two cores. As such my code makes use of the Pico inter-core FIFOs to communicate, sending commands to do things like telling the 1st core to get more data from the SD Card or to close an image file. The FIFO uses a 32bit integer `uint32_t` to communicate and I simply mask this into 4 individual bytes, a command a 3 "message" bytes.
