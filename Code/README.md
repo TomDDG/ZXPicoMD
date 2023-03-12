@@ -1,6 +1,6 @@
 # Code Section
 
-The following section details how I developed the code, the challenges and decisions made. Although not a dump of the entire code you should be able to build your own version from the details within. 
+The following section details how I developed the code, the challenges and decisions made. Although not a dump of the entire code you should, once I've finished, be able to build your own version from the details within. 
 
 To jump to a specific section click on the links below
 
