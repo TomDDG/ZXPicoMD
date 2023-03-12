@@ -7,7 +7,7 @@ To jump to a specific section click on the links below
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
 - [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
-- [Notes on use of FATFS_SPI Library](#notes-on-use-of-fatfs_spi-library)
+- [Notes on use of FATFS SPI Library](#notes-on-use-of-fatfs_spi-library)
 
 ## Notes on using the 2nd CORE
 
