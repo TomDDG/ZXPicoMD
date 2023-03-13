@@ -4,7 +4,7 @@ The following section details how I developed the code, the challenges and decis
 
 To jump to a specific section click on the links below
 
-- [Notes of how to Identify which drive the Interface 1 is Accessing]
+- [Notes of how to Identify which drive the Interface 1 is Accessing](#notes-of-how-to-identify-which-drive-the-interface-1-is-accessing)
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
 - [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
