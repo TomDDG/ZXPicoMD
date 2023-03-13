@@ -4,10 +4,23 @@ The following section details how I developed the code, the challenges and decis
 
 To jump to a specific section click on the links below
 
+- [Notes of how to Identify which drive the Interface 1 is Accessing]
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
 - [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
 - [Notes on use of FATFS SPI Library](#notes-on-use-of-fatfs_spi-library)
+
+## Notes of how to Identify which drive the Interface 1 is Accessing
+
+The Interface 1 uses a simple clock pulse (sent on the CLK line) combined with a COMMS signal to identify which Microdrive is being requested. This COMMs signal is shifted down the chain as it has to pass through the preceding Microdrive. The following image shows the CLK & COMM signal for a `CAT 1` command. 
+
+![image](./Images/CAT1.png "CAT 1")
+
+You can clearly see the COMM signal goes high on the last CLK pulse (read on the falling edge of CLK). The next image shows the same for `CAT 2` and now you can see the COMM goes high on the 2nd to last CLK pulse.
+
+![image](./Images/CAT2.png "CAT 2")
+
+This is repated all the way up to `CAT 8` where the COMM signal is high as soon as the CLK pulses start.
 
 ## Notes on using the 2nd CORE
 
