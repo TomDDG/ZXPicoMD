@@ -12,7 +12,9 @@ To jump to a specific section click on the links below
 
 ## Notes of how to Identify which Drive the Interface 1 is Accessing
 
-The Interface 1 uses a simple clock pulse (sent on the CLK line) combined with a COMMS signal to identify which Microdrive is being requested. This COMMs signal is shifted down the chain as it has to pass through the preceding Microdrive. The following image shows the CLK & COMM signal for a `CAT 1` command. 
+The Interface 1 uses a simple clock pulse (sent on the CLK line) combined with a COMMs signal to identify which Microdrive is being requested. This COMMs signal is shifted down the chain as it passes through each Microdrive in the chain and the Microdrive is programmed to turn on when it sees the COMMs high on the last CLK pulse.
+
+The following image shows the CLK & COMM signal for a `CAT 1` command. 
 
 ![image](./Images/CAT1.png "CAT 1")
 
