@@ -31,15 +31,13 @@ Some example code which simply prints the drive selected:
 #define MASK_CLK        0b000100
 #define MASK_CIN        0b010000 // this is COMMs in, there is also a COMMs out which passes the COMMs signal to the next drive
 //
-uint64_t lastPing; // used for timing
 uint32_t c; // used to get all the gpio states
 bool pulse=true; // pulse is used to ensure count is only on the CLK transition from high to low
-uint8_t driveSelected=0; // no drive selected
+uint8_t driveSelected=0; // start with no drive selected
 uint8_t driveCount=8; // start counter at 8
 do {
     c=gpio_get_all(); // get all gpio ping status into 32bit unsigned integer c
     if((c&MASK_CLK)==0&&pulse==true) { // CLK low and pulse is true
-        if(driveCount==8) lastPing=time_us_64(); // reset timeout clock
         if(c&MASK_CIN) driveSelected=driveCount;
         pulse=false; // wait for next CLK high/low transistion
     }
@@ -47,7 +45,8 @@ do {
         pulse=true; // reset the pulse toggle
     }
 while(driveCount>0); // exit when the drive counter is 0
-printf("Drive Selected=%d\n",driveSelected);
+if(driveSelected>0) printf("Drive Selected=%d\n",driveSelected);
+else printf("No Drive Selected\n");
 ````
 
 ## Notes on using the 2nd CORE
