@@ -38,10 +38,10 @@ uint8_t driveCount=8; // start counter at 8
 do {
     c=gpio_get_all(); // get all gpio ping status into 32bit unsigned integer c
     if((c&MASK_CLK)==0&&pulse==true) { // CLK low and pulse is true
-        if(c&MASK_CIN) driveSelected=driveCount;
+        if(c&MASK_CIN) driveSelected=driveCount; // if COMMs also high then drive = count number
         pulse=false; // wait for next CLK high/low transistion
     }
-    else if((c&MASK_CLK)&&pulse==false) {
+    else if((c&MASK_CLK)&&pulse==false) { // CLK high and pulse is false
         pulse=true; // reset the pulse toggle
     }
     // can put a delay here as no real need to sample all the time. The pulses are 1ms wide so every6 100us should be enough
