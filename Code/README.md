@@ -40,6 +40,7 @@ do {
     if((c&MASK_CLK)==0&&pulse==true) { // CLK low and pulse is true
         if(c&MASK_CIN) driveSelected=driveCount; // if COMMs also high then drive = count number
         pulse=false; // wait for next CLK high/low transistion
+        driveCount--;
     }
     else if((c&MASK_CLK)&&pulse==false) { // CLK high and pulse is false
         pulse=true; // reset the pulse toggle
