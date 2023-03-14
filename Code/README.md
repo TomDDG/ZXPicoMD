@@ -44,7 +44,8 @@ do {
     else if((c&MASK_CLK)&&pulse==false) {
         pulse=true; // reset the pulse toggle
     }
-while(driveCount>0); // exit when the drive counter is 0
+    // can put a delay here as no real need to sample all the time. The pulses are 1ms wide so every6 100us should be enough
+} while(driveCount>0); // exit when the drive counter is 0
 if(driveSelected>0) printf("Drive Selected=%d\n",driveSelected);
 else printf("No Drive Selected\n");
 ````
