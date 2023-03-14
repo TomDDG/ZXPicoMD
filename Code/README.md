@@ -24,6 +24,32 @@ You can clearly see the COMMs signal goes high on the last CLK pulse. The next i
 
 This is repated all the way up to `CAT 8` where the COMMs signal is high as soon as the CLK pulses start.
 
+In order for the Pico to determine which drive to start it simply monitors the CLK line attached to GPIO pin 2. When this goes low it starts a simple counter, decreasing form 8 to 1, and on each count it checks whether COMMs is high. If it is high then the drive to use is the counter. If COMMs never goes high this is interpreted as a STOP signal and the drive is stopped. On some Spectrums on first boot the CLK signal is already low (it should be high until the drive is accessed) and this can confuse the counter. To prevent this a timeout can be used to reset the counter every 25ms or so. This isn't full proof though so I do need to come up with a more elegant solution.
+
+Some example code which simply prints the drive selected:
+````
+#define MASK_CLK        0b000100
+#define MASK_CIN        0b010000 // this is COMMs in, there is also a COMMs out which passes the COMMs signal to the next drive
+//
+uint64_t lastPing; // used for timing
+uint32_t c; // used to get all the gpio states
+bool pulse=true; // pulse is used to ensure count is only on the CLK transition from high to low
+uint8_t driveSelected=0; // no drive selected
+uint8_t driveCount=8; // start counter at 8
+do {
+    c=gpio_get_all(); // get all gpio ping status into 32bit unsigned integer c
+    if((c&MASK_CLK)==0&&pulse==true) { // CLK low and pulse is true
+        if(driveCount==8) lastPing=time_us_64(); // reset timeout clock
+        if(c&MASK_CIN) driveSelected=driveCount;
+        pulse=false; // wait for next CLK high/low transistion
+    }
+    else if((c&MASK_CLK)&&pulse==false) {
+        pulse=true; // reset the pulse toggle
+    }
+while(driveCount>0); // exit when the drive counter is 0
+printf("Drive Selected=%d\n",driveSelected);
+````
+
 ## Notes on using the 2nd CORE
 
 As all the main IO such as SD Card access, OLED and menu system are on core 1 and all the timing critical Microdrive elements are on core 2 there is a need to send commands between the two cores. As such my code makes use of the Pico inter-core FIFOs to communicate, sending commands to do things like telling the 1st core to get more data from the SD Card or to close an image file. The FIFO uses a 32bit integer `uint32_t` to communicate and I simply mask this into 4 individual bytes, a command a 3 "message" bytes.
