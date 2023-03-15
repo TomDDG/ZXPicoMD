@@ -22,13 +22,17 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 - I designed ZX PicoMD to be very easy to build so anybody should be able to get the parts and put one together. I picked parts which are easy to get even with the current chip shortage, basing the whole build around the Raspberry Pico. It does require some soldering but this is all through hole not surface mount so a lot easier to do. I've included full details on how to [build one](#building-with-case) including [bill of materials](#bom) with links to the parts.
 - I do occassional build some complete units to sell on eBay https://www.ebay.co.uk/usr/tom_dd
 
-## Installation (if you've built your own)
+## Installation
 
+If you are building your own:
 - Download the correct UF2 from the UF2 folder (_w for Pico W)
 - Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 - Build the circuit (see below) - best to use the PCB (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html)
-- Connect to the IF1 
-- Turn on the Spectrum and hopefully all good
+
+Final steps for either pre-built or if building your own:
+- Format a blank Micro SD Card (recommend exFAT) and insert into the SD Card reader
+- Connect to the IF1
+- Turn on the Spectrum and you should see the splash screen if all working
 
 ## Version History
 - v1.4 (latest release) - Added buzzer loudness option (off/low/medium/high), previously only off and low were available
