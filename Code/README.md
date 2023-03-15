@@ -5,6 +5,7 @@ The following section details how I developed the code, the challenges and decis
 To jump to a specific section click on the links below
 
 - [Notes of how to Identify which drive the Interface 1 is Accessing](#notes-of-how-to-identify-which-drive-the-interface-1-is-accessing)
+- [Notes on sending data to the Interface 1]#notes-on-sending-data-to-the-interface-1
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
 - [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
@@ -55,7 +56,7 @@ else printf("No Drive Selected\n");
 
 Once the drive select is complete (after the 8th CLK pulse) the Interface 1 is expecting data to be sent around 40-70ms after the CLK signal goes high. If nothing is received the `Microdrive not present, 0:1` message will be shown on the Spectrum. This small pause is to allow the real drive motor to the spin up and is the perfect opportunity to get data into a buffer ready to be sent to the Interface 1. 
 
-As discussed in [Notes on use of FATFS SPI Library](#notes-on-use-of-fatfs_spi-library) I use a read ahead buffer so during this initial 40ms the PICO grabs the first 12 sectors ready to stream to the Interface 1.
+As discussed in [Notes on Memory Usage](#notes-on-memory-usage) I use a read ahead buffer so during this initial 40ms the PICO grabs the first 12 sectors ready to stream to the Interface 1.
 
 ## Notes on using the 2nd CORE
 
