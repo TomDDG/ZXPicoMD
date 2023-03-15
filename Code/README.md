@@ -12,7 +12,7 @@ To jump to a specific section click on the links below
 
 ## Notes of how to Identify which Drive the Interface 1 is Accessing
 
-The Interface 1 uses a simple clock pulse (sent on the CLK line) combined with a COMMs signal to identify which Microdrive is being requested. This COMMs signal is shifted as it passes down the chain through each Microdrive's ULA, whereas the CLK signal passes straight through from one edge connector to the other. The Microdrive is designed to turn on when it sees the COMMs signal high on the last CLK pulse, with this pulse defined as the transistion from high to low.
+The Interface 1 uses a eight 1ms clock pulse (sent on the CLK line) combined with a COMMs signal to identify which Microdrive is being requested. This COMMs signal is shifted as it passes down the chain through each Microdrive's ULA, whereas the CLK signal passes straight through from one edge connector to the other. The Microdrive is designed to turn on when it sees the COMMs signal high on the last CLK pulse, with this pulse defined as the transistion from high to low.
 
 The following image shows the CLK & COMM signal for a `CAT 1` command. 
 
@@ -50,6 +50,12 @@ do {
 if(driveSelected>0) printf("Drive Selected=%d\n",driveSelected);
 else printf("No Drive Selected\n");
 ````
+
+## Notes on sending data to the Interface 1
+
+Once the drive select is complete (after the 8th CLK pulse) the Interface 1 is expecting data to be sent around 40-70ms after the CLK signal goes high. If nothing is received the `Microdrive not present, 0:1` message will be shown on the Spectrum. This small pause is to allow the real drive motor to the spin up and is the perfect opportunity to get data into a buffer ready to be sent to the Interface 1. 
+
+As discussed in [Notes on use of FATFS SPI Library](#notes-on-use-of-fatfs_spi-library) I use a read ahead buffer so during this initial 40ms the PICO grabs the first 12 sectors ready to stream to the Interface 1.
 
 ## Notes on using the 2nd CORE
 
