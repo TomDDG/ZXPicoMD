@@ -24,13 +24,14 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 
 ## Installation
 
-If you are building your own start at step 1, for pre-built jump to step 4
+If you are building your own start at step 1, for pre-built jump to step 5
 1. Download the correct UF2 from the UF2 folder (_w for Pico W)
 2. Flash the Pico with the UF2 (see 3.2 https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 3. Build the circuit (see below) - best to use the PCB (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html)
-4. Format a blank Micro SD Card (recommend exFAT) and insert into the SD Card reader
-5. Connect to the IF1 using an appropriate cable
-6. Turn on the Spectrum and you should see the splash screen if all working
+4. Print a nice case to house the device (optional)
+5. Format a blank Micro SD Card (recommend exFAT) and insert into the SD Card reader
+6. Connect to the IF1 using an appropriate cable
+7. Turn on the Spectrum and you should see the splash screen if all working
 
 ## Version History
 - v1.4 (latest release) - Added buzzer loudness option (off/low/medium/high), previously only off and low were available
