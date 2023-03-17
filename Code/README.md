@@ -60,6 +60,49 @@ As discussed in [Notes on Memory Usage](#notes-on-memory-usage) I use a read ahe
 
 Each sector is made up of a header block and data block. 
 
+## Notes on Microdrive Cartridge 
+
+A Microdrive Cartridge can contain up to 254 sectors of data, with each sector made up of 512bytes. As such the maximum storage capacity is 512*254=130048bytes or 127kB. When formatting a drive using a real Spectrum sector 254 is never used meaning the real maximum size is 129536bytes or 126.5kB (CAT shows as 126). Most real cartridges never got anywhere close to this although some techniques used by add-ons such as the Multiface 128 and other software based utilites tweaked the format routine to eek out an extra sector or two. This tweaking was mostly around reducing the gaps between sectors to "fit" more on the tape, also cartridge tape was prone to stetching over time and could actually format higher due to this. It is worth adding that Microdrives were notoriously unreliable which is probably one of the main reasons why the format was not successful long term.
+
+A standard sector comprises of a header block and a data block. The header block contains the sector number and the name of the cartridge (masx 10 chars). The data block contains all of the data and other than a format it is only the data block whcih is written to during a `SAVE` or `ERASE` command. The header block is 15bytes long and the data block 528bytes, giving 543bytes per sector. 
+
+The following shows how each sector is made up:
+
+Header:
+````
+Byte    Length      Desciption
+0       1           bit 1 set to indicate header block
+1       1           Sector Number
+2       2           Not Used
+4       10          Microdrive Cartridge Name
+14      1           Header Checsum of previous 14bytes
+````
+
+Data:
+````
+Byte    Length      Desciption
+0       1           Data Flag:  bit 0 reset to indicate data block
+                                bit 1 set for EOF block
+                                bit 2 reset to indicate a PRINT file
+                                bit 3-7 not used
+1       1           Data Block Sequence Number (file broken into 512byte segements), starts at 0
+2       2           Data Block Length, <=512bytes (LSB)
+4       10          Filename
+14      1           Data Checksum of previous 14bytes
+15      512         Data Block
+527     1           Data Block Checksum of previous 512bytes
+````                  
+
+The MDR image format used by ZX PicoMD and many emulators is basically 254 543byte blocks with a final single additional byte which denotes whether the cartridge is write protected or not.
+
+On a real cartridge tape the sectors are placed in descending order 254 to 1 (no sector 0) with small gaps between the header and data block and also between each sector. The header to data gap is ~3.75ms and the gap between two sectors is ~7ms, as said above manipulating these gaps is one way to get more data onto the tape. The header and data blocks also have a preamble of 12bytes which tells the IF1 when the actual data is starting, this is made up of ten 0x00 bytes and 2 0xff bytes. When playing back from the ZX PicoMD these additional bytes need to be added before the real data, although as they are always the same there is no need to add to the image file stored on the SD Card. 
+
+## Notes on Cartridge Formatting
+
+As noted above the format is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. 
+
+During a format the IF1 will acutally write more than the 528bytes normally exepected during a write operation, 99bytes to be exact. It is important that these additional 99bytes are presented back to the Interface 1 during the verification phase otherwise it will think the sector is bad and mark it as such.
+
 ## Notes on using the 2nd CORE
 
 As all the main IO such as SD Card access, OLED and menu system are on core 1 and all the timing critical Microdrive elements are on core 2 there is a need to send commands between the two cores. As such my code makes use of the Pico inter-core FIFOs to communicate, sending commands to do things like telling the 1st core to get more data from the SD Card or to close an image file. The FIFO uses a 32bit integer `uint32_t` to communicate and I simply mask this into 4 individual bytes, a command a 3 "message" bytes.
