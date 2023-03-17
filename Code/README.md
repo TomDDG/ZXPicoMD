@@ -60,7 +60,7 @@ As discussed in [Notes on Memory Usage](#notes-on-memory-usage) I use a read ahe
 
 Each sector is made up of a header block and data block. 
 
-## Notes on Microdrive Cartridge 
+## Notes on the Microdrive Cartridge 
 
 A Microdrive Cartridge can contain up to 254 sectors of data, with each sector made up of 512bytes. As such the maximum storage capacity is 512*254=130048bytes or 127kB. When formatting a drive using a real Spectrum sector 254 is never used meaning the real maximum size is 129536bytes or 126.5kB (CAT shows as 126). Most real cartridges never got anywhere close to this although some techniques used by add-ons such as the Multiface 128 and other software based utilites tweaked the format routine to eek out an extra sector or two. This tweaking was mostly around reducing the gaps between sectors to "fit" more on the tape, also cartridge tape was prone to stetching over time and could actually format higher due to this. It is worth adding that Microdrives were notoriously unreliable which is probably one of the main reasons why the format was not successful long term.
 
