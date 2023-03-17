@@ -99,9 +99,11 @@ On a real cartridge tape the sectors are placed in descending order 254 to 1 (no
 
 ## Notes on Cartridge Formatting
 
-As noted above the format is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. 
+As noted above the format is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. During a format the IF1 will acutally write more than the 528bytes normally exepected during a write operation, 99bytes if using the standard ROM routines. These additional bytes are used to identify that a format is happening. 
 
-During a format the IF1 will acutally write more than the 528bytes normally exepected during a write operation, 99bytes to be exact. It is important that these additional 99bytes are presented back to the Interface 1 during the verification phase otherwise it will think the sector is bad and mark it as such.
+During a format the IF1 sends all 254 sectors in turn, writing the header with the sector number and cartridge name and a data block with `0xfc` in all data block bytes. The IF1 then reads them all back in checking the data is always `0xfc` and marking any bad sectors for a final write phase. This final pahse enables all the good sectors by clearing the Data Block only, basically writing `0x00` to all bytes. A bad sector is noted by an EOF flag with a data length of 0, the data block is also not set to `0x00`.
+
+In order for the IF1 to determine if a sector is good it is important that these additional 99bytes are presented back during the verification phase. The 99 extra bytes are always the same (`0xfc`) so there is no need to store them in the image file. When using a MF128 these extra 99bytes are not sent, however a single `0x80` byte is which also needs to be presented back.
 
 ## Notes on using the 2nd CORE
 
