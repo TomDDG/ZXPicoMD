@@ -7,7 +7,7 @@ To jump to a specific section click on the links below:
 - [Notes on the Microdrive Cartridge](#notes-on-the-microdrive-cartridge)
 - [Notes on the Cartridge Tape Format](#notes-on-the-cartridge-tape-format) 
 - [Notes on Sending Data to the IF1](#notes-on-sending-data-to-the-if1)
-- [Notes on Receiving Data from the IF1]()
+- [Notes on Receiving Data from the IF1](#notes-on-receiving-data-from-the-if1)
 - [Notes on Cartridge Formatting](#notes-on-cartridge-formatting)
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
