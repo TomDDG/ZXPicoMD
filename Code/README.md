@@ -7,6 +7,7 @@ To jump to a specific section click on the links below:
 - [Notes on sending data to the Interface 1](#notes-on-sending-data-to-the-interface-1)
 - [Notes on the Microdrive Cartridge](#notes-on-the-microdrive-cartridge)
 - [Notes on Cartridge Formatting](#notes-on-cartridge-formatting)
+- [Notes on Cartridge Tape Format](notes-on-cartridge-tape-format)
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
 - [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
@@ -106,7 +107,7 @@ During a format the IF1 sends all 254 sectors in turn, writing the header with t
 
 In order for the IF1 to determine if a sector is good it is important that these additional 99bytes are presented back during the verification phase. The 99 extra bytes are always the same (`0xfc`) so there is no need to store them in the image file. When using a MF128 these extra 99bytes are not sent, however a single `0x80` byte is, which also needs to be presented back.
 
-## Notes of Tape Format
+## Notes on Cartridge Tape Format
 
 All data is stored on a Microdrive cartridge tape using a "stereo" two track system with alternate bytes being stored on each track. These tracks are sent or received independently on the `DATA1` and `DATA2` lines. The tracks are staggered by 4bits with the `DATA2` track starting before the `DATA1` one. Recording in "stereo" means more data can be fitted on a single tape.
 
