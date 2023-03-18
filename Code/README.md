@@ -4,7 +4,6 @@ The following section details how I developed the code, the challenges and decis
 
 To jump to a specific section click on the links below:
 - [Notes of how to Identify which drive the Interface 1 is Accessing](#notes-of-how-to-identify-which-drive-the-interface-1-is-accessing)
-- [Notes on sending data to the Interface 1](#notes-on-sending-data-to-the-interface-1)
 - [Notes on the Microdrive Cartridge](#notes-on-the-microdrive-cartridge)
 - [Notes on the Cartridge Tape Format](#notes-on-the-cartridge-tape-format) 
 - [Notes on Sending Data to the IF1](#notes-on-sending-data-to-the-if1)
@@ -55,14 +54,6 @@ if(driveSelected>0) printf("Drive Selected=%d\n",driveSelected);
 else printf("No Drive Selected\n");
 ````
 
-## Notes on sending data to the Interface 1
-
-Once the drive select is complete (after the 8th CLK pulse) the Interface 1 is expecting data to be sent around 40-70ms after the CLK signal goes high. If nothing is received the `Microdrive not present, 0:1` message will be shown on the Spectrum. This small pause is to allow the real drive motor to the spin up and is the perfect opportunity to get data into a buffer ready to be sent to the Interface 1. 
-
-As discussed in [Notes on Memory Usage](#notes-on-memory-usage) I use a read ahead buffer so during this initial 40ms the PICO grabs the first 12 sectors ready to stream to the Interface 1.
-
-The playback always starts with a read with data being expected from the ZX PicoMD to the IF1. During a `SAVE`, `ERASE` or `MOVE` this will only change to a write phase when the IF1 has determined it is at the correct or a blank sector. The only time this differs is during a `FORMAT` which will start after the first sector is read in.
-
 ## Notes on the Microdrive Cartridge 
 
 A Microdrive Cartridge can contain up to 254 sectors of data, with each sector made up of 512bytes of data. As such the maximum storage capacity is 512*254=130048bytes or 127kB. When formatting a drive using a real Spectrum sector 254 is never used making the real maximum size 129536bytes or 126.5kB (CAT shows as 126). Most real cartridges never get anywhere close to this, although some techniques used by add-ons such as the Multiface 128 and other software based utilities tweaked the format routine to eek out an extra sector or two. This tweaking was mostly about reducing the gaps between sectors to "fit" more on the tape. The cartridge tape was also prone to stretching over time and could actually format higher due to this after being used for a while. It is worth adding that Microdrives were notoriously unreliable which is probably one of the main reasons why the format was not successful long term.
@@ -109,6 +100,12 @@ To send data to the IF1 the first two bytes are loaded into `DATA2` and `DATA1` 
 ![image](./Images/DATA.png "DATA Lines")
 
 ## Notes on Sending Data to the IF1
+
+Once the drive select is complete (after the 8th CLK pulse) the Interface 1 is expecting data to be sent around 40-70ms after the CLK signal goes high. If nothing is received the `Microdrive not present, 0:1` message will be shown on the Spectrum. This small pause is to allow the real drive motor to the spin up and is the perfect opportunity to get data into a buffer ready to be sent to the Interface 1. 
+
+As discussed in [Notes on Memory Usage](#notes-on-memory-usage) I use a read ahead buffer so during this initial 40ms the PICO grabs the first 12 sectors ready to stream to the Interface 1.
+
+The playback always starts with a read with data being expected from the ZX PicoMD to the IF1. During a `SAVE`, `ERASE` or `MOVE` this will only change to a write phase when the IF1 has determined it is at the correct or a blank sector. The only time this differs is during a `FORMAT` which will start after the first sector is read in.
 
 The following code will send a header block to the IF1 with the correct timing:
 ````
