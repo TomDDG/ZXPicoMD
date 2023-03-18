@@ -99,6 +99,89 @@ An MDR image used by ZX PicoMD and many emulators is basically just 254 of these
 
 On a real cartridge tape the sectors are placed in descending order, 254 to 1 (no sector 255 or 0) with small gaps between the header and data block and also between each sector. The header to data gap is ~3.75ms and the gap between two sectors is ~7ms. As noted above manipulating these gaps is one way to get more data onto the tape. On the tape the header and data blocks also have a preamble of 12bytes which tells the IF1 when the actual data is starting, this is made up of ten `0x00` bytes and two `0xff` bytes. When playing back from the ZX PicoMD these additional bytes need to be added before the real data, although as they are always the same there is no need to add to the image file stored on the SD Card. 
 
+## Notes on Sending Data to the IF1
+
+The following code will send a header block to the IF1 with the correct timing:
+````
+#define MASK_DATA1      0b000001
+#define MASK_DATA2      0b000010
+#define MASK_DATA       0b000011  // DATA1 & DATA2
+#define MASK_COMM       0b010100  // COMMS_IN & COMMS_CLK 
+//
+uint16_t len=27; // length of data
+uint8_t *buff={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff, // data to send, this is a header preamble
+               0x01,0xfe,0x00,0x00,0x69,0x66,0x31,0x72,0x6f,0x6d,0x63,0x72,0c63,0x2e,0xb7 }; // header, sector 254, name="if1romcrc.", checksum 0xb7
+//
+uint16_t data1c=data2c+4; // +4 as half a byte offset on track 1
+uint8_t data1mask=0b00000001,data2mask=0b00000001;
+uint8_t data2byte=*buff++,data1byte=*buff++; // load bytes, frist into data2 (first) then data1 (4bit offset)
+len-=2; // 2 bytes loaded
+bool flip=true;
+uint32_t c=gpio_get_all()&MASK_DATA; // keep current level going
+uint32_t data1=c&MASK_DATA1,data2=c&MASK_DATA2;
+uint64_t lastPing= time_us_64();
+
+do {
+    //toggle the flip and check at the same time, run code if flip now true i.e. was false when comming in
+    if(flip=flip?false:true) { // if flip false make true, if true make false...
+        // only run this if within a bit stream
+        if(data2c<=8&&data2c>0) { // data 2 could run out while data 1 still has data left
+            data2 = data2byte & data2mask ? data2^MASK_DATA2:data2; // if selected bit is 1 then flip data line otherwise keep the same
+            data2mask = data2mask << 1; // shift bit mask left 1
+        } 
+        if(data1c<=8&&data1c>0) {
+            data1 = data1byte & data1mask ? data1^MASK_DATA1:data1;
+            data1mask = data1mask << 1;
+        } 
+        if(data2c>0) {
+            data2c--;
+            if(data2c==0&&len>0) { // check if out of data, otherwise reset track counters
+                data2c=8;
+                data2mask=0b00000001;
+                data2byte=*buff++;
+                len--;
+            }
+        }
+        if(data1c>0) {
+            data1c--;
+            if(data1c==0&&len>0) {
+                data1c=8;
+                data1mask=0b00000001;
+                data1byte=*buff++;
+                len--;
+            }
+        }
+    }
+    // flip tracks regardless every 12us, as long as one of the tracks is live 
+    else {
+        if((data2c<=8&&data2c>0)||(data1c<=12&&data1c>0)) {
+            data1^=MASK_DATA1;
+            data2^=MASK_DATA2;
+        } 
+    }
+    // wait for 6us to pass, during wait check COMMs & ERASE lines
+    while(time_us_64()<lastPing+6) {
+        c=gpio_get_all();
+        if((c&MASK_COMM)!=MASK_COMM) { // if COMMS from IF1 goes low then quit
+            return false; // all done but end
+        }
+    }
+    gpio_put_masked(MASK_DATA,data1|data2); // output data tracks
+    lastPing+=6; // move wait on 6us
+} while (data2c>0||data1c>0); // keep going till either track completed
+return true; // all done so return and get more data
+````
+
+During thie while loop to send the data to the IF1 the Pico monitors the `COMMs` line and will exit if it goes low. It also monitors the `ERASE` line to check for a write operation. Just after the `COMMs` check the following code will jump to a data input rountine:
+````
+else if((c&MASK_ERASE)==0) { // if ERASE goes low then shift to record
+    gpio_set_dir_in_masked(MASK_DATA); // set data lines to inputs
+    // data input code here
+    gpio_set_dir_out_masked(MASK_DATA); // set data lines back to outputs
+    return false; // all done but end
+}
+````
+
 ## Notes on Cartridge Formatting
 
 As noted above `FORMAT` is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. During a format the IF1 will actually write more than the 528bytes expected during a write operation, 99bytes if using the standard ROM routines. These additional bytes are used by the ZX PicoMD to identify that a format is happening. 
