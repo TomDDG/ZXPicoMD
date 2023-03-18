@@ -6,8 +6,9 @@ To jump to a specific section click on the links below:
 - [Notes of how to Identify which drive the Interface 1 is Accessing](#notes-of-how-to-identify-which-drive-the-interface-1-is-accessing)
 - [Notes on sending data to the Interface 1](#notes-on-sending-data-to-the-interface-1)
 - [Notes on the Microdrive Cartridge](#notes-on-the-microdrive-cartridge)
+- [Notes on the Cartridge Tape Format](#notes-on-the-cartridge-tape-format) 
+- [Notes on Sending Data to the IF1](#notes-on-sending-data-to-the-if1)
 - [Notes on Cartridge Formatting](#notes-on-cartridge-formatting)
-- [Notes on the Cartridge Tape Format](#notes-on-the-cartridge-tape-format)
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
 - [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
@@ -99,6 +100,14 @@ An MDR image used by ZX PicoMD and many emulators is basically just 254 of these
 
 On a real cartridge tape the sectors are placed in descending order, 254 to 1 (no sector 255 or 0) with small gaps between the header and data block and also between each sector. The header to data gap is ~3.75ms and the gap between two sectors is ~7ms. As noted above manipulating these gaps is one way to get more data onto the tape. On the tape the header and data blocks also have a preamble of 12bytes which tells the IF1 when the actual data is starting, this is made up of ten `0x00` bytes and two `0xff` bytes. When playing back from the ZX PicoMD these additional bytes need to be added before the real data, although as they are always the same there is no need to add to the image file stored on the SD Card. 
 
+## Notes on the Cartridge Tape Format
+
+All data is stored on a Microdrive cartridge tape using a "stereo" two track system with alternate bytes being stored on each track. These tracks are sent or received independently on the `DATA1` and `DATA2` lines. The tracks are staggered by 4bits with the `DATA2` track starting before the `DATA1`. Recording in "stereo" means more data can be fitted on a single tape.
+
+To send data to the IF1 the first two bytes are loaded into `DATA2` and `DATA1` respectively and then each byte is sent one bit at a time. As noted above `DATA1` starts 4bits behind `DATA2`. Each bit is represented by a 12us pulse and the IF1 is looking for the data line to change during the 12us pulse to denote a `1` bit and for it to stay the same to denote a `0` bit. After each bit both data lines are flipped and the check starts again. Examining the data lines shows a series of wide 12us pulses (denoting 0s) and some tighter 6us pulses (denoting 1s).
+
+![image](./Images/DATA.png "DATA Lines")
+
 ## Notes on Sending Data to the IF1
 
 The following code will send a header block to the IF1 with the correct timing:
@@ -189,14 +198,6 @@ As noted above `FORMAT` is the only time when the sector headers are written to 
 During a format the IF1 sends all 254 sectors in turn, writing the header with the sector number and cartridge name and a data block with `0xfc` in all bytes. The IF1 then verifies all the data blocks checking the bytes are always `0xfc` and marking any bad sectors for a final write phase. This final phase enables all the good sectors by clearing the data block only, basically writing `0x00` to all bytes. A bad sector is noted by an EOF flag (`0x02`) with a data length of 0, the data block is also not reset to `0x00` and remains as `0xfc`.
 
 In order for the IF1 to determine if a sector is good it is important that these additional 99bytes are presented back during the verification phase. The 99 extra bytes are always the same (`0xfc`) so there is no need to store them in the image file. When using a MF128 these extra 99bytes are not sent, however a single `0x80` byte is, which also needs to be presented back.
-
-## Notes on the Cartridge Tape Format
-
-All data is stored on a Microdrive cartridge tape using a "stereo" two track system with alternate bytes being stored on each track. These tracks are sent or received independently on the `DATA1` and `DATA2` lines. The tracks are staggered by 4bits with the `DATA2` track starting before the `DATA1`. Recording in "stereo" means more data can be fitted on a single tape.
-
-To send data to the IF1 the first two bytes are loaded into `DATA2` and `DATA1` respectively and then each byte is sent one bit at a time. As noted above `DATA1` starts 4bits behind `DATA2`. Each bit is represented by a 12us pulse and the IF1 is looking for the data line to change during the 12us pulse to denote a `1` bit and for it to stay the same to denote a `0` bit. After each bit both data lines are flipped and the check starts again. Examining the data lines shows a series of wide 12us pulses (denoting 0s) and some tighter 6us pulses (denoting 1s).
-
-![image](./Images/DATA.png "DATA Lines")
 
 ## Notes on using the 2nd CORE
 
