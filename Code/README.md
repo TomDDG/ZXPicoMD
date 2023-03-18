@@ -59,7 +59,7 @@ Once the drive select is complete (after the 8th CLK pulse) the Interface 1 is e
 
 As discussed in [Notes on Memory Usage](#notes-on-memory-usage) I use a read ahead buffer so during this initial 40ms the PICO grabs the first 12 sectors ready to stream to the Interface 1.
 
-The playback always starts with a read with data being expected from the ZX PicoMD to the IF1. Suring a `SAVE`, `ERASE` or `MOVE` this will only change to a write phase when the IF1 has determined it is at the correct or a blank sector. The only time this differs is during a `FORMAT` which will start after the first sector is read in.
+The playback always starts with a read with data being expected from the ZX PicoMD to the IF1. During a `SAVE`, `ERASE` or `MOVE` this will only change to a write phase when the IF1 has determined it is at the correct or a blank sector. The only time this differs is during a `FORMAT` which will start after the first sector is read in.
 
 ## Notes on the Microdrive Cartridge 
 
