@@ -2,8 +2,7 @@
 
 The following section details how I developed the code, the challenges and decisions made. Although not a dump of the entire code you should, once I've finished, be able to build your own version from the details within. 
 
-To jump to a specific section click on the links below
-
+To jump to a specific section click on the links below:
 - [Notes of how to Identify which drive the Interface 1 is Accessing](#notes-of-how-to-identify-which-drive-the-interface-1-is-accessing)
 - [Notes on sending data to the Interface 1](#notes-on-sending-data-to-the-interface-1)
 - [Notes on the Microdrive Cartridge](#notes-on-the-microdrive-cartridge)
@@ -15,7 +14,7 @@ To jump to a specific section click on the links below
 
 ## Notes of how to Identify which Drive the Interface 1 is Accessing
 
-The Interface 1 uses a eight 1ms clock pulse (sent on the CLK line) combined with a COMMs signal to identify which Microdrive is being requested. This COMMs signal is shifted as it passes down the chain through each Microdrive's ULA, whereas the CLK signal passes straight through from one edge connector to the other. The Microdrive is designed to turn on when it sees the COMMs signal high on the last CLK pulse, with this pulse defined as the transistion from high to low.
+The Interface 1 uses a eight 1ms clock pulse (sent on the CLK line) combined with a COMMs signal to identify which Microdrive is being requested. This COMMs signal is shifted as it passes down the chain through each Microdrive's ULA, whereas the CLK signal passes straight through from one edge connector to the other. The Microdrive is designed to turn on when it sees the COMMs signal high on the last CLK pulse, with this pulse defined as the transition from high to low.
 
 The following image shows the CLK & COMM signal for a `CAT 1` command. 
 
@@ -25,9 +24,9 @@ You can clearly see the COMMs signal goes high on the last CLK pulse. The next i
 
 ![image](./Images/CAT2.png "CAT 2")
 
-This is repated all the way up to `CAT 8` where the COMMs signal is high as soon as the CLK pulses start.
+This is repeated all the way up to `CAT 8` where the COMMs signal is high as soon as the CLK pulses start.
 
-In order for the Pico to determine which drive to start it simply monitors the CLK line attached to GPIO pin 2. When this goes low it starts a simple counter, decreasing from 8 to 1 on each CLK pulse. On each CLK pulse the PICO checks whether COMMs (on GPIO 4) is high and if it is high then the drive to use is the counter. If COMMs never goes high this is interpreted as a STOP signal and the drive is stopped. On first boot some Spectrums (I think this is just the 128k model) have the CLK signal set to low (it should be high until the drive is accessed) and this can confuse the counter. To prevent this a timeout can be used to reset the counter every few ms. This isn't full proof though so I do need to come up with a more elegant solution. Once the drive is accessed the machine will revert to normal operation with CLK high untill needed.
+In order for the Pico to determine which drive to start it simply monitors the CLK line attached to GPIO pin 2. When this goes low it starts a simple counter, decreasing from 8 to 1 on each CLK pulse. On each CLK pulse the PICO checks whether COMMs (on GPIO 4) is high and if it is high then the drive to use is the counter. If COMMs never goes high this is interpreted as a STOP signal and the drive is stopped. On first boot some Spectrums (I think this is just the 128k model) have the CLK signal set to low (it should be high until the drive is accessed) and this can confuse the counter. To prevent this a timeout can be used to reset the counter every few ms. This isn't full proof though so I do need to come up with a more elegant solution. Once the drive is accessed the machine will revert to normal operation with CLK high until needed.
 
 Some example code which simply prints the drive selected:
 ````
@@ -42,7 +41,7 @@ do {
     c=gpio_get_all(); // get all gpio ping status into 32bit unsigned integer c
     if((c&MASK_CLK)==0&&pulse==true) { // CLK low and pulse is true
         if(c&MASK_CIN) driveSelected=driveCount; // if COMMs also high then drive = count number
-        pulse=false; // wait for next CLK high/low transistion
+        pulse=false; // wait for next CLK high/low transition
         driveCount--;
     }
     else if((c&MASK_CLK)&&pulse==false) { // CLK high and pulse is false
@@ -64,7 +63,7 @@ The playback always starts with a read, and will only change to a write phase on
 
 ## Notes on the Microdrive Cartridge 
 
-A Microdrive Cartridge can contain up to 254 sectors of data, with each sector made up of 512bytes of data. As such the maximum storage capacity is 512*254=130048bytes or 127kB. When formatting a drive using a real Spectrum sector 254 is never used making the real maximum size 129536bytes or 126.5kB (CAT shows as 126). Most real cartridges never get anywhere close to this, although some techniques used by add-ons such as the Multiface 128 and other software based utilites tweaked the format routine to eek out an extra sector or two. This tweaking was mostly about reducing the gaps between sectors to "fit" more on the tape. The cartridge tape was also prone to stetching over time and could actually format higher due to this after being used for a while. It is worth adding that Microdrives were notoriously unreliable which is probably one of the main reasons why the format was not successful long term.
+A Microdrive Cartridge can contain up to 254 sectors of data, with each sector made up of 512bytes of data. As such the maximum storage capacity is 512*254=130048bytes or 127kB. When formatting a drive using a real Spectrum sector 254 is never used making the real maximum size 129536bytes or 126.5kB (CAT shows as 126). Most real cartridges never get anywhere close to this, although some techniques used by add-ons such as the Multiface 128 and other software based utilities tweaked the format routine to eek out an extra sector or two. This tweaking was mostly about reducing the gaps between sectors to "fit" more on the tape. The cartridge tape was also prone to stretching over time and could actually format higher due to this after being used for a while. It is worth adding that Microdrives were notoriously unreliable which is probably one of the main reasons why the format was not successful long term.
 
 A standard sector comprises of a header block and a data block. The header block contains the sector number and the name of the cartridge (max 10 chars). The data block contains the name of the file and all of the data. Other than during a `FORMAT` only the data block is written to during a `SAVE` or `ERASE` operation. The header block is just used to tell the IF1 which sector is being accessed.
 
@@ -72,22 +71,22 @@ The header block is 15bytes long and the data block 528bytes, giving 543bytes pe
 
 Header:
 ````
-Byte    Length      Desciption
+Byte    Length      Description
 0       1           bit 1 set to indicate header block
 1       1           Sector Number (0xfe to 0x01)
 2       2           Not Used
 4       10          Microdrive Cartridge Name
-14      1           Header Checsum of previous 14bytes
+14      1           Header Checksum of previous 14bytes
 ````
 
 Data:
 ````
-Byte    Length      Desciption
+Byte    Length      Description
 0       1           Data Flag:  bit 0 reset to indicate data block
                                 bit 1 set for EOF block
                                 bit 2 reset to indicate a PRINT file
                                 bit 3-7 not used
-1       1           Data Block Sequence Number (file broken into 512byte segements), starts at 0
+1       1           Data Block Sequence Number (file broken into 512byte segments), starts at 0
 2       2           Data Block Length, <=512bytes (LSB)
 4       10          Filename
 14      1           Data Checksum of previous 14bytes
@@ -101,9 +100,9 @@ On a real cartridge tape the sectors are placed in descending order, 254 to 1 (n
 
 ## Notes on Cartridge Formatting
 
-As noted above `FORMAT` is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. During a format the IF1 will acutally write more than the 528bytes exepected during a write operation, 99bytes if using the standard ROM routines. These additional bytes are used by the ZX PicoMD to identify that a format is happening. 
+As noted above `FORMAT` is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. During a format the IF1 will actually write more than the 528bytes expected during a write operation, 99bytes if using the standard ROM routines. These additional bytes are used by the ZX PicoMD to identify that a format is happening. 
 
-During a format the IF1 sends all 254 sectors in turn, writing the header with the sector number and cartridge name and a data block with `0xfc` in all bytes. The IF1 then verifies all the data blocks checking the bytes are always `0xfc` and marking any bad sectors for a final write phase. This final pahse enables all the good sectors by clearing the data block only, basically writing `0x00` to all bytes. A bad sector is noted by an EOF flag (`0x02`) with a data length of 0, the data block is also not reset to `0x00` and remains as `0xfc`.
+During a format the IF1 sends all 254 sectors in turn, writing the header with the sector number and cartridge name and a data block with `0xfc` in all bytes. The IF1 then verifies all the data blocks checking the bytes are always `0xfc` and marking any bad sectors for a final write phase. This final phase enables all the good sectors by clearing the data block only, basically writing `0x00` to all bytes. A bad sector is noted by an EOF flag (`0x02`) with a data length of 0, the data block is also not reset to `0x00` and remains as `0xfc`.
 
 In order for the IF1 to determine if a sector is good it is important that these additional 99bytes are presented back during the verification phase. The 99 extra bytes are always the same (`0xfc`) so there is no need to store them in the image file. When using a MF128 these extra 99bytes are not sent, however a single `0x80` byte is, which also needs to be presented back.
 
@@ -159,9 +158,9 @@ switch (cmd) {
 
 ## Notes on Memory Usage
 
-The Raspberry Pico only has 256kB of memory which is actually a lot for a microcontroller. However when adding things like Z80 conversion fo 128kB snapshots it quickly gets used up as you need to store the uncompressed 128kB Spectrum memory and also have room for the Microdrive cartridge to write to. As such I make use of the SD Card for memory buffers, a bit like to good old disk cache. This is slow but still good enough to complete the tasks in seconds.
+The Raspberry Pico only has 256kB of memory which is actually a lot for a microcontroller. However when adding things like Z80 conversion of 128kB snapshots it quickly gets used up as you need to store the uncompressed 128kB Spectrum memory and also have room for the Microdrive cartridge to write to. As such I make use of the SD Card for memory buffers, a bit like to good old disk cache. This is slow but still good enough to complete the tasks in seconds.
 
-For the ZX PicoMD I use a small shared memory area, defined globally using `uint8_t mem_buffer[MEMSIZE];` for transfering data between the cores. I also use dynamic memory allocation within the menu system for some the conversion utilities and file sorts. An example set-up from the Z80 conversion routine:
+For the ZX PicoMD I use a small shared memory area, defined globally using `uint8_t mem_buffer[MEMSIZE];` for transferring data between the cores. I also use dynamic memory allocation within the menu system for some the conversion utilities and file sorts. An example set-up from the Z80 conversion routine:
 
 ````
 if ((main48k = (uint8_t*)malloc(49152 * sizeof(uint8_t))) == NULL) { // cannot create space for copy of main memory
@@ -212,11 +211,11 @@ break;
 
 To drive the SSD1306 OLED screen via the I2C interface I modified some Python based code by [makerportal](https://github.com/makerportal/rpi-pico-ssd1306). I re-used their initialisation, send command and show code (converting them to C from Python) but developed my own screen writing routines.
 
-In the horizontal orientation of 128x64 the SSD1306 OLED screen is made up of 8 pages and 128 columns with each column made up of 8bits, so basically 8 rows of 128 single byte vertical segments. This requires a bit of pixel manipulation especially to show an entire image. For this I created a simple routine to show a double height ZX Spectrum font and also a routine which can take a GIMP RAW image file (128x64=8192 pixels or 1024bytes), rotating each 8bytes so they match the way the screen wants it and then compressesing to save space, very useful for the menu system. I created a little [utility](rotbin.c) to create these compressed screens ready for the OLED, all that is then needed is to decompress these straight into 1024kB buffer, no rotation or change required. The following code takes a pre-rotated [ZX Spectrum font](zxfont_r.h), doubles the height and then puts it in the correct place on the screen (column & row):
+In the horizontal orientation of 128x64 the SSD1306 OLED screen is made up of 8 pages and 128 columns with each column made up of 8bits, so basically 8 rows of 128 single byte vertical segments. This requires a bit of pixel manipulation especially to show an entire image. For this I created a simple routine to show a double height ZX Spectrum font and also a routine which can take a GIMP RAW image file (128x64=8192 pixels or 1024bytes), rotating each 8bytes so they match the way the screen wants it and then compressing to save space, very useful for the menu system. I created a little [utility](rotbin.c) to create these compressed screens ready for the OLED, all that is then needed is to decompress these straight into 1024kB buffer, no rotation or change required. The following code takes a pre-rotated [ZX Spectrum font](zxfont_r.h), doubles the height and then puts it in the correct place on the screen (column & row):
 
 ````
 // ---------------------------------------------------------------------------
-// doubleChr - plot a double heigth character into a buffer
+// doubleChr - plot a double height character into a buffer
 // input:
 //   buff - buffer to plot char into
 //   chr - character to plot
@@ -251,7 +250,7 @@ As part of using this library you need to customise the `ffconf.h` file. The ver
 ````
 #define FFCONF_DEF	80196
 #define FF_FS_READONLY	0
-#define FF_FS_MINIMIZE	1 // removes un-needed operations such as mkdir in order to reduce memory footpint
+#define FF_FS_MINIMIZE	1 // removes un-needed operations such as mkdir in order to reduce memory footprint
 #define FF_USE_STRFUNC	0
 #define FF_USE_FIND		0
 #define FF_USE_MKFS		0
@@ -290,7 +289,7 @@ As part of using this library you need to customise the `ffconf.h` file. The ver
 #define FF_SYNC_t		HANDLE
 ````
 
-As you can see I use fast seek to speed up the seek operations. It is not a massive improvement but when time is at a premium every milli-seccond counts. To use fast seek you need to allocate a small buffer to the routine based on the cluster size of the file system. My basic maths showed this needed to be around 70 as the smallest FAT32 cluster size is 4096bytes (256MB–8GB) so 34 clusters for a MDR file tops (MDR size is 137923bytes, 137923/4096=33.67), the equation is then (34+1)*2=70. This is based on nobody using <256MB SD Card and when using >8GB the cluster size only gets larger which decreases the buffer size. exFAT cluster sizes are larger than FAT32, smallest being 4096bytes for <256MB, 32kB for <32GB and 128kB for >32GB.
+As you can see I use fast seek to speed up the seek operations. It is not a massive improvement but when time is at a premium every milli-second counts. To use fast seek you need to allocate a small buffer to the routine based on the cluster size of the file system. My basic maths showed this needed to be around 70 as the smallest FAT32 cluster size is 4096bytes (256MB–8GB) so 34 clusters for a MDR file tops (MDR size is 137923bytes, 137923/4096=33.67), the equation is then (34+1)*2=70. This is based on nobody using <256MB SD Card and when using >8GB the cluster size only gets larger which decreases the buffer size. exFAT cluster sizes are larger than FAT32, smallest being 4096bytes for <256MB, 32kB for <32GB and 128kB for >32GB.
 
 The code used to set-up fast seek is as follows:
 
