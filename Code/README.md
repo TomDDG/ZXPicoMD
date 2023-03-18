@@ -7,6 +7,7 @@ To jump to a specific section click on the links below:
 - [Notes on the Microdrive Cartridge](#notes-on-the-microdrive-cartridge)
 - [Notes on the Cartridge Tape Format](#notes-on-the-cartridge-tape-format) 
 - [Notes on Sending Data to the IF1](#notes-on-sending-data-to-the-if1)
+- [Notes on Receiving Data from the IF1]()
 - [Notes on Cartridge Formatting](#notes-on-cartridge-formatting)
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
@@ -178,13 +179,103 @@ do {
 return true; // all done so return and get more data
 ````
 
-During thie while loop to send the data to the IF1 the Pico monitors the `COMMs` line and will exit if it goes low. It also monitors the `ERASE` line to check for a write operation. Just after the `COMMs` check the following code will jump to a data input rountine:
+## Notes on Receiving Data from the IF1
+
+During the while loop to send the data to the IF1 the Pico monitors the `COMMs` line and will exit if it goes low. It also monitors the `ERASE` line to check for a write operation. Just after the `COMMs` check the following code will jump to a data receive rountine:
 ````
+#define MASK_ERASE      0b100000
+//
 else if((c&MASK_ERASE)==0) { // if ERASE goes low then shift to record
     gpio_set_dir_in_masked(MASK_DATA); // set data lines to inputs
     // data input code here
     gpio_set_dir_out_masked(MASK_DATA); // set data lines back to outputs
     return false; // all done but end
+}
+````
+
+The following code will receive data from the Interface 1 and convert to bytes. The code exits when either the `COMMs` or `ERASE` signals change:
+````
+uint8_t mem_buffer[MEMSIZE]; // storage for the data
+#define MASK_DATA1      0b000001
+#define MASK_DATA2      0b000010
+#define MASK_DATA       0b000011  // DATA1 & DATA2
+#define MASK_COMM       0b010100  // COMMS_IN & COMMS_CLK 
+#define MASK_ERASE      0b100000
+#define MASK_READWRITE  0b001000
+//
+uint8_t data1bytemask,data2bytemask,data1byte,data2byte,d1zero,d2zero,d1ones,d2ones;
+uint16_t pos,bits,i,j,chkSum;
+uint32_t c,d;
+uint8_t *buff=mem_buffer[0]; // pointer to storage area
+//
+gpio_set_dir_in_masked(MASK_DATA);
+while(true) {
+   data1bytemask=data2bytemask=0b00000001;
+   data1byte=data2byte=0;
+   d1zero=d2zero=40;
+   d1ones=d2ones=8;
+   pos=bits=0;
+   // wait for RW pin to go low
+   do {
+       c=gpio_get_all();
+       if((c&MASK_COMM)!=MASK_COMM||(c&MASK_ERASE)) return ; // exit if COMMS or ERASE
+   } while((c&MASK_READWRITE));
+   // wait 20us to settle
+   busy_wait_us(20);
+   // main bit capture loop
+   c=gpio_get_all();
+   do {
+       d=c;
+       // wait for level change
+       do {
+           c=gpio_get_all();
+           if((c&MASK_COMM)!=MASK_COMM||(c&MASK_ERASE)) return; // exit if CIN or ERASE
+       } while((c&MASK_DATA)==(d&MASK_DATA)&&(c&MASK_READWRITE)==0);
+       // sample 7us after flip to see if level has changed, based on pre-flip
+       // if changed then 0, if same then 1
+       busy_wait_us(7);
+       bits++;
+       // get new data levels
+       c=gpio_get_all();  
+       // data 2
+       if(d2zero>0) {
+           if((c&MASK_DATA2)!=(d&MASK_DATA2)) d2zero--; 
+       } 
+       else if(d2ones>0) {
+           if((c&MASK_DATA2)==(d&MASK_DATA2)) d2ones--;            
+       }
+       else {
+           if((c&MASK_DATA2)==(d&MASK_DATA2)) {
+               data2byte|=data2bytemask;
+           } 
+           data2bytemask=data2bytemask<<1;
+           if(data2bytemask==0) {
+               data2bytemask=0b00000001;
+               buff[pos++]=data2byte;
+               data2byte=0;
+               if(pos==640) exit(0); // too many bytes error
+           }
+       }
+       // data 1
+       if(d1zero>0) {
+           if((c&MASK_DATA1)!=(d&MASK_DATA1)) d1zero--; 
+       } 
+       else if(d1ones>0) {
+           if((c&MASK_DATA1)==(d&MASK_DATA1)) d1ones--;            
+       }
+       else {
+           if((c&MASK_DATA1)==(d&MASK_DATA1)) {
+               data1byte|=data1bytemask;
+           } 
+           data1bytemask=data1bytemask<<1;
+           if(data1bytemask==0) {
+               data1bytemask=0b00000001;
+               buff[pos++]=data1byte;
+               data1byte=0;
+               if(pos==640) exit(0); // too many bytes error
+           }
+       }
+   } while((c&MASK_READWRITE)==0);    
 }
 ````
 
