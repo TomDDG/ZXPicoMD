@@ -109,9 +109,9 @@ In order for the IF1 to determine if a sector is good it is important that these
 
 ## Notes on the Cartridge Tape Format
 
-All data is stored on a Microdrive cartridge tape using a "stereo" two track system with alternate bytes being stored on each track. These tracks are sent or received independently on the `DATA1` and `DATA2` lines. The tracks are staggered by 4bits with the `DATA2` track starting before the `DATA1` one. Recording in "stereo" means more data can be fitted on a single tape.
+All data is stored on a Microdrive cartridge tape using a "stereo" two track system with alternate bytes being stored on each track. These tracks are sent or received independently on the `DATA1` and `DATA2` lines. The tracks are staggered by 4bits with the `DATA2` track starting before the `DATA1`. Recording in "stereo" means more data can be fitted on a single tape.
 
-To send data to the IF1 the first two bytes are loaded into `DATA2` and `DATA1` respectively and then each byte is send one bit at a time. As noted above `DATA1` starts 4bits behind `DATA2`. Each bit is represented by a 12us pulse and the IF1 is looking for the data line to change during the 12us pulse to denote a `1` bit and for it to stay the same to denote a `0` bit. After each bit both data lines are flipped and the check starts again. Examining the data lines shows a series of wide 12us pulses (denoting 0s) and some tighter 6us pulses (denoting 1s).
+To send data to the IF1 the first two bytes are loaded into `DATA2` and `DATA1` respectively and then each byte is sent one bit at a time. As noted above `DATA1` starts 4bits behind `DATA2`. Each bit is represented by a 12us pulse and the IF1 is looking for the data line to change during the 12us pulse to denote a `1` bit and for it to stay the same to denote a `0` bit. After each bit both data lines are flipped and the check starts again. Examining the data lines shows a series of wide 12us pulses (denoting 0s) and some tighter 6us pulses (denoting 1s).
 
 ![image](./Images/DATA.png "DATA Lines")
 
