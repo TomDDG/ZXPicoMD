@@ -7,6 +7,7 @@ To jump to a specific section click on the links below
 - [Notes of how to Identify which drive the Interface 1 is Accessing](#notes-of-how-to-identify-which-drive-the-interface-1-is-accessing)
 - [Notes on sending data to the Interface 1](#notes-on-sending-data-to-the-interface-1)
 - [Notes on the Microdrive Cartridge](#notes-on-the-microdrive-cartridge)
+- [Notes on Cartridge Formatting]()
 - [Notes on using the 2nd CORE](#notes-on-using-the-2nd-core)
 - [Notes on Memory Usage](#notes-on-memory-usage)
 - [Notes on Driving the OLED Screen](#notes-on-driving-the-oled-screen)
@@ -59,15 +60,15 @@ Once the drive select is complete (after the 8th CLK pulse) the Interface 1 is e
 
 As discussed in [Notes on Memory Usage](#notes-on-memory-usage) I use a read ahead buffer so during this initial 40ms the PICO grabs the first 12 sectors ready to stream to the Interface 1.
 
-Each sector is made up of a header block and data block. 
+The playback always starts with a read, and will only change to a write phase once the IF1 has determined which sector it is at and whether this is the right one to write to. The only time this differs is during a `FORMAT` which will start after the first sector is identified, this will still start with a read phase.
 
 ## Notes on the Microdrive Cartridge 
 
-A Microdrive Cartridge can contain up to 254 sectors of data, with each sector made up of 512bytes of data. As such the maximum storage capacity is 512*254=130048bytes or 127kB. When formatting a drive using a real Spectrum sector 254 is never used making the real maximum size 129536bytes or 126.5kB (CAT shows as 126). Most real cartridges never get anywhere close to this, although some techniques used by add-ons such as the Multiface 128 and other software based utilites tweaked the format routine to eek out an extra sector or two. This tweaking was mostly around reducing the gaps between sectors to "fit" more on the tape, also cartridge tape was prone to stetching over time and could actually format higher due to this. It is worth adding that Microdrives were notoriously unreliable which is probably one of the main reasons why the format was not successful long term.
+A Microdrive Cartridge can contain up to 254 sectors of data, with each sector made up of 512bytes of data. As such the maximum storage capacity is 512*254=130048bytes or 127kB. When formatting a drive using a real Spectrum sector 254 is never used making the real maximum size 129536bytes or 126.5kB (CAT shows as 126). Most real cartridges never get anywhere close to this, although some techniques used by add-ons such as the Multiface 128 and other software based utilites tweaked the format routine to eek out an extra sector or two. This tweaking was mostly about reducing the gaps between sectors to "fit" more on the tape. The cartridge tape was also prone to stetching over time and could actually format higher due to this after being used for a while. It is worth adding that Microdrives were notoriously unreliable which is probably one of the main reasons why the format was not successful long term.
 
-A standard sector comprises of a header block and a data block. The header block contains the sector number and the name of the cartridge (masx 10 chars). The data block contains all of the data and other than a format it is only the data block whcih is written to during a `SAVE` or `ERASE` command. The header block is 15bytes long and the data block 528bytes, giving 543bytes per sector. 
+A standard sector comprises of a header block and a data block. The header block contains the sector number and the name of the cartridge (max 10 chars). The data block contains the name of the file and all of the data. Other than during a `FORMAT` only the data block is written to during a `SAVE` or `ERASE` operation. The header block is just used to tell the IF1 which sector is being accessed.
 
-The following shows how each sector is made up:
+The header block is 15bytes long and the data block 528bytes, giving 543bytes per sector. The following shows how each sector is made up:
 
 Header:
 ````
@@ -94,13 +95,13 @@ Byte    Length      Desciption
 527     1           Data Block Checksum of previous 512bytes
 ````                  
 
-The MDR image format used by ZX PicoMD and many emulators is basically 254 543byte blocks with a final single additional byte which denotes whether the cartridge is write protected or not.
+An MDR image used by ZX PicoMD and many emulators is basically just 254 of these 543byte blocks put together with a final single additional byte which denotes whether the cartridge is write protected or not. There are more advanced format such as MDX which also record the data in the gaps which better represents the actual cartridge tape contents. I may adopt this format one day but for now MDR is fine.
 
-On a real cartridge tape the sectors are placed in descending order 254 to 1 (no sector 0) with small gaps between the header and data block and also between each sector. The header to data gap is ~3.75ms and the gap between two sectors is ~7ms, as said above manipulating these gaps is one way to get more data onto the tape. The header and data blocks also have a preamble of 12bytes which tells the IF1 when the actual data is starting, this is made up of ten 0x00 bytes and 2 0xff bytes. When playing back from the ZX PicoMD these additional bytes need to be added before the real data, although as they are always the same there is no need to add to the image file stored on the SD Card. 
+On a real cartridge tape the sectors are placed in descending order, 254 to 1 (no sector 0) with small gaps between the header and data block and also between each sector. The header to data gap is ~3.75ms and the gap between two sectors is ~7ms. As noted above manipulating these gaps is one way to get more data onto the tape. On the tape the header and data blocks also have a preamble of 12bytes which tells the IF1 when the actual data is starting, this is made up of ten `0x00` bytes and 2 `0xff` bytes. When playing back from the ZX PicoMD these additional bytes need to be added before the real data, although as they are always the same there is no need to add to the image file stored on the SD Card. 
 
 ## Notes on Cartridge Formatting
 
-As noted above the format is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. During a format the IF1 will acutally write more than the 528bytes normally exepected during a write operation, 99bytes if using the standard ROM routines. These additional bytes are used to identify that a format is happening. 
+As noted above the format is the only time when the sector headers are written to the cartridge and as such the ZX PicoMD needs to be aware that a format is happening. During a format the IF1 will acutally write more than the 528bytes exepected during a write operation, 99bytes if using the standard ROM routines. These additional bytes are used by the ZX PicoMD to identify that a format is happening. 
 
 During a format the IF1 sends all 254 sectors in turn, writing the header with the sector number and cartridge name and a data block with `0xfc` in all bytes. The IF1 then reads all the data blocks checking the data is always `0xfc` and marking any bad sectors for a final write phase. This final pahse enables all the good sectors by clearing the data block only, basically writing `0x00` to all bytes. A bad sector is noted by an EOF flag with a data length of 0, the data block is also not set to `0x00` and remains as `0xfc`.
 
