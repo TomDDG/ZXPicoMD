@@ -74,7 +74,7 @@ Header:
 ````
 Byte    Length      Desciption
 0       1           bit 1 set to indicate header block
-1       1           Sector Number
+1       1           Sector Number (0xfe to 0x01)
 2       2           Not Used
 4       10          Microdrive Cartridge Name
 14      1           Header Checsum of previous 14bytes
