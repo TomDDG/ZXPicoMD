@@ -7,6 +7,8 @@ Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.or
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt for the QL, if you want a Microdrive emulator for the QL see http://oqtadrive.org/). Main features are:
 - Supports all 8 Microdrives from one device
 - Supports downstream real h/w Microdrives (if you have a v1.1 PCB you need a [small hardware mod](#v11-pcb-hardware-mod-for-real-hw-support))
+> **Warning**
+> If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive not the cable you use to connect to the IF1. A connection block is a straight through connector whereas the cable will flip the pins and pass 9v to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920) or you can find them on eBay now and again.
 - OLED screen with buttons to navigate the menu - includes load, save & format cartridges as well as other options (see [menu section](#the-gui)). No additional toolkits, software or connections needed as all managed from the menu
 - FAT32 & exFAT supported Micro SD cards up to a theoretical 256TB (I've tested 2GB, 4GB and a lowly 64GB which can easily fit every Spectrum game and program ever made multiple times)
 - Reset button just in case (also makes it easier to flash the Pico)
@@ -167,9 +169,6 @@ The game will now load using `RUN`:
 ### Working with Real H/W Microdrives
 
 ![image](./Images/ZXPicoMD128k.png "128k with Real Hardware")
-
-**Warning**
-If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive not the cable you use to connect to the IF1. A connection block is a straight through connector whereas the cable will flip the pins and pass 9v to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920) or you can find them on eBay now and again.
 
 As of release v1 beta you can now put real h/w Microdrives downstream of the ZXPicoMD. Please note these only work downstream (ZXPicoMD closest to the Spectrum) as the ZXPicoMD needs to control the COMMs shift register in order to mix virtual/emulated drives and real h/w drives. Any drive combination can be used with the only restriction being a lower numbered drive will be activated first, example, if you pick drive 2 & 4 as real h/w drives the lower number, 2, will be the one next to the ZXPicoMD and 4 the one after.
 
