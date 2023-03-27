@@ -168,7 +168,8 @@ The game will now load using `RUN`:
 
 ![image](./Images/ZXPicoMD128k.png "128k with Real Hardware")
 
-** Important ** if using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive not the cable you use to connect to the IF1. A connection block is a straight through connector whereas the cable will flip the pins and pass 9v to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920) or you can find them on eBay now and again.
+**Warning**
+If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive not the cable you use to connect to the IF1. A connection block is a straight through connector whereas the cable will flip the pins and pass 9v to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920) or you can find them on eBay now and again.
 
 As of release v1 beta you can now put real h/w Microdrives downstream of the ZXPicoMD. Please note these only work downstream (ZXPicoMD closest to the Spectrum) as the ZXPicoMD needs to control the COMMs shift register in order to mix virtual/emulated drives and real h/w drives. Any drive combination can be used with the only restriction being a lower numbered drive will be activated first, example, if you pick drive 2 & 4 as real h/w drives the lower number, 2, will be the one next to the ZXPicoMD and 4 the one after.
 
