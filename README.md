@@ -170,7 +170,7 @@ The game will now load using `RUN`:
 
 ![image](./Images/ZXPicoMD128k.png "128k with Real Hardware")
 
-> **Important**
+> **Note**
 > If using with a real h/w Microdrive you must use the correct Connection Block (shown below) between the ZX PicoMD and the Microdrive not the cable you use to connect to the IF1.
 
 ![image](./Images/mdc_4.png "Connection Block")
