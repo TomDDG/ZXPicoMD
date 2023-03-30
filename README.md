@@ -302,8 +302,8 @@ In addition I've also uploaded two IF1 ROM version check cartridges, one based o
   - Microdrives & Interface 1s are getting old now so make sure the edge connectors are clean. Use some Isopropyl (Rubbing) alcohol to clean the PCB connector on the IF1 (left hand side). Also check the Microdrive connectors are fully plugged in.
   - There is a known issue with some Spectrums that on first boot the CLK signal is set low when it should be high. This confuses the ZXPicoMD as it keeps thinking there is an incoming CLK pulse, a simple retype of the command will fix it and it will then be ok till next cold boot.
 
-- Nothing happens when I enter Microdrive command such as `CAT 1`
-  - First thing to do is check the Interface 1 is working ok. The service manual has some commands which you can use to check it is ok:
+- Nothing happens when I enter a Microdrive command such as `CAT 1`
+  - First thing to do is check the Interface 1 is working ok. The service manual has some commands which you can use to check it:
     - After a reboot, type the following `PRINT p` and enter, you should get the response `Variable not found`
     - Then type `RUN` followed by enter and you should see `Program finished`. If you do it means that the paging mechanism is working, the ROM is functional, internal ICs & ULA is at least partially ok and connections to the Spectrum are good. If the message `OK` appears it means that the ZX interface 1 is not working or the connection is not good to the Spectrum.
     - If any of the above fail I recommend you clean the edge connectors of the Spectrum using alcohol or a pencil rubber followed by alchol. This will mean opening up your Spectrum to get good access to the PCB. If it still doesn't work after that, either you Spectrum of Interface 1 has a fault.
