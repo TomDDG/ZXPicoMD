@@ -309,6 +309,12 @@ In addition I've also uploaded two IF1 ROM version check cartridges, one based o
     - If any of the above fail I recommend you clean the edge connectors of the Spectrum using Isopropyl (Rubbing) alcohol or a pencil rubber followed by alcohol. This will mean opening up your Spectrum to get good access to the PCB. If it still doesn't work after that, unfortunately either your Spectrum of Interface 1 has a fault. There are a few guides online which can help you diagnose any faults, good place to start is the Interface 1 service manual which I've linked above.
   - If you have a real h/w Microdrive you can use it to make sure everything is working. Even if you don't have a cartridge you can check the LED lights up and the motor starts up when you type `CAT 1`.
     - As with the other checks, if nothing happens clean the edge connectors thorougly before trying again.
+    
+- My TAP files are not showing in the file explorer
+  - This can happen if the files are not named .TAP or .tap. If they are .Tap, .tAp or .taP it will not pick them up. I will fix this so all cases are accepted in a future release
+  
+- Why can't I convert TZX files only TAP & Z80/SNA
+  - TZX would not be possible unless it uses the ROM loading routines which is basically a TAP. TZX has non standard, speed or beep loaders which would need to be loaded in via an emulator. Basically I would need to build a fully working Spectrum emulator on the PICO to be able to transfer them. This is why Z80s are easily the best option as they are an exact memory replica of when the game has loaded and are really easy to convert. Only downside is multi-load but those are also very hard to convert as you would need to hack the code to replace the level loader with a Microdrive one.
 
 - Why is my SD Card slow to list the directory? I've tested this with ~1000 files in a single directory and it should take no longer than a second to show a directory listing. If you are finding access is slow, please try the following:
   - Don't put thousands of files in a single directory, try to limit it to <1000 per directory otherwise it will take a long time to find what you need as the OLED only shows 4 files per screen. Put the files in a-z directories as an example.
