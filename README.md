@@ -271,7 +271,7 @@ I recommend adding some rubber feet to the case. If you can get hold of them the
 
 ## Building with Case
 
-This guide is based on v1.2 of the PCB, however it also applies to v1.1 with the diodes placed where the BOB was. 
+This guide is based on v1.2 of the PCB which is the same as v1.3 minus the OLED GND/VCC selction pins. It also applies to v1.1 with the diodes placed where the BOB was. 
 
 First solder in the diodes, resistors, buttons, buzzer, transistor & TSR 1-2450 as per the silk screen, being mindful of the orientation of the diodes. I recommend you use BAT42/43 Schottky diodes for Data 1 [D1(D)], Data 2 [D1(D)] & Comms Out [CO(D)] as these are small signal outputs which may benefit from the lower voltage drop.
 
@@ -286,6 +286,10 @@ After this you should have the following set-up (blue diodes are BATs, red are 1
 The OLED socket needs to be raised off the PCB in order for the screen to fit in the top of the case, these longer legs sockets are often referred to as stackable pin header sockets. The best way to get this at the correct height is to first mount the OLED into the top case, plug the header socket in, and then put the PCB on top (bottom up). Ensure the PCB is straight and then solder in place. It should now look like this:
 
 ![image](./Images/OLEDMount.png "OLED Mount")
+
+For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use solder bridges to route VCC & GND to the correct pins. The layout is as follows:
+
+![image](./Images/ZXPicoMDv1.3_oledpins.png "OLED Pin Selection")
 
 You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and then securing with a small screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slot is flush to the side of the case as shown in the photo.
 
