@@ -172,7 +172,8 @@ The game will now load using `RUN`:
 
 > **Note**
 > If using with a real h/w Microdrive you must use the correct Connection Block (shown below) between the ZX PicoMD and the Microdrive not the cable you use to connect to the IF1.
->![image](./Images/mdc_4.png "Connection Block")
+
+![image](./Images/mdc_4.png "Connection Block")
 
 As of release v1 beta you can now put real h/w Microdrives downstream of the ZXPicoMD. Please note these only work downstream (ZXPicoMD closest to the Spectrum) as the ZXPicoMD needs to control the COMMs shift register in order to mix virtual/emulated drives and real h/w drives. Any drive combination can be used with the only restriction being a lower numbered drive will be activated first, example, if you pick drive 2 & 4 as real h/w drives the lower number, 2, will be the one next to the ZXPicoMD and 4 the one after.
 
@@ -231,8 +232,8 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
   - +1x 9pin header socket if using the PCB
 - 5x 6×6mm Right Angle Micro Push Buttons for mounting on the PCB (you can use any push button these are just the ones that I use)
 - 2x Bi-Colour LEDs, common cathode (centre negative). Pick whatever colours you want and change the resistors to match, my rule of thumb is forward voltage/2 in kOhms so if forward voltage is 2V use a 1kOhm resistor. The LEDs are (D)rive/(W)rite and (S)D Card Access/(I)nput Ready.
-- 5x 1n4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]. These could also be replaced with BAT42/43 diodes but only WR.PR is output.
-- 1x 1n4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock) [5V(D)]
+- 5x 1N4148 diodes [WR.PR(D), ERASE(D), COMMS(D), RW(D), CLK(D)]. These could also be replaced with BAT42/43 diodes but only WR.PR is output.
+- 1x 1N5817 or 1N4001 diode for the 5v in, this is to allow USB to be connected and the Spectrum at the same time (any of the 400x series should work, I use 4004 as it was the one I had in stock) [5V(D)]
 - 1x 10kOhm Resistor for write protect circuit [WPC(R)]
 - 1x 6.8kOhm Resistor for write protect circuit [WPB(R)]
 - 1x 2N2222 Transistor for write protect circuit
@@ -243,7 +244,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 
 ## PCB
 
-I have designed a PCB to house everything and you can purchase v1.2 on PCBWay (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html). I've also entered it into the 5th PCB Design Contest (https://www.pcbway.com/activity/5th-pcb-design-contest.html)
+I have designed a PCB to house everything and you can purchase v1.2 on PCBWay (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html).
 
 As of v1.3 the Gerbers are now available to [download](./Gerbers/zxpicomd_v1.3_2023-10-21.zip)
 
