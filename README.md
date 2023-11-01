@@ -246,7 +246,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 
 I have designed a PCB to house everything and you can purchase v1.2 on PCBWay (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html).
 
-As of v1.3 the Gerbers are now available to [download](./Gerbers/zxpicomd_v1.3_2023-10-21.zip)
+As of v1.3 the Gerbers are now available to [download](./Gerbers/zxpicomd_v1.3_2023-10-21.zip) from the GitHub site so you can get them made at your preferred PCBFab.
 
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
