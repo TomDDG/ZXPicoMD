@@ -191,7 +191,7 @@ To flip back to virtual/emulated drive just select the drive in the menu.
 
 ## Using the Filename Selector
 
-When saving a cartridge to the sd card you can specify a filename by using a simple character selector as show below:
+When saving a cartridge to the SD card you can specify a filename by using a simple character selector as show below:
 
 ![image](./Images/charselect.png "File Name Selector")
 
@@ -237,7 +237,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 - 1x 10kOhm Resistor for write protect circuit [WPC(R)]
 - 1x 6.8kOhm Resistor for write protect circuit [WPB(R)]
 - 1x 2N2222 Transistor for write protect circuit
-- 1x 1407 Type Passive Piezo Buzzer (if you use the PCB). 
+- 1x 1407 Type Passive Piezo Buzzer (if you use the PCB). Active buzzers can also be used and I've added a + mark to the PCB to show the correct orrientation. Note active buzzers are quieter and the reason I added the loudness option.
 - 1x 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
   - 1x #4 (3mm) 1/4" (6.5mm) screw to secure the PCB to the case and 2x #4 (3mm) 1/2" (13mm) screws to secure the top of the case to the bottom
   - If using v1.3 of the PCB, 1x 2x2 pin header and 2 jumpers
@@ -271,7 +271,7 @@ I recommend adding some rubber feet to the case. If you can get hold of them the
 
 ## Building with Case
 
-This guide is based on v1.2 of the PCB which is the same as v1.3 minus the OLED GND/VCC selction pins. It also applies to v1.1 with the diodes placed where the BOB was. 
+This guide is based on v1.2 of the PCB which is the same as v1.3 minus the OLED GND/VCC selection pins. It also applies to v1.1 with the diodes placed where the BOB was. 
 
 First solder in the diodes, resistors, buttons, buzzer, transistor & TSR 1-2450 as per the silk screen, being mindful of the orientation of the diodes. I recommend you use BAT42/43 Schottky diodes for Data 1 [D1(D)], Data 2 [D1(D)] & Comms Out [CO(D)] as these are small signal outputs which may benefit from the lower voltage drop.
 
@@ -301,7 +301,7 @@ Pop the top of case on but remember the OLED screen pins need to fit in the rais
 
 ## Testing the ZX PicoMD
 
-Once built I run the device through a series of tests. The main one is a [test cartridge by Martin Smith](./TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr), you can download this by clicking the link or from the TestCarts folder. This utility was initially designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. There is also the [test routine that comes with the offical service manual](./TestCarts/MDIF1Test.mdr) which I've also put in the TestCards folder. 
+Once built I run the device through a series of tests. The main one is a [test cartridge by Martin Smith](./TestCarts/Test%20MDR%20Emulation%20(1994)(Martin%20Smith).mdr), you can download this by clicking the link or from the TestCarts folder. This utility was initially designed to test emulators so works great for making sure everything is ok with the ZX PicoMD. There is also the [test routine that comes with the official service manual](./TestCarts/MDIF1Test.mdr) which I've also put in the TestCards folder. 
 
 Another test I run is making sure the write protect circuit is ok by toggling it on and trying to format a cartridge, this should fail with a write protect message, toggling it back off and it should work again.
 
@@ -323,7 +323,7 @@ In addition I've also uploaded two IF1 ROM version check cartridges, one based o
     - Then type `RUN` followed by enter and you should see `Program finished`. If you do it means that the paging mechanism is working, the ROM is functional, internal ICs & ULA are at least partially ok and connections to the Spectrum are good. If the message `OK` appears it means that the ZX interface 1 is not working or the connection is not good to the Spectrum.
     - If any of the above fail I recommend you clean the edge connectors of the Spectrum using Isopropyl (Rubbing) alcohol or a pencil rubber followed by alcohol. This will mean opening up your Spectrum to get good access to the PCB. If it still doesn't work after that, unfortunately either your Spectrum of Interface 1 has a fault. There are a few guides online which can help you diagnose any faults, good place to start is the Interface 1 service manual which I've linked above.
   - If you have a real h/w Microdrive you can use it to make sure everything is working. Even if you don't have a cartridge you can check the LED lights up and the motor starts up when you type `CAT 1`.
-    - As with the other checks, if nothing happens clean the edge connectors thorougly before trying again.
+    - As with the other checks, if nothing happens clean the edge connectors thoroughly before trying again.
     
 - My TAP files are not showing in the file explorer
   - This can happen if the files are not named .TAP or .tap. If they are .Tap, .tAp or .taP it will not pick them up. I will fix this so all cases are accepted in a future release
