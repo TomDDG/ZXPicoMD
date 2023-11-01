@@ -240,7 +240,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 - 1x 1407 Type Passive Piezo Buzzer (if you use the PCB). Active buzzers can also be used and I've added a + mark to the PCB to show the correct orrientation. Note active buzzers are quieter and the reason I added the loudness option.
 - 1x 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
   - 1x #4 (3mm) 1/4" (6.5mm) screw to secure the PCB to the case and 2x #4 (3mm) 1/2" (13mm) screws to secure the top of the case to the bottom
-  - If using v1.3 of the PCB, 1x 2x2 pin header and 2 jumpers
+- If using v1.3 of the PCB, 1x 2x2 pin header and 2 jumpers
 
 ## PCB
 
