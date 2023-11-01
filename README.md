@@ -225,7 +225,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
   - +2x 20pin header sockets
 - 1x Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
 - 3x BAT42/43 diodes for D1(D), D2(D) & CO(D). If using a v1.1 PCB connect these LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side. BAT42/43 are a better option to 1N4148 due to the reduced voltage drop, however 1N4148 should also be ok. The v1.1 PCB can also use a SparkFun Logic Level Converter ([BOB-12009](https://www.sparkfun.com/products/12009)) if not paring with real h/w Microdrives, however recommend you use diodes.
-- 1x SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed
+- 1x SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed. If using the v1.3 PCB make sure the jumpers are in the correct place for the GND/VCC orientation.
   - +1x 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
 - 1x Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
   - +1x 9pin header socket if using the PCB
@@ -239,6 +239,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 - 1x 1407 Type Passive Piezo Buzzer (if you use the PCB). 
 - 1x 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
   - 1x #4 (3mm) 1/4" (6.5mm) screw to secure the PCB to the case and 2x #4 (3mm) 1/2" (13mm) screws to secure the top of the case to the bottom
+  - If using v1.3 of the PCB, 1x 2x2 pin header and 2 jumpers
 
 ## PCB
 
@@ -247,7 +248,12 @@ I have designed a PCB to house everything and you can purchase v1.2 on PCBWay (h
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
 - v1.2 - removed bob-12009 level shifter and replaced with diodes, some refactoring. *Note this is simply a cosmetic change and v1.1 works fine with real h/w by simply replacing the bob with diodes as shown in the hardware mod section
+- v1.3 - added a pin header so OLEDs with VCC and GND reversed can be used plus made it impossible to attach a cable to the Microdrive connector side ensure only the correct connector block can be used. Also a general tidy up of the routing plus added a ground plane on front and back removing the reliance on the Pico to do this.
 
+![image](./Images/ZXPicoMDv1.3.png "PCB v1.3")
+![image](./Images/ZXPicoMDv1.3_back.png "PCB v1.3 Back")
+
+Older v1.2 PCB for reference
 ![image](./Images/ZXPicoMDv1.2.png "PCB v1.2")
 
 ## Case
