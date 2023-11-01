@@ -248,10 +248,9 @@ I have designed a PCB to house everything and you can purchase v1.2 on PCBWay (h
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
 - v1.2 - removed bob-12009 level shifter and replaced with diodes, some refactoring. *Note this is simply a cosmetic change and v1.1 works fine with real h/w by simply replacing the bob with diodes as shown in the hardware mod section
-- v1.3 - added a pin header so OLEDs with VCC and GND reversed can be used plus made it impossible to attach a cable to the Microdrive connector side ensure only the correct connector block can be used. Also a general tidy up of the routing plus added a ground plane on front and back removing the reliance on the Pico to do this.
+- v1.3 - added a pin header so OLEDs with VCC and GND reversed can be used plus extended the PCB edge on one side to ensure only the correct connector block can be used preventing potential damage if a cable is used instead. Also a general tidy up of the routing plus added a ground plane on front and back removing the reliance on the Pico to do this.
 
-![image](./Images/ZXPicoMDv1.3.png "PCB v1.3")
-![image](./Images/ZXPicoMDv1.3_back.png "PCB v1.3 Back")
+![image](./Images/ZXPicoMDv1.3.png "PCB v1.3") ![image](./Images/ZXPicoMDv1.3_back.png "PCB v1.3 Back")
 
 Older v1.2 PCB for reference
 ![image](./Images/ZXPicoMDv1.2.png "PCB v1.2")
