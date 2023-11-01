@@ -8,7 +8,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Supports all 8 Microdrives from one device
 - Supports downstream real h/w Microdrives (if you have a v1.1 PCB you need a [small hardware mod](#v11-pcb-hardware-mod-for-real-hw-support))
 > **Warning**
-> If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive, not the ribbon cable connector you use to connect to the IF1. A connection block passes the pins straight through, whereas the cable will flip the pins top to bottom. This results in 9v being passed to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920), or you can find them on eBay now and again.
+> If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive, not the ribbon cable connector you use to connect to the IF1. A connection block passes the pins straight through, whereas the cable will flip the pins top to bottom. This results in 9v being passed to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920), or you can find them on eBay now and again. If using v1.3 of the PCB you will not be able to use the ribbon cable.
 - OLED screen with buttons to navigate the menu - includes load, save & format cartridges as well as other options (see [menu section](#the-gui)). No additional toolkits, software or connections needed as all managed from the menu
 - FAT32 & exFAT supported Micro SD cards up to a theoretical 256TB (I've tested 2GB, 4GB and a lowly 64GB which can easily fit every Spectrum game and program ever made multiple times)
 - Reset button just in case (also makes it easier to flash the Pico)
@@ -245,12 +245,15 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 
 I have designed a PCB to house everything and you can purchase v1.2 on PCBWay (https://www.pcbway.com/project/shareproject/Raspberry_Pi_Pico_ZX_Spectrum_Microdrive_Hardware_Emulator_37750e81.html). I've also entered it into the 5th PCB Design Contest (https://www.pcbway.com/activity/5th-pcb-design-contest.html)
 
+As of v1.3 the Gerbers are now available to [download](./Gerbers/zxpicomd_v1.3_2023-10-21.zip)
+
 - v1.0 - original design for testing, lacks COMMS OUT & WRITE PROTECT circuit
 - v1.1 - added simple transistor circuit to control Write Protect and also passes the COMMs down the chain for additional Microdrives. 
 - v1.2 - removed bob-12009 level shifter and replaced with diodes, some refactoring. *Note this is simply a cosmetic change and v1.1 works fine with real h/w by simply replacing the bob with diodes as shown in the hardware mod section
 - v1.3 - added a pin header so OLEDs with VCC and GND reversed can be used plus extended the PCB edge on one side to ensure only the correct connector block can be used preventing potential damage if a cable is used instead. Also a general tidy up of the routing plus added a ground plane on front and back removing the reliance on the Pico to do this.
 
-![image](./Images/ZXPicoMDv1.3.png "PCB v1.3") ![image](./Images/ZXPicoMDv1.3_back.png "PCB v1.3 Back")
+![image](./Images/ZXPicoMDv1.3.png "PCB v1.3") 
+![image](./Images/ZXPicoMDv1.3_back.png "PCB v1.3 Back")
 
 Older v1.2 PCB for reference
 ![image](./Images/ZXPicoMDv1.2.png "PCB v1.2")
