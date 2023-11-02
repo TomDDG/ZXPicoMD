@@ -290,7 +290,7 @@ The OLED socket needs to be raised off the PCB in order for the screen to fit in
 
 ![image](./Images/OLEDMount.png "OLED Mount")
 
-For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use solder bridges to route VCC & GND to the correct pins. The layout is as follows:
+For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use solder bridges to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
 
 ![image](./Images/ZXPicoMDv1.3_oledpins.png "OLED Pin Selection")
 
