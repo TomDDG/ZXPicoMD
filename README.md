@@ -208,7 +208,7 @@ You can't pick anything before 0 (zero) for the first character. If you press ba
 
 ## v1.2 Circuit (the one without BOB)
 
-The following circuit does not include the level shifter which is no longer required due to the IF1 accepting the lower voltage output of the Pico ~3V. For the old circuit please click [here](./Images/PicoDriveZX_Circuit_v3a.png)
+The following circuit does not include the level shifter which is no longer required due to the IF1 accepting the lower voltage output of the Pico ~3V. For the old circuit please click [here](./Images/PicoDriveZX_Circuit_v3a.png). v1.3 of the PCB simply adds the ability to swap the GND & VCC pins using a couple of jumpers, rest of the circuit remains the same.
 
 ![image](./Images/PicoDriveZX_Circuit_v4a.png "Circuit v4a")
 
