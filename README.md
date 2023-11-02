@@ -222,6 +222,9 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 
 ## BoM
 
+> **Note**
+> V1.3 of the PCB now includes the values of the components instead of their names as I found it easier to build this way. The silkscreen shows the footprint of which component is required, resistor or diode for example, but if you are still in doubt please refer to the v1.2 PCB image as the components are in the same place and labelled as per the BoM.
+
 - 1x Pico or Pico W with headers soldered
   - +2x 20pin header sockets
 - 1x Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
