@@ -36,7 +36,11 @@ If you are building your own start at step 1, for pre-built jump to step 5
 7. Turn on the Spectrum and you should see the splash screen if all working
 
 ## Version History
-- v1.4 (latest release) - Added buzzer loudness option (off/low/medium/high), previously only off and low were available
+- v1.5 (latest release) - upgraded Pico SDK to v1.5.1 (from v1.4.0) and no-OS-FatFS-SD-SPI-RPi-Pico to include FatFS R0.15 (from R0.14a)
+  - Added check for modified cartridges giving option to overwrite the original file, only works for MDRs not converted TAPs or Z80/SNAs. Also creates a backup of the original.
+  - Fixed bug where write protect wasn't always picked up from the MDR file correctly
+  - Increased minimum button wait to 150ms to help with bounce
+- v1.4 - Added buzzer loudness option (off/low/medium/high), previously only off and low were available
 - v1.3 - Added [Quick Swap](#quick-swap) functionality to Drive 1 & added wrap around to the file explorer
 - v1.2 - improved write code (timings, input delays, SD Card buffers) to remove chance of bad sectors plus some bug fixes
 - v1.1 - added [TAP copy](#tap-copy), version number on splash screen & bug fixes
