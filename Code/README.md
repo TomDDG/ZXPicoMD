@@ -66,7 +66,7 @@ The header block is 15bytes long and the data block 528bytes, giving 543bytes pe
 Header:
 ````
 Byte    Length      Description
-0       1           bit 1 set to indicate header block
+0       1           bit 0 set to indicate header block
 1       1           Sector Number (0xfe to 0x01)
 2       2           Not Used
 4       10          Microdrive Cartridge Name
@@ -76,7 +76,7 @@ Byte    Length      Description
 Data:
 ````
 Byte    Length      Description
-0       1           Data Flag:  bit 0 reset to indicate data block
+0       1           Data Flag:  bit 0 reset to indicate data/record block
                                 bit 1 set for EOF block
                                 bit 2 reset to indicate a PRINT file
                                 bit 3-7 not used
