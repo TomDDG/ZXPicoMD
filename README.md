@@ -123,7 +123,7 @@ Following image shows everything connected. The ZXPicoMD is fully compatible wit
 
 The file explorer will only show compatible files, those with extension MDR, TAP, Z80 & SNA and directories.
 
-![image](./Images/menulayout_v3.png "Menu Layout v3")
+![image](./Images/menulayout_v4.png "Menu Layout v4")
 
 ### Quick Swap
 
