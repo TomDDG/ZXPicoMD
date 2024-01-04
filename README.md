@@ -16,7 +16,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots on the fly. Very useful as not many actual Microdrives cartridges released commercially.
 - Can copy the contents of a TAP to a blank Virtual Microdrive Cartridge (see [TAP copy section](#tap-copy) for details)
 - Fully powered from the Spectrum & boots instantly
-- Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1)
+- Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1) and [ribbon cable to connect](#the-if1-cable)
 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
 
@@ -101,6 +101,16 @@ Outside of basing this around the easily obtainable Raspberry Pico I also made t
 Following image shows everything connected. The ZXPicoMD is fully compatible with the Multiface 1 and 128 (shown in the photo).
 
 ![image](./Images/FullSetup.png "Connected")
+
+### The IF1 Cable
+
+To connect the ZXPicoMD to an Interface 1 you need the correct ribbon cable. All IF1s came with this but they can be easily replaced if yours has gone missing. There are plenty on eBay (just search microdrive cable) or you can build your own. To do this you will need:
+- 16 way flat ribbon cable, 1.27mm pitch
+- 2x 16 way Female Crimp IDC Connector, 2.54mm pitch
+
+Cut the ribbon cable to around 15-20cm length and on the two IDC connectors remove the 3rd pin in from the top & bottom, these should just pull through. In the resultant gap insert some plastic to create a key for the PCB notch, I 3D print these (see ExpansionPin https://www.thingiverse.com/thing:5908920). The cable needs the notch on the same side so lay the connectors back to back with the missing pin on the same side on both (see photo). Now insert the ribbon cable and crimp using a vice or similar.
+
+![image](./Images/mdcable.png "Microdrive Cable")
 
 ## The GUI
 
