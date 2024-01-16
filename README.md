@@ -111,7 +111,7 @@ Cut the ribbon cable to around 15-20cm length and on the two IDC connectors remo
 ![image](./Images/mdcable.png "Microdrive Cable")
 
 > **Warning**
-> If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive, not the ribbon cable connector you use to connect to the IF1. A connection block passes the pins straight through, whereas the cable will flip the pins top to bottom resulting in 9v being passed to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920), or you can find them on eBay now and again. v1.3 of the PCB prevents the connection of the ribbon cable on the wrong side, as per the original Microdrive design.
+> If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive, not this ribbon cable. A connection block passes the pins straight through, whereas the cable will flip the pins top to bottom resulting in 9v being passed to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920), or you can find them on eBay now and again. v1.3 of the PCB prevents the connection of the ribbon cable on the wrong side, as per the original Microdrive design.
 ## The GUI
 
 ### Main Menu
