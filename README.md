@@ -7,8 +7,6 @@ Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.or
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt for the QL, if you want a Microdrive emulator for the QL see http://oqtadrive.org/). Main features are:
 - Supports all 8 Microdrives from one device
 - Supports downstream real h/w Microdrives (if you have a v1.1 PCB you need a [small hardware mod](#v11-pcb-hardware-mod-for-real-hw-support))
-> **Warning**
-> If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive, not the ribbon cable connector you use to connect to the IF1. A connection block passes the pins straight through, whereas the cable will flip the pins top to bottom resulting in 9v being passed to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920), or you can find them on eBay now and again. v1.3 of the PCB prevents the connection of the ribbon cable on the wrong side, as per the original Microdrive design.
 - OLED screen with buttons to navigate the menu - includes load, save & format cartridges as well as other options (see [menu section](#the-gui)). No additional toolkits, software or connections needed as all managed from the menu
 - FAT32 & exFAT supported Micro SD cards up to a theoretical 256TB (I've tested 2GB, 4GB and a lowly 64GB which can easily fit every Spectrum game and program ever made multiple times)
 - Reset button just in case (also makes it easier to flash the Pico)
@@ -112,6 +110,8 @@ Cut the ribbon cable to around 15-20cm length and on the two IDC connectors remo
 
 ![image](./Images/mdcable.png "Microdrive Cable")
 
+> **Warning**
+> If using with a real h/w Microdrive you must use the correct Connection Block between the ZX PicoMD and the Microdrive, not the ribbon cable connector you use to connect to the IF1. A connection block passes the pins straight through, whereas the cable will flip the pins top to bottom resulting in 9v being passed to the wrong pin which could damage your Microdrive. I've created a design so you can make your own (https://www.thingiverse.com/thing:5908920), or you can find them on eBay now and again. v1.3 of the PCB prevents the connection of the ribbon cable on the wrong side, as per the original Microdrive design.
 ## The GUI
 
 ### Main Menu
