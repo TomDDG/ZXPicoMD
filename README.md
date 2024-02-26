@@ -13,6 +13,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Buzzer in case you like a buzzing sound to "simulate" the drive motor
 - Includes a version of my Z80onMDR tool (https://github.com/TomDDG/Z80onMDR_lite) to make it easy to load Z80 & SNA snapshots on the fly. Very useful as not many actual Microdrives cartridges released commercially.
 - Can copy the contents of a TAP to a blank Virtual Microdrive Cartridge (see [TAP copy section](#tap-copy) for details)
+- Cartridge defragmentation option which can significantly speed up loading times for unoptimised cartridges
 - Fully powered from the Spectrum & boots instantly
 - Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1) and [ribbon cable to connect](#the-if1-cable)
 
@@ -283,7 +284,9 @@ Older v1.2 PCB for reference
 
 The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack.
 
-![image](./Images/IMG_0151.jpg "In Case")
+![image](./Images/ZXPicoMDNewCase.jpg "In Case New")
+
+![image](./Images/IMG_0151.jpg "In Case Old")
 
 ### Importance of Adding Feet
 
