@@ -284,7 +284,7 @@ Older v1.2 PCB for reference
 
 The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack.
 
-![image](./Images/ZXPicoMDNewCase.jpg "In Case New")
+![image](./Images/ZXPicoMDNewCase2.jpg "In Case New")
 
 ![image](./Images/IMG_0151.jpg "In Case Old")
 
