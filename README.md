@@ -310,10 +310,6 @@ The OLED socket needs to be raised off the PCB in order for the screen to fit in
 
 ![image](./Images/OLEDMount.png "OLED Mount")
 
-with a 1.54" SSD1309 OLED instead of the smaller SSD1306:
-
-![image](./Images/largeoled.jpg "Large OLED")
-
 For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use solder bridges to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
 
 ![image](./Images/ZXPicoMDv1.3_oledpins.png "OLED Pin Selection")
@@ -321,6 +317,10 @@ For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use sol
 You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and then securing with a small screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slot is flush to the side of the case as shown in the photo.
 
 ![image](./Images/AllBuilt.png "All Built")
+
+with a 1.54" SSD1309 OLED instead of the smaller SSD1306:
+
+![image](./Images/largeoled.jpg "Large OLED")
 
 Pop the top of case on but remember the OLED screen pins need to fit in the raised socket. This can take a couple of goes. A final touch is to add a rainbow sticker to match the original case. I've created a PDF [sticker sheet](./Images/stripes.pdf) if you want to print your own 
 
