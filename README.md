@@ -247,7 +247,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
   - +2x 20pin header sockets
 - 1x Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
 - 3x BAT42/43 diodes for D1(D), D2(D) & CO(D). If using a v1.1 PCB connect these LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side. BAT42/43 are a better option to 1N4148 due to the reduced voltage drop, however 1N4148 should also be ok. The v1.1 PCB can also use a SparkFun Logic Level Converter ([BOB-12009](https://www.sparkfun.com/products/12009)) if not paring with real h/w Microdrives, however recommend you use diodes.
-- 1x SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306). Be very careful of the GND & VCC placement as they are sometimes reversed. If using the v1.3 PCB make sure the jumpers are in the correct place for the GND/VCC orientation.
+- 1x SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306 or compatible, I've recently tested with the much larger SSD1309 1.54" and they work fine as an example). Be very careful of the GND & VCC placement as they are sometimes reversed. If using the v1.3 PCB make sure the jumpers are in the correct place for the GND/VCC orientation. 
   - +1x 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
 - 1x Adafruit Micro SD SPI or SDIO Card Breakout Board - https://www.adafruit.com/product/4682
   - +1x 9pin header socket if using the PCB
@@ -309,6 +309,10 @@ After this you should have the following set-up (blue diodes are BATs, red are 1
 The OLED socket needs to be raised off the PCB in order for the screen to fit in the top of the case, these longer legs sockets are often referred to as stackable pin header sockets. The best way to get this at the correct height is to first mount the OLED into the top case, plug the header socket in, and then put the PCB on top (bottom up). Ensure the PCB is straight and then solder in place. It should now look like this:
 
 ![image](./Images/OLEDMount.png "OLED Mount")
+
+with a 1.54" SSD1309 OLED instead of the smaller SSD1306:
+
+![image](./Images/largeoled.jpg "Large OLED")
 
 For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use solder bridges to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
 
