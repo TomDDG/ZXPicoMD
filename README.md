@@ -328,6 +328,8 @@ Pop the top of case on but remember the OLED screen pins need to fit in the rais
 
 ![image](./Images/casewithbuttons.png "with Stripes")
 
+Latest case design with the two OLED sizes (0.96" vs. 1.54"). Printed using a Bambu P1S with AMS, including the rainbow badge.
+
 ![image](./Images/OLEDcomparison.png "Case Comparison")
 
 ## Testing the ZX PicoMD
