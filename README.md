@@ -136,6 +136,8 @@ The file explorer will only show compatible files, those with extension MDR, TAP
 
 ![image](./Images/menulayout_v4.png "Menu Layout v4")
 
+![image](./Images/menushow.jpg "Menu Show")
+
 ### Quick Swap
 
 Firmware v1.3 added quick swap functionality to drive 1 allowing the user to quickly swap between 4 pre-loaded cartridges. This was only added to drive 1 as this drive number is often hardcoded into programs so being able to quickly flip between cartridges is an advantage.
