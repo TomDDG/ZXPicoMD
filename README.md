@@ -36,7 +36,7 @@ If you are building your own start at step 1, for pre-built jump to step 5
 
 ## Version History
 - v1.6 (latest release) - added a cartridge defragmentation option which can significantly speed up loading times for unoptimised cartridges. Using the Sinclair Demo cartridge as an example, running a defrag improved the loading time from 23secs to 6secs. The defragmentation routine orders the files in sequence, removing large gaps, plus ensures the sequential sectors for larger files (>512bytes) have a gap so the cartridge tape doesn't need to loop to find the next sector. PLease note the defragmentation will erase bad files i.e. those with missing or corrupted sectors. Also some cartridges are already optimised so defrag won't speed up all, in fact if you use it on a cartridge created using the PicoMD, for example from a Z80 conversion, it could actually be slower as the conversion routine already creates an optimal cartridge.
-  - Added cartridge tape position retention on power off. Now the tape position is only reset when inserting a new cartridge. Please note this requres a new cartridge info file so any created with a previous firmware version are ignored. I changed the file name from `_inf` to just `inf` so you can just delete the old `_inf` files.
+  - Added cartridge tape position retention on power off. Now the tape position is only reset when inserting a new cartridge. Please note this requires a new cartridge info file so any created with a previous firmware version are ignored. I changed the file name from `_inf` to just `inf` so you can just delete the old `_inf` files.
   - No longer producing a PicoW firmware version as the normal firmware works fine on both models, tested with v1.6
 - v1.5 - upgraded Pico SDK to v1.5.1 (from v1.4.0) and no-OS-FatFS-SD-SPI-RPi-Pico to include FatFS R0.15 (from R0.14a). In addition:
   - Added check for modified cartridges giving option to overwrite the original file, only works for MDR files and not converted TAPs or Z80/SNAs. Also creates a backup of the original.
@@ -327,6 +327,8 @@ with a 1.54" SSD1309 OLED instead of the smaller SSD1306:
 Pop the top of case on but remember the OLED screen pins need to fit in the raised socket. This can take a couple of goes. A final touch is to add a rainbow sticker to match the original case. I've created a PDF [sticker sheet](./Images/stripes.pdf) if you want to print your own 
 
 ![image](./Images/casewithbuttons.png "with Stripes")
+
+![image](./Images/OLEDcomparison.png "Case Comparison")
 
 ## Testing the ZX PicoMD
 
