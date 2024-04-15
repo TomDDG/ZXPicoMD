@@ -424,6 +424,24 @@ All this requires `#include "hardware/i2c.h"` in the main c file and associated 
 
 Writing to the screen is too slow for it to be updated in real-time while the Microdrive is being accessed. In addition, as OLEDs suffer burn in I decided to only use it for menu activity and a basic a splash screen on boot. For all other times it is off and the side LEDs are used to show activity.
 
+Update 15/4/24 - Some screens shipped are not SSD1306/9 but SH1106 or CH1116. These need a modification to the code in order to show the screen. Instead of copying the entire screen buffer in one go it needs to be split into 8 pages and sent in 129byte chucks (`0x40` sent as a header). The following code does this, note the CH1116 version actually works on the SSD1306/9, the SH1106 just needs a slight mod on the low column.
+
+````
+void showOLED(oled_t *pOLED,uint8_t c,uint8_t p,size_t s) {
+    uint16_t index=1;    
+    uint8_t chr[129];
+    chr[0]=0x40; // header
+    for (uint8_t page=0;page<8;page++) {
+        runOLEDcmd(pOLED,0xb0|page); // set page
+        runOLEDcmd(pOLED,0x00|0); // low col (|0 needs to be |2 for SH1106)
+        runOLEDcmd(pOLED,0x10|0); // high col
+        for(uint i=0;i<128;i++) chr[i+1]=pOLED->c[i+index]; // copy 128byte chunk to temp buffer        
+        i2c_write_blocking(pOLED->i,pOLED->a,chr,129,false); // send 129bytes to screen
+        index+=128;
+    }
+}
+````
+
 ## Notes on use of FATFS_SPI library
 
 As part of using this library you need to customise the `ffconf.h` file. The version I use has:
