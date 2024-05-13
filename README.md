@@ -285,11 +285,25 @@ Older v1.2 PCB for reference
 
 ## Case
 
-The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack.
+The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack. There have been a few designs, with recent improvements coming about as I purchased a new Bambu P1S multi-colour printer and used it to print a rainbox badge and Sinclair logo. I've also adapted the case to accomodate a larger OLED screen as these have now become cheaper to buy. The lastest design has a 1.54" OLED which is a lot easier to read than the original 0.96" OLED.
 
-![image](./Images/ZXPicoMD_NewCase2.jpg "In Case New")
+![image](./Images/ZXPicoMD_NewCase3.jpg "In Case New")
+
+With the smaller 0.96" OLED
+
+![image](./Images/ZXPicoMD_NewCase2.jpg "In Case New - smaller OLED")
+
+Original case design
 
 ![image](./Images/IMG_0151.jpg "In Case Old")
+
+Adam Kay has also created a design which looks nearly identical to the original Microdrive case, this uses a 1.54" OLED.
+
+![image](./Images/ZXPicoMD_AdamKayCase.jpg "In Case - Adam Kay Design")
+
+Andrew Potter has also adapted my original case to fit an even larger 2.42" OLED. This photo shows the 3 difference sizes, left to right, 2.42", 1.54" and 0.96". I think 1.54" is the sweet spot but guess it depends on how good your eyesight is.
+
+![image](./Images/ZXPicoMD_ScreenSize.jpg "In Case - 3x OLED Sizes")
 
 ### Importance of Adding Feet
 
