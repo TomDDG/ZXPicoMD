@@ -285,7 +285,7 @@ Older v1.2 PCB for reference
 
 ## Case
 
-The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack. There have been a few designs, with recent improvements coming about as I purchased a new Bambu P1S multi-colour printer and used it to print a rainbox badge and Sinclair logo. I've also adapted the case to accomodate a larger OLED screen as these have now become cheaper to buy. The lastest design has a 1.54" OLED which is a lot easier to read than the original 0.96" OLED. At the moment only the original design is available dor download with the newest available to purchase on eBay.
+The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack. There have been a few designs, with recent improvements coming about as I purchased a new Bambu P1S multi-colour printer and used it to print a rainbox badge and Sinclair logo. I've also adapted the case to accomodate a larger OLED screen as these have now become cheaper to buy. The lastest design has a 1.54" OLED which is a lot easier to read than the original 0.96" OLED. At the moment only the original design is available for download with the newest available to purchase on eBay.
 
 ![image](./Images/ZXPicoMD_NewCase3.jpg "In Case New")
 
@@ -297,7 +297,7 @@ Original case design
 
 ![image](./Images/IMG_0151.jpg "In Case Old")
 
-Adam Kay has also created a design which looks nearly identical to the original Microdrive case, this uses a 1.54" OLED. The has a few other improvements over the original case such as front mounted SD Card slot which helps if you attach a real h/w Mircrodrive.
+Adam Kay has also created a design which looks nearly identical to the original Microdrive case, this uses a 1.54" OLED. This has a few other improvements over the original case such as front mounted SD Card slot which helps if you attach a real h/w Mircrodrive.
 
 ![image](./Images/ZXPicoMD_AdamKayCase.jpg "In Case - Adam Kay Design")
 
