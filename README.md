@@ -38,14 +38,14 @@ If you are building your own start at step 1, for pre-built jump to step 5
 - v1.7 (latest release)
   - back button is now also used the enter the menu (as well as the enter button) [NuClear235]
   - changed display code so it is compatible with other OLED drivers, now works with SSD1306, SSD1309 & CH1116 drivers. SSD1309 & CH1116 are the newer and larger OLEDs, usually 1.54" or 2.42", whereas SSD1306 is the smaller 0.96" variant.
-  - added separate firmare to use with SSH1106 driven displays, usually 1.3". These require the display to be shifted by 2 pixels.
+  - added separate firmware to use with SSH1106 driven displays, usually 1.3". These require the display to be shifted by 2 pixels.
   - added cold boot check for CLK low to solve Microdrive not present message on 128k machines
-  - small quality of life improvents in character selector:
+  - small quality of life improvements in character selector:
     -   each character defaults to space making it easier to pick enter or delete
     -   wrap around on selector making it easier to get to characters at each end
     -   changes to previous character on delete
   - added name selector on format option so you pick your own instead of having to use `-ZXPICOMD-`. `-ZXPICOMD-` will still be used in some cases, for example when new cartridges are created for the swap function or on snapshot conversions [roadford]
-  - improved cartridge save functionality so you can now select which folder to save into. Folder navigation mirros the File Explorer but only show folders. Each folder will have a `<Select Folder>` option at the top, just pick this to select the folder to save into.
+  - improved cartridge save functionality so you can now select which folder to save into. Folder navigation mirrors the File Explorer but only show folders. Each folder will have a `<Select Folder>` option at the top, just pick this to select the folder to save into.
 - v1.6
   - added a cartridge defragmentation option which can significantly speed up loading times for unoptimised cartridges. Using the Sinclair Demo cartridge as an example, running a defrag improved the loading time from 23secs to 6secs. The defragmentation routine orders the files in sequence, removing large gaps, plus ensures the sequential sectors for larger files (>512bytes) have a gap so the cartridge tape doesn't need to loop to find the next sector. PLease note the defragmentation will erase bad files i.e. those with missing or corrupted sectors. Also some cartridges are already optimised so defrag won't speed up all, in fact if you use it on a cartridge created using the PicoMD, for example from a Z80 conversion, it could actually be slower as the conversion routine already creates an optimal cartridge.
   - Added cartridge tape position retention on power off. Now the tape position is only reset when inserting a new cartridge. Please note this requires a new cartridge info file so any created with a previous firmware version are ignored. I changed the file name from `_inf` to just `inf` so you can just delete the old `_inf` files.
@@ -274,7 +274,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 - 1x 10kOhm Resistor for write protect circuit [WPC(R)]
 - 1x 6.8kOhm Resistor for write protect circuit [WPB(R)]
 - 1x 2N2222 Transistor for write protect circuit
-- 1x 1407 Type Passive Piezo Buzzer (if you use the PCB). Active buzzers can also be used and I've added a + mark to the PCB to show the correct orrientation. Note active buzzers are quieter and the reason I added the loudness option.
+- 1x 1407 Type Passive Piezo Buzzer (if you use the PCB). Active buzzers can also be used and I've added a + mark to the PCB to show the correct orientation. Note active buzzers are quieter and the reason I added the loudness option.
 - 1x 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
   - 1x #4 (3mm) 1/4" (6.5mm) screw to secure the PCB to the case and 2x #4 (3mm) 1/2" (13mm) screws to secure the top of the case to the bottom
 - If using v1.3 of the PCB, 1x 2x2 pin header and 2 jumpers
@@ -298,7 +298,7 @@ Older v1.2 PCB for reference
 
 ## Case
 
-The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack. There have been a few designs, with recent improvements coming about as I purchased a new Bambu P1S multi-colour printer and used it to print a rainbox badge and Sinclair logo. I've also adapted the case to accomodate a larger OLED screen as these have now become cheaper to buy. The lastest design has a 1.54" OLED which is a lot easier to read than the original 0.96" OLED. At the moment only the original design is available for download with the newest available to purchase on eBay.
+The PCB was originally designed to fit in a real Microdrive case as it is based on my Oqtadrive PCB. As such the screw holes etc... line up perfectly, however, the addition of the buttons and OLED mean, although it will fit, you won't be able to use it without cutting the case. As such I designed a custom 3D case (https://www.thingiverse.com/thing:5569842) to match the Spectrum + models such as the 128k Toastrack. There have been a few designs, with recent improvements coming about as I purchased a new Bambu P1S multi-colour printer and used it to print a rainbox badge and Sinclair logo. I've also adapted the case to accomodate a larger OLED screen as these have now become cheaper to buy. The latest design has a 1.54" OLED which is a lot easier to read than the original 0.96" OLED.
 
 ![image](./Images/ZXPicoMD_NewCase3.jpg "In Case New")
 
