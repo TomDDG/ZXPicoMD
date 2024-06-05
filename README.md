@@ -35,11 +35,24 @@ If you are building your own start at step 1, for pre-built jump to step 5
 7. Turn on the Spectrum and you should see the splash screen if all working
 
 ## Version History
-- v1.6 (latest release) - added a cartridge defragmentation option which can significantly speed up loading times for unoptimised cartridges. Using the Sinclair Demo cartridge as an example, running a defrag improved the loading time from 23secs to 6secs. The defragmentation routine orders the files in sequence, removing large gaps, plus ensures the sequential sectors for larger files (>512bytes) have a gap so the cartridge tape doesn't need to loop to find the next sector. PLease note the defragmentation will erase bad files i.e. those with missing or corrupted sectors. Also some cartridges are already optimised so defrag won't speed up all, in fact if you use it on a cartridge created using the PicoMD, for example from a Z80 conversion, it could actually be slower as the conversion routine already creates an optimal cartridge.
+- v.17 (latest release)
+  - back button is now also used the enter the menu (as well as the enter button) [NuClear235]
+  - changed display code so it is compatible with other OLED drivers, now works with SSD1306, SSD1309 & CH1116 drivers. SSD1309 & CH1116 are the newer and larger OLEDs, usually 1.54" or 2.42", whereas SSD1306 is the smaller 0.96" variant.
+  - added separate firmare to use with SSH1106 driven displays, usually 1.3". These require the display to be shifted by 2 pixels.
+  - added cold boot check for CLK low to solve Microdrive not present message on 128k machines
+  - small quality of life improvents in character selector:
+    -   each character defaults to space making it easier to pick enter or delete
+    -   wrap around on selector making it easier to get to characters at each end
+    -   changes to previous character on delete
+  - added name selector on format option so you pick your own instead of having to use `-ZXPICOMD-`. `-ZXPICOMD-` will still be used in some cases, for example when new cartridges are created for the swap function or on snapshot conversions [roadford]
+  - improved cartridge save functionality so you can now select which folder to save into. Folder navigation mirros the File Explorer but only show folders. Each folder will have a `<Select Folder>` option at the top, just pick this to select the folder to save into.
+- v1.6
+  - added a cartridge defragmentation option which can significantly speed up loading times for unoptimised cartridges. Using the Sinclair Demo cartridge as an example, running a defrag improved the loading time from 23secs to 6secs. The defragmentation routine orders the files in sequence, removing large gaps, plus ensures the sequential sectors for larger files (>512bytes) have a gap so the cartridge tape doesn't need to loop to find the next sector. PLease note the defragmentation will erase bad files i.e. those with missing or corrupted sectors. Also some cartridges are already optimised so defrag won't speed up all, in fact if you use it on a cartridge created using the PicoMD, for example from a Z80 conversion, it could actually be slower as the conversion routine already creates an optimal cartridge.
   - Added cartridge tape position retention on power off. Now the tape position is only reset when inserting a new cartridge. Please note this requires a new cartridge info file so any created with a previous firmware version are ignored. I changed the file name from `_inf` to just `inf` so you can just delete the old `_inf` files.
   - No longer producing a PicoW firmware version as the normal firmware works fine on both models, tested with v1.6
   - (15/4/24) I've added two new UF2s to handle different OLED types, mainly SH1106 and CH1116. These needed a slight tweak to handle the different way the screen data is loaded. Note the CH1116 version also works on the SSD1306/9 OLEDs and will be the default going forward.
-- v1.5 - upgraded Pico SDK to v1.5.1 (from v1.4.0) and no-OS-FatFS-SD-SPI-RPi-Pico to include FatFS R0.15 (from R0.14a). In addition:
+- v1.5
+  - upgraded Pico SDK to v1.5.1 (from v1.4.0) and no-OS-FatFS-SD-SPI-RPi-Pico to include FatFS R0.15 (from R0.14a). In addition:
   - Added check for modified cartridges giving option to overwrite the original file, only works for MDR files and not converted TAPs or Z80/SNAs. Also creates a backup of the original.
   - Fixed bug were the write protect status wasn't always picked up from the MDR file correctly
   - Increased minimum button wait to 150ms to help with bounce
