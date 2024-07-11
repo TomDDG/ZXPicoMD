@@ -281,6 +281,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 - 1x 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
   - 1x #4 (3mm) 1/4" (6.5mm) screw to secure the PCB to the case and 2x #4 (3mm) 1/2" (13mm) screws to secure the top of the case to the bottom
 - If using v1.3 of the PCB, 1x 2x2 pin header and 2 jumpers
+- Optional filter capacitors if using original PSU and barrel jack to switch on/off. 22uF 50V capacitor between Traco output & ground + 10uF 50v between Traco input & ground. These can be installed on the underside of the PCB.
 
 ## PCB
 
