@@ -265,6 +265,7 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 - 1x Pico or Pico W with headers soldered
   - +2x 20pin header sockets
 - 1x Traco Power TSR 1-2450 (9v to 5v, 1 Amp) - https://www.tracopower.com/int/model/tsr-1-2450 (you can use alternatives these are just the best and very efficient, if you do use alternatives remember you may need additional circuitry)
+  - Optional & precautionary filter capacitors if using original PSU and barrel jack to switch on/off. 22uF 50V capacitor between Traco output & ground + 10uF 50v between Traco input & ground. These can be installed on the underside of the PCB.
 - 3x BAT42/43 diodes for D1(D), D2(D) & CO(D). If using a v1.1 PCB connect these LV1-HV1, LV2-HV2 & LV3-HV3, line at HV side. BAT42/43 are a better option to 1N4148 due to the reduced voltage drop, however 1N4148 should also be ok. The v1.1 PCB can also use a SparkFun Logic Level Converter ([BOB-12009](https://www.sparkfun.com/products/12009)) if not paring with real h/w Microdrives, however recommend you use diodes.
 - 1x SSD1306 OLED 0.96" (you can get larger ones just make sure they are SSD1306 or compatible, I've recently tested with the much larger SSD1309 1.54" and they work fine as an example). Be very careful of the GND & VCC placement as they are sometimes reversed. If using the v1.3 PCB make sure the jumpers are in the correct place for the GND/VCC orientation. 
   - +1x 4pin header socket if using the PCB. If also using the 3D printed case get header sockets with extra long legs so the OLED can be mounted higher
@@ -281,7 +282,6 @@ Luckily this is extremely simple to fix and doesn't need any complex re-routing 
 - 1x 3D Printed Case - STLs for the 3D Printed Case can be download from Printables (https://www.printables.com/model/297015-case-for-zx-picomd-sinclair-zx-spectrum-microdrive) or Thingiverse (https://www.thingiverse.com/thing:5569842)
   - 1x #4 (3mm) 1/4" (6.5mm) screw to secure the PCB to the case and 2x #4 (3mm) 1/2" (13mm) screws to secure the top of the case to the bottom
 - If using v1.3 of the PCB, 1x 2x2 pin header and 2 jumpers
-- Optional & precautionary filter capacitors if using original PSU and barrel jack to switch on/off. 22uF 50V capacitor between Traco output & ground + 10uF 50v between Traco input & ground. These can be installed on the underside of the PCB.
 
 ## PCB
 
