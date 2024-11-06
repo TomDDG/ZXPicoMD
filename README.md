@@ -295,11 +295,11 @@ As of v1.3 the Gerbers are also now available to [download](./Gerbers/zxpicomd_v
 - v1.3 - added a pin header so OLEDs with VCC and GND reversed can be used plus extended the PCB edge on one side to ensure only the correct connector block can be used preventing potential damage if a cable is used instead. Also a general tidy up of the routing plus added a ground plane on front and back removing the reliance on the Pico to do this.
 - v1.4 - added space for filter caps on the PCB. If you don't plan on using the ZX PicoMD with an original PSU this isn't required.
 
-###v1.3
+### v1.3
 ![image](./Images/ZXPicoMDv1.3.png "PCB v1.3") 
 ![image](./Images/ZXPicoMDv1.3_back.png "PCB v1.3 Back")
 
-###v1.4
+### v1.4
 ![image](./Images/ZXPicoMD_v1.4_top.png "PCB v1.4") 
 ![image](./Images/ZXPicoMD_v1.4_back.png "PCB v1.4 Back")
 
