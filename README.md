@@ -300,8 +300,8 @@ As of v1.3 the Gerbers are also now available to [download](./Gerbers/zxpicomd_v
 ![image](./Images/ZXPicoMDv1.3_back.png "PCB v1.3 Back")
 
 ###v1.4
-![image](./Images/ZXPicoMDv1.4.png "PCB v1.4") 
-![image](./Images/ZXPicoMDv1.4_back.png "PCB v1.4 Back")
+![image](./Images/ZXPicoMD_v1.4_top.png "PCB v1.4") 
+![image](./Images/ZXPicoMD_v1.4_back.png "PCB v1.4 Back")
 
 
 Older v1.2 PCB for reference
