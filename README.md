@@ -359,6 +359,7 @@ For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use sol
 You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and then securing with a small screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slot is flush to the side of the case as shown in the photo.
 
 ![image](./Images/AllBuilt.png "All Built")
+![image](./Images/v1.4build2.jpg "v1.4 Build Part 2")
 
 with a 1.54" SSD1309 OLED instead of the smaller SSD1306:
 
