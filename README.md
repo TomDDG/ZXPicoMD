@@ -346,6 +346,7 @@ Now solder in the bi-colour LEDs. Mount these so the bulb is slightly above the 
 After this you should have the following set-up (blue diodes are BATs, red are 1N4148s):
 
 ![image](./Images/DidodePlacement.png "Diode Placement")
+![image](./Images/v1.4build1.jpg "v1.4 Build Part 1")
 
 The OLED socket needs to be raised off the PCB in order for the screen to fit in the top of the case, these longer legs sockets are often referred to as stackable pin header sockets. The best way to get this at the correct height is to first mount the OLED into the top case, plug the header socket in, and then put the PCB on top (bottom up). Ensure the PCB is straight and then solder in place. It should now look like this:
 
