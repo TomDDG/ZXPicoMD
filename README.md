@@ -345,20 +345,14 @@ Now solder in the bi-colour LEDs. Mount these so the bulb is slightly above the 
 
 After this you should have the following set-up (blue diodes are BATs, red are 1N4148s):
 
-![image](./Images/DidodePlacement.png "Diode Placement")
 ![image](./Images/v1.4build1.jpg "v1.4 Build Part 1")
 
-The OLED socket needs to be raised off the PCB in order for the screen to fit in the top of the case, these longer legs sockets are often referred to as stackable pin header sockets. The best way to get this at the correct height is to first mount the OLED into the top case, plug the header socket in, and then put the PCB on top (bottom up). Ensure the PCB is straight and then solder in place. It should now look like this:
-
-![image](./Images/OLEDMount.png "OLED Mount")
-
-For v1.3 PCB you also need to either add a 2x2 pin header and jumpers or use solder bridges to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
+As of v1.3 PCB I moved to using a JTAG sock and connector rather than a stackable pin header sockets, this meant it was easier to open the case (for flashing the PCB). Another addition to v1.3 was accomodation for different OLED pinouts (GND & VCC swapped). A 2x2 pin header and jumpers or solder bridges could now be used to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
 
 ![image](./Images/ZXPicoMDv1.3_oledpins.png "OLED Pin Selection")
 
 You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and then securing with a small screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slot is flush to the side of the case as shown in the photo.
 
-![image](./Images/AllBuilt.png "All Built")
 ![image](./Images/v1.4build2.jpg "v1.4 Build Part 2")
 
 with a 1.54" SSD1309 OLED instead of the smaller SSD1306:
