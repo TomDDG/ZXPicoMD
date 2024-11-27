@@ -335,7 +335,7 @@ I recommend adding some rubber feet to the case. If you can get hold of them the
 
 ## Building with Case
 
-This guide is based on v1.2 of the PCB which is the same as v1.3 minus the OLED GND/VCC selection pins. It also applies to v1.1 with the diodes placed where the BOB was. 
+This guide was originally based on v1.2 of the PCB but has been updated to cover v1.3 (added the OLED GND/VCC selection pins) and v1.4 (added two filter capacitors). It also applies to v1.1 with the diodes placed where the BOB was. 
 
 First solder in the diodes, resistors, buttons, buzzer, transistor & TSR 1-2450 as per the silk screen, being mindful of the orientation of the diodes. I recommend you use BAT42/43 Schottky diodes for Data 1 [D1(D)], Data 2 [D1(D)] & Comms Out [CO(D)] as these are small signal outputs which may benefit from the lower voltage drop.
 
@@ -347,11 +347,11 @@ After this you should have the following set-up (blue diodes are BATs, red are 1
 
 ![image](./Images/v1.4build1.jpg "v1.4 Build Part 1")
 
-As of v1.3 PCB I moved to using a JTAG sock and connector rather than a stackable pin header sockets, this meant it was easier to open the case (for flashing the PCB). Another addition to v1.3 was accomodation for different OLED pinouts (GND & VCC swapped). A 2x2 pin header and jumpers or solder bridges could now be used to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
+As of v1.3 PCB I moved to using a JTAG sock and connector rather than a stackable pin header sockets, this makes it easier to open and shut the case useful for flashing the Pico. v1.3 also added accomodation for different OLED pinouts (GND & VCC swapped). A 2x2 pin header and jumpers or solder bridges could now be used to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
 
 ![image](./Images/ZXPicoMDv1.3_oledpins.png "OLED Pin Selection")
 
-You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and then securing with a small screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slot is flush to the side of the case as shown in the photo.
+You can now fit the Pico & Micro SD-Card socket and mount into the bottom part of the case by sliding in the front buttons first and then securing with a small screw. Be careful when bending the LED legs to fit the side holes and ensure the Micro SD card slot is flush to the side of the case as shown in the photo. The photo below also shows the placement of the two filter capacitors, these are optional and only required if you are going to us an original PSU.
 
 ![image](./Images/v1.4build2.jpg "v1.4 Build Part 2")
 
