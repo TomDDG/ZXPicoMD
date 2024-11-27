@@ -339,13 +339,11 @@ This guide was originally based on v1.2 of the PCB but has been updated to cover
 
 First solder in the diodes, resistors, buttons, buzzer, transistor & TSR 1-2450 as per the silk screen, being mindful of the orientation of the diodes. I recommend you use BAT42/43 Schottky diodes for Data 1 [D1(D)], Data 2 [D1(D)] & Comms Out [CO(D)] as these are small signal outputs which may benefit from the lower voltage drop.
 
-Follow this with the header sockets for the Pico (20-pin) and Micro SD Card reader (9-pin). Ensure these are straight before fully soldering with the best way being to solder one leg check it is straight and then soldering the rest. For the Pico header I'd recommend plugging in the Pico first, use a bit of blue tack to hold in place, and then solder ensuring it all aligns. 
+![image](./Images/v1.4build1.jpg "v1.4 Build Part 1")
+
+Follow this with the buzzer, buttons, Traco, optional filter caps, header sockets for the Pico (20-pin) and Micro SD Card reader (9-pin). Ensure the buttons & header pins are straight before fully soldering in place, the best way being to solder one leg, check it is straight and then soldering the rest. For the Pico header I'd recommend plugging in the Pico first, use a bit of blue tack to hold in place, and then solder ensuring it all aligns. 
 
 Now solder in the bi-colour LEDs. Mount these so the bulb is slightly above the top of header socket, this gives enough height to bend into place later.
-
-After this you should have the following set-up (blue diodes are BATs, red are 1N4148s):
-
-![image](./Images/v1.4build1.jpg "v1.4 Build Part 1")
 
 As of v1.3 PCB I moved to using a JTAG sock and connector rather than a stackable pin header sockets, this makes it easier to open and shut the case useful for flashing the Pico. v1.3 also added accomodation for different OLED pinouts (GND & VCC swapped). A 2x2 pin header and jumpers or solder bridges could now be used to route VCC & GND to the correct pins. The layout is as follows, note this is with pin 1 at the right hand side i.e. the OLED is upside down:
 
