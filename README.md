@@ -2,7 +2,7 @@
 
 ![image](./Images/fullset-up.png "with Real Hardware")
 
-Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.org/wiki/ZX_Microdrive)
+Raspberry Pico ZX Spectrum Microdrive Hardware Emulator (https://en.wikipedia.org/wiki/ZX_Microdrive).
 
 Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt for the QL, if you want a Microdrive emulator for the QL see http://oqtadrive.org/). Main features are:
 - Supports all 8 Microdrives from one device
@@ -16,6 +16,7 @@ Hardware emulation of 8 microdrives for the ZX Spectrum only (no plans to adapt 
 - Cartridge defragmentation option which can significantly speed up loading times for unoptimised cartridges
 - Fully powered from the Spectrum & boots instantly
 - Unfortunately you do still need an IF1 (https://en.wikipedia.org/wiki/ZX_Interface_1) and [ribbon cable to connect](#the-if1-cable)
+- Now also working on the Pico2, just download the ZXPicoMD2 UF2
 
 Load up the SD card with all your favourite games and programs and enjoy hours of nostalgia with the blistering 15kB/sec transfer rate. Yes you can now load a game in a few seconds!
 
