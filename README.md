@@ -382,7 +382,7 @@ In addition I've also uploaded two IF1 ROM version check cartridges, one based o
 
 - I'm getting a `Microdrive not present, 0:1` message
   - Microdrives & Interface 1s are getting old now so make sure the edge connectors are clean. Use some Isopropyl (Rubbing) alcohol to clean the PCB connector on the IF1 (left hand side). Also check the Microdrive connectors are fully plugged in.
-  - There is a known issue with some Spectrums that on first boot the CLK signal is set low when it should be high. This confuses the ZXPicoMD as it keeps thinking there is an incoming CLK pulse, a simple retype of the command will fix it and it will then be ok till next cold boot.
+  - There is a known issue with some Spectrums that on first boot the CLK signal is set low when it should be high. This confuses the ZXPicoMD as it keeps thinking there is an incoming CLK pulse, a simple retype of the command will fix it and it will then be ok till next cold boot. Note as of v1.7 of the firmware there is now a check on boot for this so it shouldn't happen anymore.
 
 - Nothing happens when I enter a Microdrive command such as `CAT 1`
   - First thing to do is check the Interface 1 is working ok. The service manual has some commands which you can use to check it:
