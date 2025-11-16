@@ -1,2 +1,6 @@
 ZXPicoMD1 - For the original Pico 
 ZXPicoMD2 - For the new Pico 2
+
+Default UF2 is for a SSD1306/9 & CH1116 OLED, other is SH1106 OLED which has a slightly different screen layout
+
+Inverted Card Detect UF2 are for Micro SD Card boards that require pin low to detect if a card is inserted rather than pin high from the Adafruit board.
