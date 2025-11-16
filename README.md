@@ -164,7 +164,7 @@ The file explorer will only show compatible files, those with extension MDR, TAP
 
 ### Quick Save
 
-Firmware v1.8 added the ability to quickly save a loaded cartridge, overwritting the original MDR file. This only works with MDR files loaded and not converted TAP, Z80 or SNA. It also does nothing for read h/w connected.
+Firmware v1.8 added the ability to quickly save a loaded cartridge, overwritting the original MDR file. This only works with MDR files loaded and not converted TAP, Z80 or SNA. It also does nothing for real h/w connected.
 
 To access the quick save feature hold the enter button for ~1second until a cartridge selector menu appears. The icons have the word ``SAVE?`` on them to distinguish from the normal cartridge selector. Simply pick the drive you want to save the cartridge from and it will do the save. As part of the save the ZXPicoMD will create a backup of the MDR just in case.
 
