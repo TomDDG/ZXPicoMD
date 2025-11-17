@@ -39,13 +39,14 @@ If you are building your own start at step 1, for pre-built jump to step 5
 7. Turn on the Spectrum and you should see the splash screen if all working
 
 ## Version History
-- v1.8 (test release)
+- v1.8 (latest release)
   - upgraded to Pico 2.2.0 SDK
   - fixed file selector case issue so mDr,MDR,mdr,Mdr,MdR are now all shown, same for TAP, Z80 & SNA [gyurco]
   - added cartridge [Quick Save](#quick-save) (writeback) accessed via long press on enter button (1sec) [gyurco]
   - pressing back in quickswap menu now doesn't go straight into the main menu
   - slight change in quickswap menu graphics to align with new writeback menu graphics
-- v1.7 (latest stable release)
+  - cartridge defrag now updates the modified flag
+- v1.7
   - back button is now also used the enter the menu (as well as the enter button) [NuClear235]
   - changed display code so it is compatible with other OLED drivers, now works with SSD1306, SSD1309 & CH1116 drivers. SSD1309 & CH1116 are the newer and larger OLEDs, usually 1.54" or 2.42", whereas SSD1306 is the smaller 0.96" variant.
   - added separate firmware to use with SSH1106 driven displays, usually 1.3". These require the display to be shifted by 2 pixels.
