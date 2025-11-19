@@ -41,7 +41,7 @@ If you are building your own start at step 1, for pre-built jump to step 5
 ## Version History
 - v1.81 (latest release)
   - saving a cartridge now updates the new location/filename rather than keeping the original, was previously just a save copy. This works better with the new quick save functionality.
-- v1.8 (latest release)
+- v1.8
   - upgraded to Pico 2.2.0 SDK
   - fixed file selector case issue so mDr,MDR,mdr,Mdr,MdR are now all shown, same for TAP, Z80 & SNA [gyurco]
   - added cartridge [Quick Save](#quick-save) (writeback) accessed via long press on enter button (1sec) [gyurco]
