@@ -23,6 +23,9 @@ Load up the SD card with all your favourite games and programs and enjoy hours o
 > [!TIP]
 > I highly recommend you use a modern regulated PSU with your Spectrum. Older unregulated PSUs, which will now be 40yrs old, could push voltage spikes through to the ZXPicoMD as it is connected directly to the 9v input. The Traco used in the design should filter out most but if you also use the barrel jack to switch your computer on and off (pull out and back in) something called barrel bounce could happen which results in very large spikes, too large for the Traco to filter out. I've created a new v1.4 PCB which makes it easier to add filter capacitors to the circuit if planning to use with an original PSU, these will help filter the voltage spikes and protect the Pico.
 
+### Creating Compilation Cartridges
+The device itself can create single game cartridges from snapshots or tapes directly, however, if you want to create compilation cartridges I've created a separate tool which will run on a PC or MAC. It is called Z80to (https://github.com/TomDDG/Z80to).
+
 ## How to Get One
 - I designed ZX PicoMD to be very easy to build so anybody should be able to get the parts and put one together. I picked parts which are easy to get even with the current chip shortage, basing the whole build around the Raspberry Pico. It does require some soldering but this is all through hole not surface mount so a lot easier to do. I've included full details on how to [build one](#building-with-case) including [bill of materials](#bom) with links to the parts.
 - I do occasional build some complete units to sell on eBay https://www.ebay.co.uk/usr/tom_dd
